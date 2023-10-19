@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+	<Appenders>
+		<!-- Console Appender -->
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="[%p] %d{dd MMM hh:mm:ss aa} %t [%l] %m%n" />
+		</Console>
+
+		<!-- File Appenders on need basis -->
+		<RollingFile name="file"
+			fileName="/wsapps/epcca/provmaintform/dev/logs/mwpmf.log"
+			filePattern="/wsapps/epcca/provmaintform/dev/logs/mwpmf-%d{HH-mm-ss}.log">
+			<PatternLayout>
+				<pattern>[%p] %d{MM/dd/yy HH:mm:ss:SSS zzz} %t [%l] %m%n</pattern>
+			</PatternLayout>
+			<SizeBasedTriggeringPolicy size="20 MB" />
+		</RollingFile>
+		<Async name="async" bufferSize="500">
+			<AppenderRef ref="file" />
+		</Async>
+	</Appenders>
+	<Loggers>
+		<Root level="debug">
+			<AppenderRef ref="file" />
+		</Root>
+		<Logger name="org.tuckey.web" level="trace">
+			<AppenderRef ref="file" />
+		</Logger>
+	</Loggers>
+</Configuration>

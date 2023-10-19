@@ -1,0 +1,14 @@
+{
+  "name": "uxd",
+  "version": "1.0.0",
+  "main": "uxd/uxdPkg.js",
+  "dependencies": {
+  },
+  "ignore": [
+    "Gruntfile.js",
+    "package.json",
+    ".gitattributes",
+    ".gitignore",
+    "bower.json"
+  ]
+}

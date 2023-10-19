@@ -1,0 +1,22 @@
+{
+  "name": "uxd",
+  "main": "uxd/uxdPkg.js",
+  "dependencies": {},
+  "ignore": [
+    "Gruntfile.js",
+    "package.json",
+    ".gitattributes",
+    ".gitignore",
+    "bower.json"
+  ],
+  "_release": "1a9143d1b7",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "1a9143d1b7497b1ca47af042e3f004f55cf1b252"
+  },
+  "_source": "https://bitbucket.anthem.com/scm/anreimaged/userexpdesign-ui-bower.git",
+  "_target": "master",
+  "_originalSource": "https://bitbucket.anthem.com/scm/anreimaged/userexpdesign-ui-bower.git",
+  "_direct": true
+}

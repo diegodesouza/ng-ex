@@ -1,0 +1,68 @@
+<div class="body-sm">
+  <p class="text-sub ant-font-r">{{dataService?.JSON_DATA?.view.landingPage.description.description_0}}<span
+    class="fa fa-info-circle"></span>{{dataService?.JSON_DATA?.view.landingPage.description.description_0_1}}
+  </p>
+  
+  <p class="text-sub">
+    <span class="ant-font-b label-color">{{configService?.CONFIG?.bhProvMessage.label}}</span>
+    <span class="ant-font-r">{{configService?.CONFIG?.bhProvMessage.message}}</span>
+  </p>
+
+  <p class="text-sub ant-font-r">{{dataService?.JSON_DATA?.view.landingPage.description.description_1}}</p>
+
+  <p class="text-sub ant-font-b text-color-description_2">
+    {{dataService?.JSON_DATA?.view.landingPage.description.description_2}}</p>
+
+  <p class="text-sub ant-font-r">{{dataService?.JSON_DATA?.view.landingPage.description.description_3}}</p>
+
+  <p class="text-sub ant-font-r">{{dataService?.JSON_DATA?.view.landingPage.description.description_4}}</p>
+
+  <p class="text-sub ant-font-b">{{dataService?.JSON_DATA?.view.landingPage.description.description_5}}</p>
+
+  <br>
+  <div class="text-sub" *ngIf="shouldDisplayAnnouncement()">
+    <p
+      *ngIf="configService?.CONFIG?.announcement?.header"
+      class="ant-font-b ant-margin-bot-5">
+      {{configService?.CONFIG?.announcement?.header}}
+    </p>
+    <span
+      *ngIf="configService?.CONFIG?.announcement?.note_1"
+      class="ant-font-r">
+      {{configService?.CONFIG?.announcement?.note_1}}
+    </span>
+    <span
+      *ngIf="configService?.CONFIG?.announcement?.dates"
+      class="ant-font-r date-color">
+      {{configService?.CONFIG?.announcement?.dates}}
+    </span>
+    <span
+      *ngIf="configService?.CONFIG?.announcement?.note_2"
+      class="ant-font-r">
+      {{configService?.CONFIG?.announcement?.note_2}}
+    </span>
+    <span
+      *ngIf="configService?.CONFIG?.announcement?.note_3"
+      class="ant-font-r">
+      {{configService?.CONFIG?.announcement?.note_3}}
+    </span>
+    <p
+      *ngIf="configService?.CONFIG?.announcement?.note_4"
+      class="ant-font-r ant-margin-bot-5 ant-margin-top-5">
+      {{configService?.CONFIG?.announcement?.note_4}}
+    </p>
+    <div
+      class="ant-font-r"
+      *ngIf="configService?.CONFIG?.announcement?.list &&
+      configService?.CONFIG?.announcement.list.length > 0">
+      <ul>
+        <li *ngFor="let item of configService?.CONFIG?.announcement.list">{{ item.text }}</li>
+      </ul>
+    </div>
+    <p
+      *ngIf="configService?.CONFIG?.announcement?.note_5"
+      class="ant-font-r ant-margin-bot-0">
+      {{configService?.CONFIG?.announcement?.note_5}}
+    </p>
+  </div>
+</div>

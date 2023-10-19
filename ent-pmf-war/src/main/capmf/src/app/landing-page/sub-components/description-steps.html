@@ -1,0 +1,6 @@
+<div class="body-sm description-steps">
+  <div class="text-sub ant-font-r has-sibling" *ngFor="let block of configService.CONFIG?.landingPage?.steps?.blocks">
+    <div class="ant-font-b">{{block?.header}}</div>
+    <div [innerHTML]="block?.body"></div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+.tooltip-popLeft{
+    top: 27px ;
+    margin-left: -28px;
+    display: inline-block;
+    border-bottom: 0;
+    text-indent: 1px;
+    padding-right: 2px;
+    position: relative;
+}
+
+.popover:before{
+    left: 96% !important;
+    top: 30px;
+}
+
+.pfSelect legend,
+.pfToggleSwitch legend,
+.pfToggleB legend,
+.pfRadio legend,
+.pfCheckbox {
+    margin-bottom: 5px !important;
+}
+
+.ui-datepicker,
+.ui-widget,
+.ui-widget-content,
+.ui-helper-clearfix,
+.ui-corner-all {
+    z-index: 9999 !important;
+}
+
+.terminate-ppa__county .ant-text-input-wide {
+    width: 800px !important;
+}
+
+.termination-reason label {
+  margin-bottom: -4px;
+}
+
+.managed label {
+  margin-bottom: 15px;
+}
+
+@media screen and (min-width: 1024px) {
+    .dropdown-alignment {
+        margin-top: -5px;
+        margin-bottom: -5px;
+    }
+}

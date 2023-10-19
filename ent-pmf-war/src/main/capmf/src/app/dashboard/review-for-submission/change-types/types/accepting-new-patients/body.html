@@ -1,0 +1,26 @@
+<div class="pmf-section-container form-group"
+     *ngIf="payLoadService?.patientMinimumAge ||
+     payLoadService?.patientMaximumAge ||
+     payLoadService?.acceptingNewPatientIndicator">
+  <div class="ant-heading-three">Accepting New Patients</div>
+  <div class="pmf-container-group">
+    <div class="pmf-table-container">
+      <div>Accepting New Patient:</div>
+      <div>{{payLoadService?.acceptingNewPatientIndicator === 'yes' ? 'Yes' : 'No'}}</div>
+    </div>
+    <div *ngIf="payLoadService?.acceptingNewPatientIndicator === 'yes'">
+      <div class="pmf-table-container" *ngIf="payLoadService?.patientMaximumAge">
+        <div>Minimum Age:</div>
+        <div>{{payLoadService?.patientMinimumAge}}</div>
+      </div>
+      <div class="pmf-table-container" *ngIf="payLoadService?.patientMaximumAge">
+        <div>Maximum Age:</div>
+        <div>{{payLoadService?.patientMaximumAge}}</div>
+      </div>
+      <div class="pmf-table-container" *ngIf="payLoadService?.patientGender">
+        <div>Gender Preference:</div>
+        <div>{{payLoadService?.patientGender}}</div>
+      </div>
+    </div>
+  </div>
+</div>

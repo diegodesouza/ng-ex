@@ -1,0 +1,84 @@
+.input-width, .select-width {
+  width: 100% !important;
+}
+
+@media screen and (min-width: 1024px) {
+  .dropdown-alignment {
+    margin-top: -5px;
+    margin-bottom: -5px;
+  }
+}
+
+.pmf-margin-left-15 {
+  margin-left: 15px;
+}
+
+.pmf-margin-left-20 {
+  margin-left: 20px;
+}
+
+.pmf-margin-left-25 {
+  margin-left: 25px;
+}
+
+.pmf-margin-left-55  {
+  margin-left: 55px;
+}
+
+.pmf-md-select {
+  width: 225px;
+}
+
+.pmf-padding-0 {
+  padding: 0 !important;
+}
+
+.pmf-padding-top-15 {
+  padding-top: 15px;
+}
+
+.pmf-auto-dropdown {
+  height: 38px !important;
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  color: #666666 !important;
+}
+
+.select2-selection {
+  display: flex !important;
+  align-content: center !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  padding: 18px 0;
+}
+
+.select2-selection__arrow {
+  padding: 18px 0;
+}
+
+.pmf-auto-dropdown .select2-selection__arrow {
+  height: 36px !important;
+}
+
+.pmf-auto-dropdown .select2-selection__placeholder {
+  color: #666666 !important;
+}
+
+select2.ng-invalid .select2-selection {
+  border: 2px solid #FE5E3C;
+}
+
+.no-search .select2-search {
+  display: none;
+}
+
+.pmf-font-sm-bold {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.messageContainer {
+  text-align: justify;
+  padding: 10px 35px !important;
+}

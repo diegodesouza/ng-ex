@@ -1,0 +1,36 @@
+.user-reference > .panel > .panel-heading {
+    background: lightgray !important;
+    border-color: #00609A !important;
+}
+
+.user-reference > .panel.panel-default {
+    background: lightgray !important;
+    border-color: #00609A !important;
+    margin-left: 10px;
+}
+
+.fa-pencil-ur {
+    text-align: right;
+}
+
+.info-ur {
+    color: #002E58;
+}
+
+.info-ur-mandatory {
+    color: #E82D05;
+}
+
+a.ant-action-link-ur {
+    border-bottom: 0;
+    cursor: pointer;
+}
+
+a.ant-action-link-ur .fa {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.pmf-wrap {
+    word-wrap: break-word;
+}

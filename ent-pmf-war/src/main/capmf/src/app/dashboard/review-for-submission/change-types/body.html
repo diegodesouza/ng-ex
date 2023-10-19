@@ -1,0 +1,178 @@
+<div class="row">
+  <div class="col-md-4">
+    <div *ngIf="payLoadService?.acceptingNewPatients
+         || payLoadService?.areaOfExpertise
+         || payLoadService?.email
+         || payLoadService?.handicappedAccessibility"
+         class="ant-heading-three">
+      Specified Change Details
+    </div>
+  </div>
+  <div class="col-md-8">
+    <a class="ant-action-link-ur" (click)="routeToChangeTypes()" skipLocationChange>
+      <span class="fa fa-pencil fa-pencil-ur"></span>
+    </a>
+  </div>
+</div>
+
+<div *ngIf="updates.getSelectedUpdates('newPatient').length > 0">
+  <review-for-submission-accepting-new-patients-component
+    [payLoadService]="payLoadService?.acceptingNewPatients">
+  </review-for-submission-accepting-new-patients-component>
+</div>
+
+<div *ngIf="updates.getSelectedUpdates('addAddress').length > 0">
+  <review-for-submission-add-address-component
+    [payLoadService]="payLoadService">
+  </review-for-submission-add-address-component>
+</div>
+
+<div *ngIf="updates.getSelectedUpdates('orgTerminateAddress').length > 0">
+  <review-for-submission-terminate-address-component
+    heading="Address - Terminate"
+    [payLoadService]="payLoadService">
+  </review-for-submission-terminate-address-component>
+</div>
+
+<div *ngIf="updates.getSelectedUpdates('expertise').length > 0">
+  <review-for-submission-area-of-expertise-component
+    [payLoadService]="payLoadService?.areaOfExpertise">
+  </review-for-submission-area-of-expertise-component>
+</div>
+
+<div *ngIf="updates.getSelectedUpdates('changeAddress').length > 0">
+  <review-for-submission-email-component
+    [payLoadService]="payLoadService?.email">
+  </review-for-submission-email-component>
+</div>
+
+<div *ngIf="updates.getSelectedUpdates('accessibility').length > 0">
+  <review-for-submission-handicapped-accessibility-component
+    [payLoadService]="payLoadService?.handicappedAccessibility">
+  </review-for-submission-handicapped-accessibility-component>
+</div>
+
+<div *ngIf="updates.getSelectedUpdates('affiliation').length > 0">
+  <review-for-submission-hospital-privilege-component
+    [payLoadService]="payLoadService?.hospitalPrivileges">
+  </review-for-submission-hospital-privilege-component>
+</div>
+
+<div *ngIf="updates.getSelectedUpdates('languages').length > 0">
+  <review-for-submission-languages-component
+    [payLoadService]="payLoadService?.languagesSpoken">
+  </review-for-submission-languages-component>
+</div>
+
+<div *ngIf="updates.getSelectedUpdates('license').length > 0">
+  <review-for-submission-license-update-component
+    [payLoadService]="payLoadService?.updateLicense">
+  </review-for-submission-license-update-component>
+</div>
+
+<div *ngIf="updates.getSelectedUpdates('individualNpi').length > 0">
+  <review-for-submission-npi-component
+    [payLoadService]="payLoadService">
+  </review-for-submission-npi-component>
+</div>
+
+<div *ngIf="updates.getSelectedUpdates('network').length > 0">
+  <review-for-submission-network-participation-component
+    [payLoadService]="payLoadService?.networkParticipation">
+  </review-for-submission-network-participation-component>
+</div>
+
+<div *ngIf="updates.getSelectedUpdates('operationHours').length > 0">
+  <review-for-submission-days-hours-operation-component
+    [payLoadService]="payLoadService?.operationHours?.daysOperationHours">
+  </review-for-submission-days-hours-operation-component>
+</div>
+
+<div *ngIf="updates.getSelectedUpdates('ageGender').length > 0">
+  <review-for-submission-age-gender-update-component
+    [payLoadService]="payLoadService?.ageGenderUpdate">
+  </review-for-submission-age-gender-update-component>
+</div>
+
+<div *ngIf="updates.getSelectedUpdates('phoneFax').length > 0">
+  <review-for-submission-phone-fax-component
+    [payLoadService]="payLoadService?.phoneFax">
+  </review-for-submission-phone-fax-component>
+</div>
+
+<div *ngIf="updates.getSelectedUpdates('indTerminateAddress').length > 0">
+  <review-for-submission-terminate-address-component
+    heading="Provider or Address Terminate"
+    [payLoadService]="payLoadService">
+  </review-for-submission-terminate-address-component>
+</div>
+
+<div *ngIf="updates.getSelectedUpdates('providerLeaving').length > 0">
+  <review-for-submission-provider-leaving-group-component
+    [payLoadService]="payLoadService?.providerLeavingGroup?.providerChange">
+  </review-for-submission-provider-leaving-group-component>
+</div>
+
+<div *ngIf="updates.getSelectedUpdates('specialty').length > 0">
+  <review-for-submission-provider-specialty-component
+    [payLoadService]="payLoadService?.specialty">
+  </review-for-submission-provider-specialty-component>
+</div>
+
+<div *ngIf="updates.getSelectedUpdates('removeLocation').length > 0">
+  <review-for-submission-remove-provider-location-component
+    [payLoadService]="payLoadService?.removeProviderFromLocation?.providerChange">
+  </review-for-submission-remove-provider-location-component>
+</div>
+
+<div *ngIf="updates.getSelectedUpdates('unsolicitedRoster').length > 0">
+  <review-for-submission-unsolicited-roster-component
+    [payLoadService]="payLoadService?.unsolicitedRoster">
+  </review-for-submission-unsolicited-roster-component>
+</div>
+
+<div *ngIf="updates.getSelectedUpdates('tin').length > 0">
+  <review-for-submission-tax-id-component
+    [payLoadService]="payLoadService?.tinOwnership">
+  </review-for-submission-tax-id-component>
+</div>
+
+<div *ngIf="updates.getSelectedUpdates('ppaTermination').length > 0">
+  <review-for-submission-terminate-ppa-component
+    [payLoadService]="payLoadService?.terminatePPA">
+  </review-for-submission-terminate-ppa-component>
+</div>
+
+<div *ngIf="updates.getSelectedUpdates('updateOrgName').length > 0">
+  <review-for-submission-organization-name-change-component
+    [payLoadService]="payLoadService?.organization">
+  </review-for-submission-organization-name-change-component>
+</div>
+
+<div *ngIf="updates.getSelectedUpdates('practitionerName').length > 0">
+  <review-for-submission-practitioner-name-change-component
+    [payLoadService]="payLoadService?.practitionerChangeType">
+  </review-for-submission-practitioner-name-change-component>
+</div>
+
+<div *ngIf="updates.getSelectedUpdates('webAddress').length > 0">
+  <review-for-submission-web-address-component
+    [payLoadService]="payLoadService?.webAddress">
+  </review-for-submission-web-address-component>
+</div>
+
+<div *ngIf="updates.getSelectedUpdates('telehealth').length > 0">
+  <review-for-submission-telehealth-component
+    [payLoadService]="payLoadService?.telehealth">
+  </review-for-submission-telehealth-component>
+</div>
+
+<div *ngIf="updates.getSelectedUpdates('ambulance').length > 0">
+  <review-for-submission-ambulance-component
+    [payLoadService]="payLoadService?.ambulance">
+  </review-for-submission-ambulance-component>
+</div>
+
+<review-for-submission-attachment-component
+  [payLoadService]="payLoadService?.attachments">
+</review-for-submission-attachment-component>

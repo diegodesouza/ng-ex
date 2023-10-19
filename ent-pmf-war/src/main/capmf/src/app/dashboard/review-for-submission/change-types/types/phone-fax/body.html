@@ -1,0 +1,15 @@
+<div class="pmf-section-container form-group" *ngIf="payLoadService?.length > 0">
+  <div class="ant-heading-three">Phone / Fax Number</div>
+  <div class="pmf-container-group">
+    <div class="ant-margin-bot-10 ant-margin-top-10" *ngFor="let phone of payLoadService">
+      <div class="pmf-table-container" *ngIf="phone?.requestActionCd">
+        <div>Add/Delete:</div>
+        <div>{{phone?.requestActionCd === 'A' ? 'Add' : 'Delete'}}</div>
+      </div>
+      <div class="pmf-table-container pmf-flex-end" *ngIf="phone?.phoneTypeDesc || phone?.phoneNumber">
+        <div>{{phone?.phoneTypeDesc}}:</div>
+        <div>{{phone?.phoneNumber | maskPhonePipe}}</div>
+      </div>
+    </div>
+  </div>
+</div>

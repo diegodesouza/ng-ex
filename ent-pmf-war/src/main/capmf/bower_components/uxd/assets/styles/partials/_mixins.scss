@@ -1,0 +1,99 @@
+$breakpoints: (
+  mobile-max: 479px,
+  mobile: 480px,
+  tablet-max: 800px,
+  tablet: 801px,
+	desktop: 1024px
+);
+
+@mixin bp($device) {
+  $width: map-get($breakpoints, $device);
+
+  @if $device == mobile-max {
+    @media (max-width: $width) { @content; }
+  } @else if $device == tablet-max {
+	@media (max-width: $width) { @content; }
+} @else if $device == mobile-tablet {
+    @media (min-width: map-get($breakpoints, mobile)) and (max-width: map-get($breakpoints, tablet-max)) { @content; }
+  } @else {
+    @media (min-width: $width) { @content; }
+  }
+}
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin vertical-align {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin horizontal-align {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin align-both {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+@mixin color-function($background-color, $text-color) {
+  background-color: $background-color;
+  color: $text-color;
+}
+
+@mixin text-function($margin, $padding, $font-size, $font-weight) {
+  margin:$margin;
+  padding:$padding;
+  font-size:$font-size;
+  font-weight:$font-weight;
+}
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .ratio-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.sixteen-nine {
+  @include aspect-ratio(16, 9);
+}
+
+@mixin tab-tile-color($color) {
+	h6 {
+		border-bottom: 30px solid $color;
+	}
+	&.active {
+		&:after {
+			border-color: $color transparent transparent transparent;
+		}
+	}
+	&:before {
+		background-color: $color;
+	}
+}

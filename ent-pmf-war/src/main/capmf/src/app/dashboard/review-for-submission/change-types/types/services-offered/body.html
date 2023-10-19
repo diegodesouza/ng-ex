@@ -1,0 +1,9 @@
+<div class="pmf-section-container form-group" *ngIf="payLoadService?.length > 0">
+  <div class="ant-heading-three">Service Offered</div>
+  <div class="pmf-container-group" *ngFor="let service of payLoadService">
+    <div class="pmf-table-container">
+      <div>Service:</div>
+      <div>{{service?.servicesOfferedDesc}}</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="pmf-section-container form-group" *ngIf="payLoadService?.updatedPracticeName">
+  <div class="ant-heading-three">Update Organization Name</div>
+  <div class="pmf-container-group">
+    <div class="pmf-table-container" *ngIf="payLoadService?.updatedPracticeName">
+      <div>Organization Name:</div>
+      <div>{{payLoadService?.updatedPracticeName}}</div>
+    </div>
+  </div>
+</div>

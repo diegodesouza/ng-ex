@@ -1,0 +1,14 @@
+<div class="pmf-section-container"
+     *ngIf="payLoadService?.numberOfProviders || payLoadService?.delegatedCredentialingEntity">
+  <div class="ant-heading-three">Roster or List Updates</div>
+  <div class="pmf-container-group">
+      <div class="pmf-table-container" *ngIf="payLoadService?.numberOfProviders">
+        <div>{{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.unsolicitedRoster?.numberOfProvider}}</div>
+        <div>{{payLoadService?.numberOfProviders}}</div>
+      </div>
+      <div class="pmf-table-container">
+        <div>{{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.unsolicitedRoster?.toggleQuestion}}</div>
+        <div>{{payLoadService?.delegatedCredentialingEntity === 'yes' ? 'Yes' : 'No'}}</div>
+      </div>
+  </div>
+</div>

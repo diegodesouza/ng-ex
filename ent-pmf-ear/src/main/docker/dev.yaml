@@ -1,0 +1,77 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  labels:
+    app: provmaint-dev
+  name: provmaint-dev
+  namespace: providerportal-dev
+spec:
+  replicas: 1
+  selector:
+    app: provmaint-dev
+    deploymentconfig: provmaint-dev
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources:
+      limits:
+        cpu: '0.8'
+        memory: 2Gi
+      requests:
+        cpu: '0.5'
+        memory: 1Gi
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 600
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      annotations:
+        openshift.io/generated-by: OpenShiftWebConsole
+      creationTimestamp: null
+      labels:
+        app: provmaint-dev
+        deploymentconfig: provmaint-dev
+    spec:
+      containers:
+        - env:
+            - name: APP_ENV_NAME
+              value: SIT
+          image: quay.apps.lz-np2.ent-ocp4-useast1.aws.internal.das/providerportal/ent-pmf-appplication-war:1.0.0-SNAPSHOT
+          imagePullPolicy: IfNotPresent
+          name: provmaint-dev
+          ports:
+            - containerPort: 9443
+              protocol: TCP
+          resources:
+            limits:
+              cpu: '0.8'
+              memory: 2Gi
+            requests:
+              cpu: '0.3'
+              memory: 1Gi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+            - mountPath: /opt/ibm/wlp/usr/shared/resources/security
+              name: key-jh40s
+              readOnly: false
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+        - name: key-jh40s
+          secret:
+            defaultMode: 420
+            secretName: key
+        - name: trust-jh40s
+          secret:
+            defaultMode: 420
+            secretName: key
+  test: false
+  triggers:
+  - type: ConfigChange

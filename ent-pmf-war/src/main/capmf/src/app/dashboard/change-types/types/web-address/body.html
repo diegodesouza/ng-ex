@@ -1,0 +1,17 @@
+<section class="bs-form-panel">
+  <p class="gi-inline-help">The website address here will be used in Provider Finder’s public directory. Please do not use a website address that you do not want publicly accessible.</p>
+  <div class="form-group" [ngClass]="{'has-error': formValidations?.formErrors?.webAddress}">
+    <input name="webAddress"
+           type="text"
+           class="ant-text-input input-width ant-top-margin-12"
+           [(ngModel)]="payLoadService.webAddress.webAddress"
+           id="webAddress"
+           placeholder="Enter Website URL"
+           pattern="^((http|https|ftp):\/\/(www\.)?|www\.)[a-zA-Z0-9\_\-]+\.([a-zA-Z]{2,4}|[a-zA-Z]{2}\.[a-zA-Z]{2})(\/[a-zA-Z0-9\-\._\?\&=,'\+%\$#~]*)*$"/>
+    <label>
+      <span *ngIf="formValidations?.formErrors?.webAddress" class="ant-form-item-error">
+        {{ formValidations?.formErrors?.webAddress }}
+      </span>
+    </label>
+  </div>
+</section>

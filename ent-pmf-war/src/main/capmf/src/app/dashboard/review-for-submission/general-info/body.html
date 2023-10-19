@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="ant-heading-three ant-margin-bot-10">General Information</div>
+  </div>
+  <div class="col-md-1">
+    <a class="ant-action-link-ur" (click)="routeToNext()">
+      <span class="fa fa-pencil fa-pencil-ur"></span>
+    </a>
+  </div>
+  <div class="col-md-7">
+    <a class="ant-action-link-ur" data-review-print>
+      <span class="fa fa-print fa-print-ur"></span>
+    </a>
+  </div>
+</div>
+<div class="gi-inline-help ant-margin-bot-10">
+  All changes made on this form will apply to the information entered in the General Information.
+</div>
+<div class="pmf-section-container form-group" *ngIf="payLoadService?.provider?.effectiveDate">
+  <div class="ant-heading-three">Effective Date</div>
+  <div class="pmf-container-group">
+    <div class="pmf-table-container">
+      <div>Date:</div>
+      <div>{{payLoadService?.provider?.effectiveDate}}</div>
+    </div>
+  </div>
+</div>
+<div class="pmf-section-container form-group" *ngIf="payLoadService?.targetSystems?.length">
+  <div class="ant-heading-three">Networks</div>
+  <div class="pmf-container-group">
+    <div class="pmf-table-container" *ngFor="let targetSystem of getCheckedTargetSystems()">
+      <div>Network:</div>
+      <div>{{targetSystem}}</div>
+    </div>
+  </div>
+</div>
+
+<review-for-submission-practice-detail-component [payLoadService]="payLoadService">
+</review-for-submission-practice-detail-component>
+
+<review-for-submission-contact-info-component [payLoadService]="payLoadService">
+</review-for-submission-contact-info-component>

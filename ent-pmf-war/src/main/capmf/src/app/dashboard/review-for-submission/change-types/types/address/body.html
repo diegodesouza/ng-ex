@@ -1,0 +1,26 @@
+<div class="pmf-container-group">
+  <div class="pmf-table-container" *ngIf="payLoadService?.streetAddress1 || payLoadService?.transferPatientAddress1">
+    <div>Address:</div>
+    <div>{{payLoadService?.streetAddress1 || payLoadService?.transferPatientAddress1}}</div>
+  </div>
+  <div class="pmf-table-container" *ngIf="payLoadService?.streetAddress2 || payLoadService?.transferPatientAddress2">
+    <div>Address Line 2:</div>
+    <div>{{payLoadService?.streetAddress2 || payLoadService?.transferPatientAddress2}}</div>
+  </div>
+  <div class="pmf-table-container" *ngIf="payLoadService?.city || payLoadService?.transferPatientCity">
+    <div>City:</div>
+    <div>{{payLoadService?.city || payLoadService?.transferPatientCity}}</div>
+  </div>
+  <div class="pmf-table-container" *ngIf="payLoadService?.state || payLoadService?.transferPatientState">
+    <div>State:</div>
+    <div>{{payLoadService?.state || payLoadService?.transferPatientState}}</div>
+  </div>
+  <div class="pmf-table-container" *ngIf="payLoadService?.zipCode || payLoadService?.transferPatientZip">
+    <div>Zip Code:</div>
+    <div>{{payLoadService?.zipCode || payLoadService?.transferPatientZip}}</div>
+  </div>
+  <div class="pmf-table-container" *ngIf="payLoadService?.county || payLoadService?.transferPatientCounty">
+    <div>County:</div>
+    <div>{{payLoadService?.county || payLoadService?.transferPatientCounty}}</div>
+  </div>
+</div>

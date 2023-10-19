@@ -1,0 +1,14 @@
+.tooltip-popLeft {
+    top: 27px;
+    margin-left: -28px;
+    display: inline-block;
+    border-bottom: 0px;
+    text-indent: 1px;
+    padding-right: 2px;
+    position: relative;
+}
+
+.popover:before {
+    left: 96% !important;
+    top: 30px;
+}

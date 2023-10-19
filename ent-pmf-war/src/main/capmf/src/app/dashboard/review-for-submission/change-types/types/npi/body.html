@@ -1,0 +1,20 @@
+<div class="pmf-section-container form-group">
+  <div class="ant-heading-three" *ngIf="payLoadService?.individualNpi?.individualNpi">
+    {{payLoadService?.userType === 0 ? 'Individual NPI' : 'Organization NPI'}}
+  </div>
+  <div class="pmf-container-group">
+    <div class="pmf-table-container" *ngIf="payLoadService?.organizationNpi?.requestType && payLoadService?.userType === 1">
+      <div>Add/Update:</div>
+      <div>{{payLoadService?.organizationNpi?.requestType === 'A' ? 'Add' : 'Update'}}</div>
+    </div>
+    <div class="pmf-table-container" *ngIf="payLoadService?.individualNpi?.individualNpi">
+      <div>{{payLoadService?.userType === 0 ? 'Individual NPI:' : 'Organization NPI:'}}</div>
+      <div>{{payLoadService?.individualNpi?.individualNpi}}</div>
+    </div>
+  </div>
+  <div *ngIf="payLoadService?.userType === 1 && payLoadService?.individualNpi?.individualNpi">
+    <div>Remittance Address</div>
+    <review-for-submission-address-component [payLoadService]="payLoadService?.organizationNpi">
+    </review-for-submission-address-component>
+  </div>
+</div>

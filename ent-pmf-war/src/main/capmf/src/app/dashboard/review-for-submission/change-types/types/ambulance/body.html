@@ -1,0 +1,9 @@
+<div class="pmf-section-container form-group"
+     *ngIf="payLoadService?.ambulanceServicesIndicator">
+  <div class="ant-heading-three">Publicly Funded Ambulance</div>
+  <div class="pmf-container-group">
+    <div class="pmf-table-container">
+      <div>Are you a publicly funded ambulance services?</div>
+      <div>{{payLoadService?.ambulanceServicesIndicator === 'yes' ? 'Yes' : 'No'}}</div>
+    </div>
+</div>

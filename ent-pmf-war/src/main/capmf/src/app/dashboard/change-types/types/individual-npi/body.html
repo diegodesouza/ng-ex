@@ -1,0 +1,173 @@
+<div *ngIf="payLoadService.userType === 0" class="bs-form-panel">
+  <div class="ant-margin-bot-10 ant-margin-top-10">
+    <label class="gi-inline-help">
+      {{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.npi?.individual_npi?.labels?.npi_info_message}}
+    </label>
+  </div>
+  <div class="form-group" [ngClass]="{'has-error': formValidations?.formErrors?.individualNpi}">
+    <label>
+      Individual NPI
+    </label>
+    <input
+       type="text"
+       class="ant-text-input"
+       name="individualNpi"
+       [(ngModel)]="payLoadService.individualNpi.individualNpi"
+       placeholder="Individual NPI"
+       maxlength="10"
+       pattern="^[0-9]{10}$"
+       required>
+    <label>
+      <span *ngIf="formValidations?.formErrors?.individualNpi" class="ant-form-item-error">
+        {{ formValidations?.formErrors?.individualNpi }}
+      </span>
+    </label>
+  </div>
+</div>
+
+<div *ngIf="payLoadService.userType === 1" class="bs-form-panel">
+  <div class="form-group">
+    <div data-tcp-toggle-switch-cmp
+       [(ngModel)]="payLoadService.organizationNpi.requestType"
+       [id]="'rbtOrgNpiReqType'"
+       [name]="'rbtnOrgNpiReqType'"
+       [legendSrOnly]="true"
+       [options]="[{label: 'Add', value: 'A'}, {label: 'Update', value: 'U'}]">
+    </div>
+  </div>
+
+  <div class="form-group" [ngClass]="{'has-error': formValidations?.formErrors?.individualNpi}">
+    <label>
+      Organization NPI
+    </label>
+    <input type="text"
+           class="ant-text-input"
+           name="individualNpi"
+           [(ngModel)]="payLoadService.individualNpi.individualNpi"
+           placeholder="Organization NPI"
+           maxlength="10"
+           pattern="^[0-9]{10}$"
+           required>
+    <label>
+      <span *ngIf="formValidations?.formErrors?.individualNpi" class="ant-form-item-error">
+        {{ formValidations?.formErrors?.individualNpi }}
+      </span>
+    </label>
+  </div>
+  <div class="ant-margin-bot-10 ant-margin-top-10">
+    <label class="gi-inline-help">
+      {{ payLoadService.organizationNpi.requestType === 'A'
+      ? dataService?.JSON_DATA?.view?.selectUpdateTypesView?.npi?.organization_npi?.labels?.npi_info_message_add
+      : dataService?.JSON_DATA?.view?.selectUpdateTypesView?.npi?.organization_npi?.labels?.npi_info_message_update }}
+    </label>
+  </div>
+
+  <div class="form-group" [ngClass]="{'has-error':
+      formValidations?.formErrors?.orgNpiStreetAddress1
+      || formValidations?.formErrors?.orgNpiStreetAddress2
+      || formValidations?.formErrors?.orgNpiCity
+      || formValidations?.formErrors?.orgNpiState
+      || formValidations?.formErrors?.orgNpiZip
+      || formValidations?.formErrors?.orgNpiCounty}">
+    <label>Remittance Address</label>
+  </div>
+  <div class="form-group clearfix">
+    <input id="orgNpiStreetAddress1"
+           name="orgNpiStreetAddress1"
+           type="text"
+           class="ant-text-input input-width ant-top-margin-12"
+           [(ngModel)]="payLoadService.organizationNpi.streetAddress1"
+           placeholder="Address Line 1"
+           required>
+    <label>
+      <span *ngIf="formValidations?.formErrors?.orgNpiStreetAddress1" class="ant-form-item-error">
+        {{ formValidations?.formErrors?.orgNpiStreetAddress1 }}
+      </span>
+    </label>
+  </div>
+
+  <div class="form-group clearfix">
+    <input id="orgNpiStreetAddress2"
+           name="orgNpiStreetAddress2"
+           type="text"
+           class="ant-text-input input-width ant-top-margin-12"
+           [(ngModel)]="payLoadService.organizationNpi.streetAddress2"
+           placeholder="Address Line 2">
+    <label>
+      <span *ngIf="formValidations?.formErrors?.orgNpiStreetAddress2" class="ant-form-item-error">
+        {{ formValidations?.formErrors?.orgNpiStreetAddress2 }}
+      </span>
+    </label>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group clearfix">
+        <input id="orgNpiCity"
+               name="orgNpiCity"
+               type="text"
+               class="ant-text-input input-width ant-top-margin-12"
+               [(ngModel)]="payLoadService.organizationNpi.city"
+               placeholder="City"
+               pattern="^[a-zA-Z]['\-a-zA-Z ]*"
+               required>
+        <div *ngIf="formValidations?.formErrors?.orgNpiCity">
+          <span class="ant-form-item-error">
+            {{ formValidations?.formErrors?.orgNpiCity }}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group clearfix">
+        <select2 [data]="pmfDataService?.getSortedDropdownValues(pmfDataService?.JSON_DATA?.field_mapping_options.state.fields)"
+                 [(ngModel)]="payLoadService.organizationNpi.state"
+                 (valueChanged)="payLoadService.organizationNpi.state = $event.value"
+                 [value]="payLoadService.organizationNpi.state"
+                 [cssImport]="true"
+                 [options]="options | optionsPipe: 'State' : pmfDataService?.JSON_DATA?.field_mapping_options.state.fields"
+                 name="orgNpiState"
+                 ngDefaultControl
+                 required>
+        </select2>
+        <div  *ngIf="formValidations?.formErrors?.orgNpiState">
+          <span class="ant-form-item-error">
+            {{ formValidations?.formErrors?.orgNpiState }}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group clearfix">
+        <input name="orgNpiZip"
+               class="ant-text-input input-width ant-top-margin-12"
+               type="text"
+               [(ngModel)]="payLoadService.organizationNpi.zipCode"
+               placeholder="Zip Code"
+               pattern="^\d{5}(-\d{4})?$"
+               required>
+        <div *ngIf="formValidations?.formErrors?.orgNpiZip">
+          <span class="ant-form-item-error">
+            {{ formValidations?.formErrors?.orgNpiZip }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group clearfix">
+    <input id="orgNpiCounty"
+           name="orgNpiCounty"
+           type="text"
+           class="ant-text-input input-width ant-top-margin-12"
+           [(ngModel)]="payLoadService.organizationNpi.county"
+           placeholder="County"
+           pattern="^[a-zA-Z]['\-a-zA-Z ]*"
+           required>
+    <label>
+      <span *ngIf="formValidations?.formErrors?.orgNpiCounty" class="ant-form-item-error">
+        {{ formValidations?.formErrors?.orgNpiCounty }}
+      </span>
+    </label>
+  </div>
+</div>

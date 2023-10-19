@@ -1,0 +1,32 @@
+'use strict';
+
+define([
+	'internal_packages/uxd/ux-components/uxCompModule',
+	'internal_packages/uxd/ux-components/directives/tooltipInfoDir',
+	'internal_packages/uxd/ux-components/directives/tooltipFormInfoDir',
+	'internal_packages/uxd/ux-components/directives/tooltipErrorDir',
+	'internal_packages/uxd/ux-components/directives/tooltipHelpDir',
+	'internal_packages/uxd/ux-components/directives/dismissableAlrtDir',
+	'internal_packages/uxd/ux-components/directives/rbtnDir',
+	'internal_packages/uxd/ux-components/directives/textDir',
+	'internal_packages/uxd/ux-components/directives/ddlDir',
+	'internal_packages/uxd/ux-components/services/modalHlpr',
+	'internal_packages/uxd/ux-components/services/alertHlpr',
+	'internal_packages/uxd/ux-components/directives/chkBoxDir',
+	'internal_packages/uxd/ux-components/directives/btnDdlDir',
+	'internal_packages/uxd/ux-components/directives/rowToggleDir',
+	'internal_packages/uxd/ux-components/directives/blockToggleDir',
+	'internal_packages/uxd/ux-components/directives/toggleBtnDir',
+	'internal_packages/uxd/ux-components/directives/toggleSwitchDir',
+	'internal_packages/uxd/ux-components/directives/tabCtrlDir',
+	'internal_packages/uxd/ux-components/directives/formErrorDir',
+	'internal_packages/uxd/ux-components/directives/swipeToDelDir',
+	'internal_packages/uxd/ux-components/services/formErrorHlpr',
+	'internal_packages/uxd/ux-components/directives/backToTopDir',
+	'internal_packages/uxd/ux-components/directives/openModalDir',
+	'internal_packages/uxd/ux-components/directives/ajaxLoaderDir',
+	'internal_packages/uxd/ux-components/directives/dataLoaderDir',
+	'internal_packages/uxd/ux-components/directives/alertDir',
+	'internal_packages/uxd/ux-components/directives/inlineAlertDir',
+	'internal_packages/uxd/ux-components/directives/inViewDir'
+    ], function () { });

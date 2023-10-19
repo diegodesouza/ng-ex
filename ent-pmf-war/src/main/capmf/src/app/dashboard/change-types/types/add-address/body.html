@@ -1,0 +1,203 @@
+<div class="form-group">
+  <section class="bs-form-panel">
+    <p *ngIf="payLoadService.getUserType() === 0" class="gi-inline-help">
+      Are you moving? Please complete both Address - Add Location and Address - Terminate selections, using the Effective Date of the move for both selections.
+    </p>
+    <p *ngIf="payLoadService.getUserType() === 0" class="gi-inline-help">
+      Please make any updates to your Payment / Remittance address on the Organization Tab.
+    </p>
+    <p *ngIf="payLoadService.getUserType() === 1" class="gi-inline-help">
+      Are you moving? Please complete Address - Add Location and Address - Terminate selections, using the Effective Date of the move for both selections.
+    </p>
+    <p *ngIf="payLoadService.getUserType() === 1" class="gi-inline-help">
+      Changes to the Payment / Remittance address require a completed W-9 attachment.
+    </p>
+    <div class="form-group">
+      <label>{{pmfDataService?.JSON_DATA?.field_mapping_options?.address_type?.field_name}}</label>
+      <select2 [data]="pmfDataService?.getSortedDropdownValues(pmfDataService?.JSON_DATA?.field_mapping_options?.address_type[payLoadService.getUserType()]?.fields)"
+               [(ngModel)]="payLoadService.addAddress.addressType"
+               (valueChanged)="payLoadService.addAddress.addressType = $event.value"
+               [value]="payLoadService.addAddress.addressType"
+               [cssImport]="true"
+               [options]="options | optionsPipe: 'Address Type'"
+               name="addrType"
+               ngDefaultControl
+               required>
+      </select2>
+    </div>
+  </section>
+
+  <section *ngIf="payLoadService.addAddress.addressType === 'Correspondence'">
+    <section class="bs-form-panel">
+      <p>Address Details</p>
+      <address-change
+        [parentName]="parentName+ '-add-correspondence'"
+        [address]="payLoadService.addAddress.correspondenceAddress"
+        [attachments]=false>
+      </address-change>
+    </section>
+  </section>
+
+  <section *ngIf="payLoadService.addAddress.addressType === 'Payment/Remittance'">
+    <section class="bs-form-panel">
+      <p>Address Details</p>
+      <address-change
+        [parentName]="parentName+ '-add-remittance'"
+        [address]="payLoadService.addAddress.remitAddress"
+        [attachments]=true>
+      </address-change>
+    </section>
+  </section>
+
+  <section *ngIf="payLoadService.addAddress.addressType === 'Practice Location'">
+    <section class="bs-form-panel">
+      <p>Address Details</p>
+      <address-change
+              [parentName]="parentName+ '-add-physical'"
+              [address]="payLoadService.addAddress.physicalAddress.address"
+              [attachments]=false>
+      </address-change>
+    </section>
+
+    <pcp-indicator
+      [parentName]="parentName"
+      [payLoadService]="payLoadService"
+      [pmfDataService]="pmfDataService">
+    </pcp-indicator>
+
+    <section class="bs-form-panel">
+      <p>Accepting New Patients</p>
+      <accept-patients
+             [parentName]="parentName"
+             [acceptingNewPatients]="payLoadService.addAddress.physicalAddress.acceptNewpatient">
+      </accept-patients>
+    </section>
+    <section class="bs-form-panel">
+      <handicap-accessibility
+             [parentName]="parentName"
+             [handicappedAccessibility]="payLoadService.addAddress.physicalAddress.handicappedAccessibility">
+      </handicap-accessibility>
+    </section>
+    <section class="bs-form-panel" *ngIf="payLoadService.getUserType() === 1">
+      <p>Public Transportation</p>
+      <div data-tcp-toggle-switch-cmp
+             [(ngModel)]="payLoadService.addAddress.physicalAddress.isPublicTransportation"
+             id="{{parentName}}-publictransportation"
+             name="{{parentName}}-publictransportation"
+             [options]="[{label: 'Yes', value: 'yes'}, {label: 'No', value: 'no'}]">
+      </div>
+    </section>
+    <section class="bs-form-panel">
+      <p>Days and Hours</p>
+      <operation-hours
+             [parentName]="parentName"
+             [operationHours]="payLoadService.addAddress.physicalAddress.operationHours">
+      </operation-hours>
+    </section>
+    <div *ngIf="payLoadService.getUserType() === 1">
+      <section class="bs-form-panel">
+        <p>Services Offered</p>
+        <services-offered
+               [parentName]="parentName"
+               [servicesOffers]="payLoadService.addAddress.physicalAddress.serviceOffers">
+        </services-offered>
+      </section>
+    </div>
+    <section class="bs-form-panel">
+      <p>Languages</p>
+      <languages-spoken
+             [parentName]="parentName"
+             [languagesSpoken]="payLoadService.addAddress.physicalAddress.languagesSpoken">
+      </languages-spoken>
+    </section>
+    <section class="bs-form-panel">
+      <div class="form-group">
+        <div *ngIf="payLoadService.getUserType() === 0">
+          <label>
+            {{pmfDataService?.JSON_DATA?.field_mapping_options?.practice_location?.correspondence_added_to_practice?.field_name}}
+          </label>
+          <div data-tcp-toggle-switch-cmp
+               [(ngModel)]="payLoadService.addAddress.physicalAddress.isCorrAddedToPracticeIndicator"
+               [labelText]="pmfDataService?.JSON_DATA?.field_mapping_options?.practice_location?.correspondence_added_to_practice?.field_name"
+               [id]="'tswitchcorrespaddr'"
+               [name]="'tswitchcorrespaddr'"
+               [legendSrOnly]="true"
+               [options]="[{label: 'Yes', value: 'yes'}, {label: 'No', value: 'no'}]"
+               required>
+          </div>
+          <section class="bs-form-panel" *ngIf="payLoadService.addAddress.physicalAddress.isCorrAddedToPracticeIndicator === 'yes' ? true : false">
+            <p>Correspondence Address</p>
+            <address-change
+                    [parentName]="parentName + 'correspondence'"
+                    [address]="payLoadService.addAddress.physicalAddress.correspondenceAddress"
+                    [attachments]=false>
+            </address-change>
+          </section>
+        </div>
+        <div *ngIf="payLoadService.getUserType() === 1">
+          <label>Do you need to add a Correspondence address or Payment/Remittance address to this physical address?</label>
+          <div data-tcp-toggle-switch-cmp
+                   [(ngModel)]="payLoadService.addAddress.physicalAddress.isCorrAddedToPracticeIndicator"
+                   [id]="'tswitchcorrespaddrgroup'"
+                   [name]="'tswitchcorrespaddrgroup'"
+                   [options]="[{label: 'Yes', value: 'yes'}, {label: 'No', value: 'no'}]"
+                   required>
+          </div>
+          <div *ngIf="payLoadService.addAddress.physicalAddress.isCorrAddedToPracticeIndicator === 'yes' ? true : false">
+            <div class="checkbox">
+              <label htmlFor="correspondence">
+                <input type="checkbox"
+                       name="correspondence"
+                       [(ngModel)]="payLoadService.addAddress.physicalAddress.isCorrespondenceSelected">
+                Correspondence
+              </label>
+            </div>
+            <div class="checkbox">
+              <label htmlFor="remittance">
+                <input type="checkbox"
+                       name="remittance"
+                       [(ngModel)]="payLoadService.addAddress.physicalAddress.isRemittanceSelected">
+                Payment/Remittance
+              </label>
+            </div>
+            <div *ngIf="payLoadService.addAddress.physicalAddress.isCorrespondenceSelected">
+              <label>Correspondence Address</label>
+              <address-change
+                      [parentName]="parentName + 'correspondence'"
+                      [address]="payLoadService.addAddress.physicalAddress.correspondenceAddress"
+                      [attachments]=false>
+              </address-change>
+            </div>
+            <div *ngIf="payLoadService.addAddress.physicalAddress.isRemittanceSelected">
+              <label>Payment/Remittance Address</label>
+              <address-change
+                      [parentName]="parentName + 'remittance'"
+                      [address]="payLoadService.addAddress.physicalAddress.remitAddress"
+                      [attachments]=true>
+              </address-change>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bs-form-panel">
+      <div class="form-group">
+        <div *ngIf="payLoadService.getUserType() === 0">
+          <label>
+            {{pmfDataService?.JSON_DATA?.field_mapping_options?.practice_location?.specialty_subclass?.field_name}}
+          </label>
+          <select2 [data]="pmfDataService?.getSortedDropdownValues(pmfDataService?.JSON_DATA?.field_mapping_options?.practice_location?.specialty_subclass?.fields)"
+             [(ngModel)]="payLoadService.addAddress.physicalAddress.specialty"
+             (valueChanged)="payLoadService.addAddress.physicalAddress.specialty = $event.value"
+             [value]="payLoadService.addAddress.physicalAddress.specialty"
+             [cssImport]="true"
+             [options]="options | optionsPipe: 'Select One' : pmfDataService?.getSortedDropdownValues(pmfDataService?.JSON_DATA?.field_mapping_options?.practice_location?.specialty_subclass?.fields)"
+             name="{{parentName}}-specialty"
+             ngDefaultControl
+             required>
+          </select2>
+        </div>
+      </div>
+    </section>
+  </section>
+</div>

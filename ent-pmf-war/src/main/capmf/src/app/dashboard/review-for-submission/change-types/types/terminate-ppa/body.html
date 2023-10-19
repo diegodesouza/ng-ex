@@ -1,0 +1,21 @@
+<div class="pmf-section-container form-group"
+     *ngIf="payLoadService?.terminationDate || payLoadService?.terminationReason">
+  <div class="ant-heading-three">Termination of Provider Participation Agreement</div>
+  <div class="pmf-container-group">
+    <div class="pmf-table-container" *ngIf="payLoadService?.terminationDate">
+      <div>Termination Date:</div>
+      <div>{{payLoadService?.terminationDate}}</div>
+    </div>
+    <div class="pmf-table-container" *ngIf="payLoadService?.terminationReason">
+      <div>Termination Reason:</div>
+      <div>{{payLoadService?.terminationReason}}</div>
+    </div>
+  </div>
+
+  <div class="pmf-container-group" *ngIf="_payLoadService.getUserType() === 0">
+    <div class="pmf-table-container pmf-flex-end">
+      <div>{{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.terminationPPA?.labels?.managedPCPQuestion}}</div>
+      <div>{{payLoadService?.managedCarePCPIndicator === 'yes' ? 'Yes' : 'No'}}</div>
+    </div>
+  </div>
+</div>

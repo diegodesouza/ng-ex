@@ -1,0 +1,444 @@
+<form (ngSubmit)="routeToNext()" #generalInfoForm = "ngForm">
+  <div class="container-fluid-gi">
+
+    <div class="page-header">
+      <div class="ant-heading-three"></div>
+      <div class="align-right pmf-padding-top-15">
+        <a routerLink="/landingpage" skipLocationChange>&lt; Back to Landing Page</a>
+      </div>
+    </div>
+
+    <fieldset>
+      <div class="row">
+        <div class="col-md-4">
+          <p class="ant-font-sb pmf-margin-left-55">Changes for multiple providers must be submitted separately.</p>
+        </div>
+        <div class="col-md-8">
+          <div class="panel-gi">
+            <div class="ant-dk-blue modal-header-gi" *ngIf="payLoadService.userType === 0">
+              Individual Provider Details
+            </div>
+            <div class="ant-dk-blue modal-header-gi" *ngIf="payLoadService.userType === 1">
+              Organization Details
+            </div>
+
+            <div class="gi-container">
+              <section>
+                <div class="gi-required-field">
+                  * Indicates a Required Field
+                </div>
+
+                <div class="ant-margin-top-20" [ngClass]="{'has-error': formValidations?.formErrors?.effectiveDate}">
+                  <label for="effective-date" >Effective Date<i class="required-asterik"> *</i></label>
+                </div>
+
+                <div>
+                  <label class="gi-inline-help">Contractual guidelines may supersede effective date request</label>
+                </div>
+
+                <div class="gi-effective-date-popover">
+                  <a href="javascript:void(0);"
+                     class="gi-tooltip-popIcon-date"
+                     data-uxd-tooltip-dir [definition]="{htmlContent: tooltip1, placement: 'left', tooltipHasClose: true}">
+                    <span class="fa fa-info-circle"></span><span class="sr-only">Help</span>
+                  </a>
+                  <ng-template #tooltip1>
+                    <div>
+                      This is the date the changes will take effect.
+                      Advance notice of a provider demographic and/or practice change is required.
+                      Certain changes may be assigned a future effective date.
+                      Contractual guidelines may supersede the requested effective date of requests.
+                    </div>
+                  </ng-template>
+                </div>
+                <div class="form-group clearfix">
+                  <input id="effective-date"
+                          type="text"
+                          name= "effectiveDate"
+                          [(ngModel)]="payLoadService.provider.effectiveDate"
+                          class="ant-text-input"
+                          data-uxd-text-dir
+                          data-is-date="true"
+                          placeholder="mm/dd/yyyy"
+                          pattern="^(((0?[1-9]|1[012])/(0?[1-9]|1\d|2[0-8])|(0?[13456789]|1[012])/(29|30)|(0?[13578]|1[02])/31)/(19|[2-9]\d)\d{2}|0?2/29/((19|[2-9]\d)(0[48]|[2468][048]|[13579][26])|(([2468][048]|[3579][26])00)))$"
+                          required/>
+                  <div *ngIf="formValidations?.formErrors?.effectiveDate" role="alert">
+                    <span class="ant-float-left ant-full-width ant-form-item-error">
+                      {{ formValidations?.formErrors?.effectiveDate }}
+                    </span>
+                  </div>
+                </div>
+              </section>
+              <hr />
+
+              <section>
+                <div class="ant-margin-top-20" [ngClass]="{'has-error': formValidations?.customErrorMessages?.SelectedNetworksErrorMessage}">
+                  <label>Networks<i class="required-asterik"> *</i></label>
+                </div>
+
+                <div>
+                  <label class="gi-inline-help">Which networks will this update affect?</label>
+                </div>
+
+                <div class="checkbox ant-margin-left-20" *ngFor="let option of payLoadService.targetSystems; let ind = index">
+                  <input type="checkbox"
+                         name="targetSystems-{{ind}}"
+                         value="{{option.name}}"
+                         [(ngModel)]="option.checked"
+                         [disabled]="option.disabled"/>
+                  {{option.name}}
+                </div>
+                <div class="form-group clearfix" *ngIf="formValidations?.customErrorMessages?.SelectedNetworksErrorMessage">
+                  <span class="ant-float-left ant-full-width ant-form-item-error">
+                    {{ formValidations?.customErrorMessages?.SelectedNetworksErrorMessage }}
+                  </span>
+                </div>
+              </section>
+              <hr />
+
+              <section *ngIf="payLoadService.userType === 0">
+                <div [ngClass]="{'has-error': formValidations?.formErrors?.indTaxId ||
+                formValidations?.formErrors?.npi ||
+                formValidations?.formErrors?.lastName ||
+                formValidations?.formErrors?.firstName ||
+                formValidations?.formError?.middleName ||
+                formValidations?.formErrors?.licenseNumber}">
+                  <label>Provider Details<i class="required-asterik"> *</i></label>
+                </div>
+
+                <div class="form-group clearfix">
+                  <input id="indTaxId"
+                         type="text"
+                         name="indTaxId"
+                         class="ant-text-input input-width ant-top-margin-12 ant-top-margin-12"
+                         [(ngModel)]="payLoadService.individual.taxId"
+                         placeholder="Tax Identification Number (TIN)"
+                         required
+                         maxlength="9"
+                         pattern="^[0-9]{9}$"/>
+                  <div *ngIf="formValidations?.formErrors?.indTaxId" role="alert">
+                    <span class="ant-float-left ant-full-width ant-form-item-error">
+                      {{ formValidations?.formErrors?.indTaxId }}
+                    </span>
+                  </div>
+                </div>
+
+                <div class="form-group clearfix">
+                  <input id="indi_npi"
+                         type="text"
+                         name="npi"
+                         class="ant-text-input input-width ant-top-margin-12"
+                         [(ngModel)]="payLoadService.provider.npi"
+                         placeholder="National Provider Identifier (NPI)"
+                         required
+                         maxlength="10"
+                         pattern="^[0-9]{10}$"/>
+                  <div *ngIf="formValidations?.formErrors?.npi" role="alert">
+                    <span class="ant-float-left ant-full-width ant-form-item-error">
+                      {{ formValidations?.formErrors?.npi }}
+                    </span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group clearfix">
+                      <input name="firstName"
+                             type="text"
+                             class="ant-text-input input-width ant-top-margin-12"
+                             [(ngModel)]="payLoadService.individual.firstName"
+                             placeholder="First Name"
+                             pattern="^[a-zA-Z]['\-a-zA-Z ]*"
+                             required/>
+                      <div *ngIf="formValidations?.formErrors?.firstName" role="alert">
+                        <span class="ant-float-left ant-full-width ant-form-item-error">
+                          {{ formValidations?.formErrors?.firstName }}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group clearfix">
+                      <input name="lastName"
+                             type="text"
+                             name="lastName"
+                             class="ant-text-input input-width ant-top-margin-12 ant-top-margin-12"
+                             [(ngModel)]="payLoadService.individual.lastName"
+                             placeholder="Last Name"
+                             pattern="^[a-zA-Z]['\-a-zA-Z ]*"
+                             required/>
+                      <div *ngIf="formValidations?.formErrors?.lastName" role="alert">
+                        <span class="ant-float-left ant-full-width ant-form-item-error">
+                          {{ formValidations?.formErrors?.lastName }}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group clearfix">
+                      <input name="middleName"
+                              type="text"
+                              class="ant-text-input input-width ant-top-margin-12"
+                              [(ngModel)]="payLoadService.individual.middleName"
+                              placeholder="Middle Name"
+                              pattern="^[a-zA-Z]['\-a-zA-Z ]*"/>
+                      <div *ngIf="formValidations?.formErrors?.middleName" role="alert">
+                        <span class="ant-float-left ant-full-width ant-form-item-error">
+                          {{ formValidations?.formErrors?.middleName }}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <div class="form-group clearfix">
+                      <select2 [data]="pmfDataService?.JSON_DATA?.field_mapping_options.suffix.fields"
+                               [(ngModel)]="payLoadService.individual.suffix"
+                               (valueChanged)="payLoadService.individual.suffix = $event.value"
+                               [value]="payLoadService.individual.suffix"
+                               [cssImport]="true"
+                               [options]="options | optionsPipe: 'Suffix' : pmfDataService?.JSON_DATA?.field_mapping_options.suffix.fields"
+                               name="suffix"
+                               ngDefaultControl>
+                      </select2>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <div class="form-group clearfix">
+                      <select2 [data]="pmfDataService?.getSortedDropdownValues(pmfDataService?.JSON_DATA?.field_mapping_options.title.fields)"
+                               [(ngModel)]="payLoadService.individual.title"
+                               (valueChanged)="payLoadService.individual.title = $event.value"
+                               [value]="payLoadService.individual.title"
+                               [cssImport]="true"
+                               [options]="options | optionsPipe: 'Title' : pmfDataService?.JSON_DATA?.field_mapping_options.title.fields"
+                               name="title"
+                               ngDefaultControl
+                               required>
+                      </select2>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group clearfix">
+                  <input name="licenseNumber"
+                         type="text"
+                         class="ant-text-input input-width ant-top-margin-12"
+                         [(ngModel)]="payLoadService.individual.license"
+                         placeholder="License / Certification Number"
+                         required
+                         maxlength="20"
+                         pattern="[a-zA-Z0-9]+"/>
+                  <div *ngIf="formValidations?.formErrors?.licenseNumber" role="alert">
+                    <span class="ant-float-left ant-full-width ant-form-item-error">
+                      {{ formValidations?.formErrors?.licenseNumber }}
+                    </span>
+                  </div>
+                </div>
+
+                <hr />
+              </section>
+
+              <section *ngIf="payLoadService.userType === 1">
+                <div class="row">
+                  <div [ngClass]="{'has-error': formValidations?.formErrors?.practiceName ||
+                  formValidations?.formErrors?.licenseNumber ||
+                  formValidations?.formErrors?.tin ||
+                  formValidations?.formErrors?.orgNpi}">
+                    <label>Practice Details<i class="required-asterik"> *</i></label>
+                  </div>
+
+                  <div class="form-group clearfix">
+                    <input id="practiceName"
+                           type="text"
+                           name="practiceName"
+                           class="ant-text-input input-width ant-top-margin-12 ant-top-margin-12"
+                           [(ngModel)]="payLoadService.organization.name"
+                           placeholder="Practice Name"
+                           required/>
+                    <div *ngIf="formValidations?.formErrors?.practiceName" role="alert">
+                      <span class="ant-float-left ant-full-width ant-form-item-error">
+                        {{ formValidations?.formErrors?.practiceName }}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="form-group clearfix">
+                    <input name="licenseNumber"
+                           type="text"
+                           class="ant-text-input input-width ant-top-margin-12"
+                           [(ngModel)]="payLoadService.provider.practiceDBA"
+                           placeholder="Practice D.B.A (If Applicable)"/>
+                  </div>
+
+                  <div class="form-group clearfix">
+                    <input id="tin"
+                            type="text"
+                            name="tin"
+                            class="ant-text-input input-width ant-top-margin-12 ant-top-margin-12"
+                            [(ngModel)]="payLoadService.organization.taxId"
+                            placeholder="Organization Tax Identification Number (TIN)"
+                            required
+                            maxlength="9"
+                            pattern="^[0-9]{9}$"/>
+                    <div *ngIf="formValidations?.formErrors?.tin" role="alert">
+                      <span class="ant-float-left ant-full-width ant-form-item-error">
+                        {{ formValidations?.formErrors?.tin }}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="form-group clearfix">
+                    <input id="org_npi"
+                           type="text"
+                           name="orgNpi"
+                           class="ant-text-input input-width ant-top-margin-12 ant-top-margin-12"
+                           [(ngModel)]="payLoadService.provider.npi"
+                           placeholder="Organization National Provider Identifier (NPI)"
+                           [disabled]="payLoadService?.organization?.exempt"
+                           required
+                           maxlength="10"
+                           pattern="^[0-9]{10}$"/>
+
+                    <div *ngIf="formValidations?.formErrors?.orgNpi && !payLoadService?.organization?.exempt">
+                      <div *ngIf="formValidations?.formErrors?.orgNpi" role="alert">
+                      <span class="ant-float-left ant-full-width ant-form-item-error">
+                        {{ formValidations?.formErrors?.orgNpi }}
+                      </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="checkbox">
+                    <label><input
+                            id="exempt1"
+                            style="text-align:center"
+                            type="checkbox"
+                            name="exempt"
+                            [(ngModel)]="payLoadService.organization.exempt"/>
+                      NPI Exempt
+                    </label>
+                  </div>
+                </div>
+
+                <hr />
+              </section>
+
+              <section>
+                <practice-address
+                        [address]="payLoadService.addresses"
+                        [parentName]="'general-info'">
+                </practice-address>
+                <hr />
+              </section>
+
+              <section>
+                <div [ngClass]="{'has-error': formValidations?.formErrors?.ctfirstName ||
+                formValidations?.formErrors?.ctlastName ||
+                formValidations?.formErrors?.email ||
+                formValidations?.formErrors?.phoneNumber}">
+                  <label ng-required="true">Contact Information<i class="required-asterik"> *</i></label>
+                </div>
+
+                <div>
+                  <label class="gi-inline-help">Who is filling out this form?</label>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group clearfix">
+                      <input id="ctfirstName"
+                             type="text"
+                             name="ctfirstName"
+                             class="ant-text-input input-width ant-top-margin-12"
+                             [(ngModel)]="payLoadService.contact.ctFirstName"
+                             placeholder="First Name"
+                             pattern="^[a-zA-Z]['\-a-zA-Z ]*"
+                             required/>
+                      <div *ngIf="formValidations?.formErrors?.ctfirstName" role="alert">
+                        <span class="ant-float-left ant-full-width ant-form-item-error">
+                          {{ formValidations?.formErrors?.ctfirstName }}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group clearfix">
+                      <input id="ctlastName"
+                             type="text"
+                             name="ctlastName"
+                             class="ant-text-input input-width ant-top-margin-12"
+                             [(ngModel)]="payLoadService.contact.ctLastName"
+                             placeholder="Last Name"
+                             pattern="^[a-zA-Z]['\-a-zA-Z ]*"
+                             required/>
+                      <div *ngIf="formValidations?.formErrors?.ctlastName" role="alert">
+                        <span class="ant-float-left ant-full-width ant-form-item-error">
+                          {{ formValidations?.formErrors?.ctlastName }}
+                        </span>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="form-group clearfix">
+                  <input id="email"
+                         type="text"
+                         name="email"
+                         class="ant-text-input input-width ant-top-margin-12"
+                         [(ngModel)]="payLoadService.contact.emailAddress"
+                         placeholder="Email Address"
+                         pattern="^[\w!#$%&'*+\/=?^_`{|}~-]+([\.-]?[\w!#$%&'*+\/=?^_`{|}~+-])*@\w+([\.-]?\w)*(\.\w{2,15})$"
+                         required/>
+                  <div *ngIf="formValidations?.formErrors?.email">
+                    <span class="ant-float-left ant-full-width ant-form-item-error">
+                      {{ formValidations?.formErrors?.email }}
+                    </span>
+                  </div>
+                </div>
+
+                <div class="form-group clearfix">
+                  <input id="phone"
+                         type="text"
+                         name="phoneNumber"
+                         class="ant-text-input input-width ant-top-margin-12"
+                         [(ngModel)]="payLoadService.contact.phoneNumber"
+                         placeholder="Phone Number"
+                         [textMask]="{mask: formValidations?.phoneMask}"
+                         pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$"
+                         unmaskModel
+                         required/>
+
+                  <div *ngIf="formValidations?.formErrors?.phoneNumber" role="alert">
+                    <span class="ant-float-left ant-full-width ant-form-item-error">
+                      {{ formValidations?.formErrors?.phoneNumber }}
+                    </span>
+                  </div>
+                </div>
+
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="button-container">
+    <button (click)="routeToPrevious()" class="btn btn-gi" type="button" name="Cancel">
+      <span>CANCEL</span><br><span class="lbl-btn-gi">Return to Landing Page</span>
+    </button>
+    <button type="button"
+            (click)="routeToNext()"
+            class="btn btn-gi"
+            [disabled]="!generalInfoForm.valid"
+            name="Next">
+      NEXT
+    </button>
+  </div>
+</form>

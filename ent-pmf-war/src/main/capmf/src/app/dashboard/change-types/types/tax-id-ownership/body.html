@@ -1,0 +1,77 @@
+<div class="bs-form-panel">
+  <div class="form-group">
+    <div class="ant-margin-top-10 ant-margin-bot-10">
+      <label class="pmf-font-sm-bold">
+        {{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.taxIdOwnership?.labels?.instruction_one}}
+        <br/>
+        {{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.taxIdOwnership?.labels?.instruction_two}}
+        <br/>
+        {{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.taxIdOwnership?.labels?.instruction_links}}
+      </label>
+    </div>
+    <div class="ant-margin-top-10 ant-margin-bot-10">
+      <label class="pmf-font-sm-bold">
+        {{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.taxIdOwnership?.labels?.disclaimer}}
+      </label>
+    </div>
+    <div class="ant-margin-top-10 ant-margin-bot-10">
+      <label class="pmf-font-sm-bold">
+        {{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.taxIdOwnership?.labels?.information}}
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group" [ngClass]="{'has-error': formValidations?.formErrors?.tinUpdate}">
+    <label for="tin">{{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.taxIdOwnership?.labels?.new_tax_id}}</label>
+    <input id="tin"
+           type="text"
+           name="tinUpdate"
+           class="ant-text-input ant-input-wide form-item"
+           [(ngModel)]="payloadService.tinOwnership.tin"
+           placeholder="{{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.taxIdOwnership?.labels?.new_tax_id}}"
+           maxlength="9"
+           required
+           pattern="^[0-9]{9}$">
+    <label *ngIf="formValidations?.formErrors?.tinUpdate" >
+      <span class="ant-form-item-error">
+        {{ formValidations?.formErrors?.tinUpdate }}
+      </span>
+    </label>
+  </div>
+
+  <div class="form-group" *ngIf="payloadService.userType === 0" [ngClass]="{'has-error': formValidations?.formErrors?.npiUpdate}">
+    <label for="npi">{{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.taxIdOwnership?.labels?.individual_npi}}</label>
+    <input id="npi"
+           type="text"
+           class="ant-text-input ant-input-wide form-item"
+           name="npiUpdate"
+           [(ngModel)]="payloadService.tinOwnership.npi"
+           placeholder="{{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.taxIdOwnership?.labels?.individual_npi}}"
+           maxlength="10"
+           required
+           pattern="^[0-9]{10}$">
+    <label *ngIf="formValidations?.formErrors?.npiUpdate">
+      <span class="ant-form-item-error">
+        {{ formValidations?.formErrors?.npiUpdate }}
+      </span>
+    </label>
+  </div>
+
+  <div class="form-group" *ngIf="payloadService.userType === 1" [ngClass]="{'has-error': formValidations?.formErrors?.npiUpdate}">
+    <label for="npi">{{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.taxIdOwnership?.labels?.organization_npi}}</label>
+    <input id="npi"
+           type="text"
+           class="ant-text-input ant-input-wide form-item"
+           name="npiUpdate"
+           [(ngModel)]="payloadService.tinOwnership.npi"
+           placeholder="{{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.taxIdOwnership?.labels?.organization_npi}}"
+           maxlength="10"
+           required
+           pattern="^[0-9]{10}$">
+    <label *ngIf="formValidations?.formErrors?.npiUpdate">
+      <span class="ant-form-item-error">
+        {{ formValidations?.formErrors?.npiUpdate }}
+      </span>
+    </label>
+  </div>
+</div>

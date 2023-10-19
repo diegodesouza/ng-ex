@@ -1,0 +1,27 @@
+<div class="container">
+    <app-header></app-header>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="nav nav-wizard">
+                    <li [ngClass]="{'active': router.routerState.toString().includes('generalinfo'), 'inactive': !router.routerState.toString().includes('generalinfo'), 'nav-width':true}">
+                        <a>General Information</a>
+                    </li>
+                    <li [ngClass]="{'active': router.routerState.toString().includes('selectupdates'), 'inactive': !router.routerState.toString().includes('selectupdates'), 'nav-width': true}">
+                        <a>Select Updates</a>
+                    </li>
+                    <li [ngClass]="{'active': router.routerState.toString().includes('changetypes'), 'inactive': !router.routerState.toString().includes('changetypes'), 'nav-width': true}">
+                        <a>Specify Change Details</a>
+                    </li>
+                    <li [ngClass]="{'active': router.routerState.toString().includes('reviewforsubmission'), 'inactive': !router.routerState.toString().includes('reviewfosubmission'), 'nav-width': true}">
+                        <a>Review and Attest</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="bkg-gray-container">
+        <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
+</div>

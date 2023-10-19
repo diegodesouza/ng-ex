@@ -1,0 +1,477 @@
+/*form textfields start*/
+label {
+  font-size:1rem;
+  font-weight:600;
+  display:block;}
+
+.ant-text-input {
+  font-size:1rem;
+  padding:.6667rem;
+  border-radius:4px;
+  border:1px solid #666;
+  color:#666666;
+  max-width:100%;
+  width:225px;
+
+    &:focus {
+        border:1px solid $accent-color-blue;
+        outline:none;
+    }
+}
+
+.ant-input-med {width:250px}
+
+.ant-input-short {width:100px}
+
+.ant-input-long {width:600px;}
+
+.pfText {
+    float: left;
+}
+
+/*form textfields end*/
+
+/**** Pretty Forms Radio Button Styles start ****/
+.prOption {
+    position: absolute;
+    left: -9999px;
+}
+
+.prLabel {
+    display: inline-block;
+    cursor: pointer;
+    font-size:1rem;
+    position: relative;
+    padding-left: 35px;
+    float: left;
+    margin-right: 10px;
+
+    &:before {
+      display:block;
+      height:1.3rem;
+      width:1.3rem;
+      content:" ";
+      border-radius:50%;
+      margin-right:10px;
+      position: relative;
+      border:1px solid #666;
+      box-shadow:inset 0px 0px 1px #ccc;
+      float: left;
+      }
+
+    &.active:before {
+        background-position: center;
+        background: -moz-radial-gradient(center, ellipse cover, $primary-color-blue 30%, $white 35%); /* FF3.6+ */
+        background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(30%, $primary-color-blue), color-stop(35%, $white)); /* Chrome,Safari4+ */
+        background: -webkit-radial-gradient(center, ellipse cover, $primary-color-blue 30%, $white 35%); /* Chrome10+,Safari5.1+ */
+        background: -o-radial-gradient(center, ellipse cover, $primary-color-blue 30%, $white 35%); /* Opera 12+ */
+        background: -ms-radial-gradient(center, ellipse cover, $primary-color-blue 30%, $white 35%); /* IE10+ */
+        background: radial-gradient(ellipse at center, $primary-color-blue 30%, $white 35%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$primary-color-blue', endColorstr='$white', GradientType=1); /* IE6-9 fallback on horizontal gradient */
+    }
+
+    &.focus:before {
+        box-shadow: 0 0 3px $primary-color-blue;
+    }
+
+    &.prDisabled{
+      cursor: not-allowed;
+    }
+
+    &.prDisabled:before{
+      background-color: $medium-gray;
+      cursor: not-allowed;
+    }
+
+    &.ant-error-state {
+        &:before {
+            border: 1px solid $accent-color-magenta;
+        }
+    }
+}
+fieldset legend{
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  border: none;
+}
+legend{
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 20px;
+  font-size: 21px;
+  line-height: inherit;
+  color: #333333;
+  border: none;
+}
+
+/**** Pretty Forms Radio Button Styles end ****/
+
+/**** Text/Password Field Styles start ****/
+label.pfText {
+    line-height: 45px;
+    width: 230px;
+    padding-left: 15px;
+}
+
+input.pfText,
+input.pfText:hover {
+    margin-left: -230px;
+    background-color: rgba(255, 255, 255, 0.5);
+    filter: alpha(opacity=50); /* IE8 */
+    /*-webkit-transition: all .25s ease-out;
+    -o-transition: all .25s ease-out;
+    transition: all .25s ease-out;*/
+}
+
+input.pfText.focus,
+input.pfText.hasValue {
+    background-color: rgba(255, 255, 255, 1);
+    filter: alpha(opacity=100); /* IE8 */
+}
+
+/**** Text/Password Field Styles end ****/
+
+/**** Pretty Forms Select List Styles start ****/
+.pfSelect button,
+.pfSelect button:hover,
+.pfSelect button:focus {
+    padding: 0px;
+    height:auto;
+    background: $white;
+    border: 1px solid $gray;
+    color: $gray;
+    font-size:1rem;
+    display: block;
+    border-radius: 3px;
+    z-index: 11;
+    position: relative;
+    box-shadow: 0 0 0;
+    font-weight: 400;
+    text-shadow: 0 0 transparent;
+    width: 100%;
+}
+
+.pfSelect button {
+    &:focus, &:active, &:active:focus {
+    border: 1px solid $accent-color-blue;
+    background: $white;
+    outline: none;
+    color: $gray;
+  }
+}
+
+.pfSelect {
+    position: relative;
+}
+
+.psButton span {
+    display: inline-block;
+    top: 0
+}
+
+.psButton span.psActiveOption {
+    width:calc(100% - 2.8rem);
+	text-align:left;
+	padding-left:0.8rem;
+	position:relative;
+	overflow:hidden;
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.psArrow {
+    border-left: 1px solid $gray;
+    display: inline-block;
+    font-size:1.857rem;
+	width:2.8rem;
+	text-align:center;
+	padding:.45rem 0;
+    color: $primary-color-light-blue;
+}
+
+.pfSelect button:focus .psArrow {
+    border-left: 1px solid $accent-color-blue;
+}
+
+.ant-sm-select .pfSelect {
+  .psButton {
+    width:100%;
+    max-width:160px;
+    min-width:160px;
+  }
+  .psDropdown {
+	width:calc(100% - 4px);
+	max-width:156px;
+	min-width:156px;
+  }
+}
+.ant-md-select .pfSelect {
+  .psButton {
+    width:250px;
+    max-width:100%;
+  }
+
+  .psDropdown {
+	width:calc(100% - 4px);
+	max-width:246px;
+  }
+}
+.ant-lg-select .pfSelect {
+  .psButton {
+    width:600px;
+    max-width:100%;
+  }
+
+  .psDropdown {
+	width:calc(100% - 4px);
+	max-width:596px;
+  }
+}
+
+.psDropdown {
+    width: calc(100% - 4px);
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 0px;
+    max-height: 0px;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1000;
+    -webkit-transition: max-height .25s ease-out;
+    -o-transition: max-height .25s ease-out;
+    transition: max-height .25s ease-out;
+    background: $white;
+    margin-left: 2px;
+    &.active {
+        max-height:225px;
+        padding-top:0px;
+        border: 1px solid $medium-gray;
+        border-top: 0px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    // div {
+    // }
+}
+
+
+.psDropdown input {
+    position: absolute;
+    left: -9999px;
+}
+
+.psLabel {
+    display: block;
+	font-size:1rem;
+    font-weight: 400;
+    padding: 8px 1rem;
+    margin: 0px;
+    cursor: pointer;
+}
+
+.psLabel:hover {
+    background: $primary-color-blue;
+    color: $white;
+}
+
+.psOption.focus + .psLabel {
+    background: $primary-color-blue;
+    color: $white;
+}
+
+.psLabel.psDisabled {
+    background: $medium-gray;
+    color: $gray;
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.psArrow:before {
+    line-height: 0;
+    margin-left: 0;
+}
+
+.ant-error-state .pfSelect button,
+.ant-error-state .pfSelect button:hover,
+.ant-error-state .pfSelect button:focus {
+    border:1px solid $accent-color-magenta;
+    background-color:$accent-color-light-magenta;
+}
+
+.pfSelect legend {
+  margin-bottom: 0.7143rem;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+    margin-bottom: 0.7143rem;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.ant-ddl-alt {
+  .pfSelect button {
+    border:2px solid #eee;
+    border-radius:0px;
+
+    &:focus .psArrow {
+      border-left:0px;
+    }
+  }
+  .psButton span {
+    top:-1px;
+  }
+  .psArrow {
+    border-left:0px solid #666666;
+  }
+}
+
+
+/**** Pretty Forms Select List Styles end ****/
+
+/* pretty checkbox start*/
+
+.pcOption {
+    position: absolute;
+    left: -9999px;
+}
+
+.pcLabel::before {
+    display: inline-block;
+    height:1.3rem;
+	width:1.3rem;
+    margin-right: 10px;
+    position:relative;
+    border: 1px solid $gray;
+    border-radius: 3px;
+	  box-shadow:inset 0px 0px 1px #ccc;
+    line-height: 1.2em;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: 'FontAwesome';
+    color: $primary-color-light-blue;
+	  content:"\f00c";
+    text-indent: -9999px;
+  float: left;
+}
+
+.pcLabel.active::before {
+  text-indent: 1px;
+}
+
+.pcLabel.focus::before {
+    box-shadow: 0 0 3px $primary-color-light-blue;
+}
+
+.pcLabel {
+    display: inline-block;
+    cursor: pointer;
+    font-size:1rem;
+    float: left;
+    margin-right: 10px;
+    position: relative;
+}
+
+.pcLabel.pcDisabled{
+  cursor: not-allowed;
+}
+
+.pcLabel.pcDisabled:before{
+  background-color: $medium-gray;
+  cursor: not-allowed;
+}
+
+div.pcLabel{
+}
+
+.pcLabel {
+  &.ant-error-state {
+    &::before {
+      border: 1px solid $accent-color-magenta;
+      background-color:$accent-color-light-magenta;
+    }
+  }
+}
+
+/* pretty checkbox end*/
+
+/*error notification start*/
+.ant-form-item-error {font-weight:400;color:$accent-color-magenta;font-size: 20px;}
+
+.ant-form-item-error:before {
+  content: "\f06a";
+  font-family: 'FontAwesome';
+  top: 0px;
+  position: relative;
+  margin-right: 10px;
+  font-size: 22px;
+  }
+
+.ant-text-input.ant-error-state {border:1px solid $accent-color-magenta;background-color:$accent-color-light-magenta;}
+/*error notification end*/
+
+/*** Search Box ***/
+fieldset.ant-auto-suggest {position:relative;}
+
+.ant-search-button {
+	border: 0px;
+	color: $primary-color-light-blue;
+	background-color: transparent;
+	position: relative;
+	z-index: 100;
+	font-size: 1.111rem;
+	padding: 0px 3.1rem 0px 0px;
+	margin-left:-3.1rem;
+	width:0px;
+	display:block;
+	float:left;
+	}
+
+.ant-search-button span.fa {
+	color: $primary-color-light-blue;
+	padding:.65rem .75rem;
+	border-left:1px solid $gray;
+	position:relative;
+	top:1px;
+    font-size:1.571rem;}
+
+@media screen and (min-width:480px) {
+	.ant-search-button span.fa {
+		top:0px;}
+}
+
+.ant-search-button .fa-remove {
+	padding-left:2px;
+}
+
+.ant-search-input {float:left;padding-right:3rem;}
+.ant-search-input:focus + .ant-search-button span.fa {border-left-color:$primary-color-light-blue;}
+
+.ant-text-input.ant-has-notes, .ant-text-input.ant-has-notes:focus {
+  z-index: 1;
+}
+
+.prLabel, .pcLabel{
+  .label-text {
+    display: block;
+    float: left;
+    max-width: calc(100% - 35px);
+  }
+}
+
+.has-error {
+  label{
+    color: $accent-color-magenta;
+  }
+  input{
+    border-color:$accent-color-magenta;
+    &:focus{
+      border-color:$accent-color-magenta;
+    }
+
+  }
+
+}

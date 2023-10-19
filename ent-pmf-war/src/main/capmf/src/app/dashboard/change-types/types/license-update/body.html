@@ -1,0 +1,33 @@
+<div class="bs-form-panel">
+  <div class="form-group" [ngClass]="{'has-error': formValidations?.formErrors?.updateLicense}">
+    <label>License / Certification Number</label>
+    <input type="text"
+           class="form-control ant-text-input"
+           name="updateLicense"
+           [(ngModel)]="payLoadService.updateLicense.updateLicense"
+           placeholder="License / Certification"
+           required
+           maxlength="20"
+           pattern="[a-zA-Z0-9]+">
+    <label>
+      <span *ngIf="formValidations?.formErrors?.updateLicense" class="ant-form-item-error">
+        {{ formValidations?.formErrors?.updateLicense }}
+      </span>
+    </label>
+  </div>
+  <div class="form-group" [ngClass]="{'has-error': formErrors?.updateLicenseState}">
+    <label>State</label>
+    <div class="pmf-md-select">
+      <select2 [data]="pmfDataService?.getSortedDropdownValues(pmfDataService?.JSON_DATA?.field_mapping_options.state.fields)"
+               [(ngModel)]="payLoadService.updateLicense.licenseState"
+               (valueChanged)="payLoadService.updateLicense.licenseState = $event.value"
+               [value]="payLoadService.updateLicense.licenseState"
+               [cssImport]="true"
+               [options]="options | optionsPipe: 'Select One' : pmfDataService?.JSON_DATA?.field_mapping_options.state.fields"
+               name="updateLicenseState"
+               ngDefaultControl
+               required>
+      </select2>
+    </div>
+  </div>
+</div>

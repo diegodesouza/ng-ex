@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+SLAM-build-host: Local
+SLAM-bodm-environment: LOCAL
+Implementation-version: 1.0.0-SNAPSHOT
+Built-By: AC56833
+Class-Path: build-tools-3.1.0.jar
+SLAM-scm-pvob: Local
+SLAM-scm-baseline: Local
+SLAM-scm-vob: Local
+SLAM-scm-stream: Local
+SLAM-version: 3.1.0
+SLAM-build-tag: Local
+Build-Jdk: 1.8.0
+Created-By: Maven Integration for Eclipse
+SLAM-scm-view: Local
+

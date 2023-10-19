@@ -1,0 +1,19 @@
+<div class="pmf-section-container form-group" *ngIf="payLoadService.length > 0">
+  <div class="ant-heading-three">Attachments</div>
+  <div class="pmf-container-group">
+    <div class="ant-margin-bot-10 ant-margin-top-10" *ngFor="let attachment of payLoadService">
+      <div class="pmf-table-container" *ngIf="attachment?.fileName">
+        <div>File Name:</div>
+        <div>{{attachment?.fileName}}</div>
+      </div>
+      <div class="pmf-table-container" *ngIf="attachment?.fileSize">
+        <div>File Size:</div>
+        <div>{{attachment?.fileSize}}&nbsp;MB</div>
+      </div>
+      <div class="pmf-table-container" *ngIf="attachment?.fileComments">
+        <div>File Comments:</div>
+        <div>{{attachment?.fileComments}}</div>
+      </div>
+    </div>
+  </div>
+</div>

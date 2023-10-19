@@ -1,0 +1,13 @@
+<div class="pmf-section-container form-group">
+  <div class="ant-heading-three">License / Certification Number</div>
+  <div class="pmf-container-group">
+    <div class="pmf-table-container pmf-flex-end" *ngIf="payLoadService?.updateLicense">
+      <div>License / Certification Number:</div>
+      <div>{{payLoadService?.updateLicense}}</div>
+    </div>
+    <div class="pmf-table-container" *ngIf="payLoadService?.licenseState">
+      <div>State:</div>
+      <div>{{payLoadService?.licenseState}}</div>
+    </div>
+  </div>
+</div>

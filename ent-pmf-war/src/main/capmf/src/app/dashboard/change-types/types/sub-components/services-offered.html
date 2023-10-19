@@ -1,0 +1,34 @@
+<div class="bs-form-panel">
+  <div *ngFor="let services of servicesOffers; let ind = index">
+    <div class="form-group">
+      <label htmlFor="{{parentName}}-{{ind}}-serviceOffers">Services Offered</label>
+      <select2 [data]="pmfDataService?.getSortedDropdownValues(pmfDataService?.JSON_DATA?.field_mapping_options?.services_offered?.fields)"
+               [(ngModel)]="services.servicesOfferedDesc"
+               (valueChanged)="services.servicesOfferedDesc = $event.value"
+               [value]="services.servicesOfferedDesc"
+               [cssImport]="true"
+               [options]="options | optionsPipe: 'Select One' : pmfDataService?.JSON_DATA?.field_mapping_options?.services_offered?.fields"
+               name="{{parentName}}-{{ind}}-serviceOffers"
+               ngDefaultControl
+               required>
+      </select2>
+    </div>
+    <div *ngIf="servicesOffers.length > 1">
+      <a id="{{parentName}}-{{ind}}-removelink"
+         name="{{parentName}}-{{ind}}-removelink"
+         class="ant-action-link"
+         (click)="removeServicesOffered(ind)">
+        Remove
+      </a>
+    </div>
+    <hr>
+  </div>
+  <div class="form-group pmf-margin-left-20" *ngIf="servicesOffers.length < 4">
+    <div class="icon-item" (click)="addServices()">
+      <span class="fa md fa-plus-circle blue"></span>
+    </div>
+    <div class="icon-description">
+      Add Services Offered
+    </div>
+  </div>
+</div>

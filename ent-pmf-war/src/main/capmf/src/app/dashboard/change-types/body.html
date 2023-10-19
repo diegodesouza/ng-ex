@@ -1,0 +1,209 @@
+<form #changeTypesForm = "ngForm">
+
+    <div class="page-header">
+        <div class="row pmf-padding-top-15">
+          <div class="col-md-7 ant-font-sb pmf-margin-left-25">
+            <span class="ant-heading-three">Add details for selected updates.</span>
+            <span class="gi-required-field">* Indicates a Required Field</span>
+          </div>
+          <div class="col-md-4 su-back-button align-right">
+            <a routerLink="/dashboard/selectupdates" skipLocationChange>&lt; Back to Select Updates Page</a>
+            <label class="gi-inline-help-link">All Data Entered Will Be Saved</label>
+          </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <router-outlet name="userreference"></router-outlet>
+        </div>
+        <div class="col-md-9">
+
+            <accordion>
+
+              <div *ngIf="updates.getSelectedUpdates('newPatient').length > 0">
+                <accordion-group heading="Accepting New Patients" isGroupOpen="true">
+                  <accept-patients [parentName]="'general-info'" [acceptingNewPatients]="payLoadService.acceptingNewPatients"></accept-patients>
+                </accordion-group>
+              </div>
+
+              <div *ngIf="updates.getSelectedUpdates('addAddress').length > 0">
+                <accordion-group heading="Address - Add Location" isGroupOpen="true">
+                  <add-address></add-address>
+                </accordion-group>
+              </div>
+
+              <div *ngIf="updates.getSelectedUpdates('orgTerminateAddress').length > 0">
+                <accordion-group heading="Address - Terminate" isGroupOpen="true">
+                  <terminate-address [parentName]="terminateAddress"></terminate-address>
+                </accordion-group>
+              </div>
+
+              <div *ngIf="updates.getSelectedUpdates('expertise').length > 0">
+                <accordion-group heading="Areas of Expertise" isGroupOpen="true">
+                  <expertise></expertise>
+                </accordion-group>
+              </div>
+
+              <div *ngIf="updates.getSelectedUpdates('changeAddress').length > 0">
+                <accordion-group heading="Email Address" isGroupOpen="true">
+                  <email-address></email-address>
+                </accordion-group>
+              </div>
+
+              <div *ngIf="updates.getSelectedUpdates('accessibility').length > 0">
+                <accordion-group heading="Handicapped Accessibility" isGroupOpen="true">
+                  <handicap-accessibility [handicappedAccessibility]="payLoadService.handicappedAccessibility"></handicap-accessibility>
+                </accordion-group>
+              </div>
+
+              <div *ngIf="updates.getSelectedUpdates('affiliation').length > 0">
+                <accordion-group heading="Hospital Affiliation and Admitting Privilege" isGroupOpen="true">
+                  <hospital-affiliation></hospital-affiliation>
+                </accordion-group>
+              </div>
+
+              <div *ngIf="updates.getSelectedUpdates('languages').length > 0">
+                <accordion-group heading="Languages Spoken" isGroupOpen="true">
+                  <languages-spoken [parentName]="selUpdates" [languagesSpoken]="payLoadService.languagesSpoken"></languages-spoken>
+                </accordion-group>
+              </div>
+
+              <div *ngIf="updates.getSelectedUpdates('license').length > 0">
+                <accordion-group heading="License / Certification Number" isGroupOpen="true">
+                  <license-number></license-number>
+                </accordion-group>
+              </div>
+
+              <div *ngIf="updates.getSelectedUpdates('individualNpi').length > 0">
+                <accordion-group heading="National Provider Identifier (NPI)" isGroupOpen="true">
+                  <npi></npi>
+                </accordion-group>
+              </div>
+
+              <div *ngIf="updates.getSelectedUpdates('network').length > 0">
+                <accordion-group heading="Network Participation" isGroupOpen="true">
+                  <network-participation></network-participation>
+                </accordion-group>
+              </div>
+
+              <div *ngIf="updates.getSelectedUpdates('operationHours').length > 0">
+                <accordion-group heading="Office Hours / Days of Operation" isGroupOpen="true">
+                  <operation-hours [operationHours]="payLoadService.operationHours"></operation-hours>
+                </accordion-group>
+              </div>
+
+              <div *ngIf="updates.getSelectedUpdates('ageGender').length > 0">
+                <accordion-group heading="Patient Age/Gender Preference" isGroupOpen="true">
+                  <age-gender></age-gender>
+                </accordion-group>
+              </div>
+
+              <div *ngIf="updates.getSelectedUpdates('phoneFax').length > 0">
+                <accordion-group heading="Phone / Fax Number" isGroupOpen="true">
+                  <phone-fax></phone-fax>
+                </accordion-group>
+              </div>
+
+              <div *ngIf="updates.getSelectedUpdates('indTerminateAddress').length > 0">
+                <accordion-group heading="Provider or Address Terminate" isGroupOpen="true">
+                  <terminate-address [parentName]="terminateAddress"></terminate-address>
+                </accordion-group>
+              </div>
+
+              <div *ngIf="updates.getSelectedUpdates('providerLeaving').length > 0">
+                <accordion-group heading="Provider Leaving Group" isGroupOpen="true">
+                  <provider-leaving-group></provider-leaving-group>
+                </accordion-group>
+              </div>
+
+              <div *ngIf="updates.getSelectedUpdates('specialty').length > 0">
+                <accordion-group heading="Provider Specialty" isGroupOpen="true">
+                  <provider-specialty></provider-specialty>
+                </accordion-group>
+              </div>
+              
+              <div *ngIf="updates.getSelectedUpdates('ambulance').length > 0">
+                <accordion-group heading="Publicly Funded Ambulance" isGroupOpen="true">
+                  <ambulance></ambulance>
+                </accordion-group>
+              </div>
+
+              <div *ngIf="updates.getSelectedUpdates('removeLocation').length > 0">
+                <accordion-group heading="Remove Provider From Location" isGroupOpen="true">
+                  <remove-provider-location></remove-provider-location>
+                </accordion-group>
+              </div>
+
+              <div *ngIf="updates.getSelectedUpdates('unsolicitedRoster').length > 0">
+                <accordion-group heading="Roster or List Updates" isGroupOpen="true">
+                  <unsolicited-roster [attachments]="true"></unsolicited-roster>
+                </accordion-group>
+              </div>
+
+              <div *ngIf="updates.getSelectedUpdates('tin').length > 0">
+                <accordion-group heading="Tax Identification Number" isGroupOpen="true">
+                  <tax-identification></tax-identification>
+                </accordion-group>
+              </div>
+              
+              <div *ngIf="updates.getSelectedUpdates('telehealth').length > 0">
+                <accordion-group heading="Telehealth" isGroupOpen="true">
+                  <telehealth></telehealth>
+                </accordion-group>
+              </div>
+
+              <div *ngIf="updates.getSelectedUpdates('ppaTermination').length > 0">
+                <accordion-group heading="Termination of Provider Participation Agreement" isGroupOpen="true">
+                  <terminate-ppa></terminate-ppa>
+                </accordion-group>
+              </div>
+
+              <div *ngIf="updates.getSelectedUpdates('updateOrgName').length > 0">
+                <accordion-group heading="Update Organization Name" isGroupOpen="true">
+                  <organization-name [attachments]=true></organization-name>
+                </accordion-group>
+              </div>
+
+              <div *ngIf="updates.getSelectedUpdates('updateAddress').length > 0">
+                <accordion-group heading="Address - Update" isGroupOpen="true">
+                  <update-address></update-address>
+                </accordion-group>
+              </div>
+
+              <div *ngIf="updates.getSelectedUpdates('practitionerName').length > 0">
+                <accordion-group heading="Update Provider Name" isGroupOpen="true">
+                  <practitioner-name></practitioner-name>
+                </accordion-group>
+              </div>
+
+              <div *ngIf="updates.getSelectedUpdates('webAddress').length > 0">
+                <accordion-group heading="Web Address" isGroupOpen="true">
+                  <web-address></web-address>
+                </accordion-group>
+              </div>
+
+              <accordion-group heading="Attachments" isGroupOpen="true">
+                <form-attachments></form-attachments>
+              </accordion-group>
+
+            </accordion>
+
+        </div>
+    </div>
+
+  <div class="row">
+    <div class="col-md-9 col-md-offset-3 ant-form-item-error messageContainer" *ngIf="isAttachmentRequired && !payLoadService?.isAttachment">
+      You have requested to update a record that requires supporting documentation.
+      Please upload documents using the Attachments section above.
+    </div>
+  </div>
+  <div class="button-group ant-margin-top-15" align="right">
+    <button type="button"
+            class="btn"
+            (click)="checkForAttachment()"
+            [disabled]="!changeTypesForm.valid || (changeTypesForm.valid && isAttachmentRequired && !payLoadService.isAttachment) || checkCorrespondenceAndRemittance() || checkPCPIndicator()">
+      Review for Submission
+    </button>
+  </div>
+</form>

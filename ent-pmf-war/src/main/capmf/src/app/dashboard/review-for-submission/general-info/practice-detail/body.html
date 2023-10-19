@@ -1,0 +1,70 @@
+<div class="form-group pmf-section-container">
+  <div class="ant-heading-three"
+       *ngIf="payLoadService?.individual?.taxId ||
+      payLoadService?.provider?.npi ||
+      payLoadService?.individual?.firstName ||
+      payLoadService?.individual?.lastName ||
+      payLoadService?.individual?.middleName ||
+      payLoadService?.individual?.suffix ||
+      payLoadService?.individual?.title ||
+      payLoadService?.individual?.license ||
+      payLoadService?.organization?.name ||
+      payLoadService?.provider?.practiceDBA ||
+      payLoadService?.organization?.taxId">
+    {{payLoadService?.userType === 0 ? 'Provider Details' : 'Practice Details'}}
+  </div>
+  <div *ngIf="payLoadService?.userType === 1">
+    <div class="pmf-table-container" *ngIf="payLoadService?.organization?.name">
+      <div>Practice Name:</div>
+      <div>{{payLoadService?.organization?.name}}</div>
+    </div>
+
+    <div class="pmf-table-container" *ngIf="payLoadService?.provider?.practiceDBA">
+      <div>Practice D.B.A.:</div>
+      <div>{{payLoadService?.provider?.practiceDBA}}</div>
+    </div>
+  </div>
+
+  <div class="pmf-container-group" *ngIf="payLoadService?.userType === 0">
+    <div class="pmf-table-container pmf-flex-end" *ngIf="payLoadService?.individual?.taxId">
+      <div>Tax Identification Number:</div>
+      <div>{{payLoadService?.individual?.taxId}}</div>
+    </div>
+    <div class="pmf-table-container pmf-flex-end" *ngIf="payLoadService?.provider?.npi">
+      <div>National Provider Identifier:</div>
+      <div>{{payLoadService?.provider?.npi}}</div>
+    </div>
+  </div>
+
+  <div class="pmf-container-group" *ngIf="payLoadService?.userType === 1">
+    <div class="pmf-table-container pmf-flex-end" *ngIf="payLoadService?.organization?.taxId">
+      <div>Organization Tax Identification Number:</div>
+      <div>{{payLoadService?.organization?.taxId}}</div>
+    </div>
+    <div *ngIf="!payLoadService?.organization?.exempt">
+      <div class="pmf-table-container pmf-flex-end" *ngIf="payLoadService?.provider?.npi">
+        <div>Organization National Provider Identifier:</div>
+        <div>{{payLoadService?.provider?.npi}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="payLoadService?.userType === 0">
+    <review-for-submission-basic-info-component
+      [payLoadService]="payLoadService?.individual">
+    </review-for-submission-basic-info-component>
+  </div>
+
+  <div *ngIf="payLoadService?.userType === 1">
+    <div class="pmf-table-container" *ngIf="payLoadService?.organization?.exempt">
+      <div>NPI Exempt:</div>
+      <div>{{payLoadService?.organization?.exempt ? 'Yes' : 'No'}}</div>
+    </div>
+  </div>
+</div>
+
+<div class="pmf-section-container form-group">
+  <div class="ant-heading-three">Practice Office Location</div>
+  <review-for-submission-address-component [payLoadService]="payLoadService?.addresses">
+  </review-for-submission-address-component>
+</div>

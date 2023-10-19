@@ -1,0 +1,26 @@
+<div class="pmf-section-container form-group" *ngIf="payLoadService?.primarySpecialty || payLoadService?.additionalSpecialties.length > 0">
+  <div class="ant-heading-three">Provider Specialty</div>
+  <div class="pmf-container-group">
+    <div class="pmf-table-container">
+      <div>Add/Update:</div>
+      <div>{{payLoadService?.addNewRequest === 'A' ? 'Add' : 'Update'}}</div>
+    </div>
+    <div class="pmf-table-container">
+      <div>Primary Care Physician:</div>
+      <div>{{payLoadService?.pcpIndicator === 'yes' ? 'Yes' : 'No'}}</div>
+    </div>
+  </div>
+
+  <div class="pmf-container-group">
+    <div class="pmf-table-container" *ngIf="payLoadService?.primarySpecialty">
+      <div>Primary Specialty:</div>
+      <div>{{payLoadService?.primarySpecialty}}</div>
+    </div>
+    <div *ngIf="payLoadService?.additionalSpecialties.length > 0">
+      <div class="pmf-table-container" *ngFor="let additional of payLoadService?.additionalSpecialties">
+        <div>Additional Specialty:</div>
+        <div>{{additional.specialty}}</div>
+      </div>
+    </div>
+  </div>
+</div>

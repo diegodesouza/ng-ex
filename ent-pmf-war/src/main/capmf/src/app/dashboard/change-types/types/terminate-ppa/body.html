@@ -1,0 +1,73 @@
+<div class="bs-form-panel">
+  <div class="form-group" [ngClass]="{'has-error': formValidations?.formErrors?.terminationDate}">
+    <p class="gi-inline-help ant-font-b">{{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.terminationPPA?.labels?.information_message}}</p>
+    <label htmlFor="terminationDate">
+      {{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.terminationPPA?.labels?.termination_date}}
+      <i class="required-asterik"> *</i>
+    </label>
+  </div>
+
+  <div class="form-group clearfix">
+    <input id="terminationDate"
+           type="text"
+           name="terminationDate"
+           [(ngModel)]="payloadService.terminatePPA.terminationDate"
+           class="ant-text-input"
+           data-uxd-text-dir
+           placeholder="mm/dd/yyyy"
+           pattern="^(((0?[1-9]|1[012])/(0?[1-9]|1\d|2[0-8])|(0?[13456789]|1[012])/(29|30)|(0?[13578]|1[02])/31)/(19|[2-9]\d)\d{2}|0?2/29/((19|[2-9]\d)(0[48]|[2468][048]|[13579][26])|(([2468][048]|[3579][26])00)))$"
+           data-is-date="true"
+           required/>
+  </div>
+
+  <label class="form-group" *ngIf="formValidations?.formErrors?.terminationDate">
+    <span class="ant-form-item-error">
+      {{ formValidations?.formErrors?.terminationDate }}
+    </span>
+  </label>
+
+  <div class="form-group" [ngClass]="{'has-error': formValidations?.formErrors?.terminationReason}">
+    <label htmlFor="terminationReason">
+      {{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.terminationPPA?.labels?.termination_reason}}
+      <i class="required-asterik"> *</i>
+    </label>
+  </div>
+
+  <div class="form-group">
+    <select2 [data]="pmfDataService?.getSortedDropdownValues(pmfDataService?.JSON_DATA?.field_mapping_options?.reason?.fields)"
+             [(ngModel)]="payloadService.terminatePPA.terminationReason"
+             (valueChanged)="payloadService.terminatePPA.terminationReason = $event.value"
+             [value]="payloadService.terminatePPA.terminationReason"
+             [cssImport]="true"
+             [options]="options | optionsPipe: 'Select One' : pmfDataService?.JSON_DATA?.field_mapping_options?.reason?.fields"
+             name="terminationReason"
+             ngDefaultControl
+             required>
+    </select2>
+  </div>
+
+  <label class="form-group" *ngIf="formValidations?.formErrors?.terminationReason">
+    <span class="ant-form-item-error">
+      {{ formValidations?.formErrors?.terminationReason }}
+    </span>
+  </label>
+
+  <div *ngIf="payloadService.userType === 0">
+    <div class="form-group">
+      <label>
+        {{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.terminationPPA?.labels?.managedPCPQuestion}}
+        <i class="required-asterik"> *</i>
+      </label>
+      <div data-tcp-toggle-switch-cmp
+           [(ngModel)]="payloadService.terminatePPA.managedCarePCPIndicator"
+           [labelText]="dataService?.JSON_DATA?.view?.selectUpdateTypesView?.terminationPPA?.labels?.managedPCPQuestion"
+           [id]="'managedCarePCPIndicator'"
+           [name]="'managedCarePCPIndicator'"
+           [legendSrOnly]="true"
+           [options]="[{label: 'Yes', value: 'yes'}, {label: 'No', value: 'no'}]"
+           required>
+      </div>
+    </div>
+  </div>
+
+</div>

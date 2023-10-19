@@ -1,0 +1,13 @@
+<div class="pmf-section-container form-group" *ngIf="payLoadService?.network">
+  <div class="ant-heading-three">Network Participation</div>
+  <div class="pmf-container-group">
+    <div class="pmf-table-container" *ngIf="payLoadService?.networkModify">
+      <div>Add/Delete:</div>
+      <div>{{payLoadService?.networkModify === 'A' ? 'Add' : 'Delete'}}</div>
+    </div>
+    <div class="pmf-table-container" *ngIf="payLoadService?.network">
+      <div>Network:</div>
+      <div>{{payLoadService?.network}}</div>
+    </div>
+  </div>
+</div>

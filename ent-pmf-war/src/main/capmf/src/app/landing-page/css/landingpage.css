@@ -1,0 +1,113 @@
+.heading-lp {
+  text-align: center;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.top-buffer {
+  margin-top: 20px;
+}
+
+.desc-heading {
+  text-decoration: underline;
+}
+
+.desc-sub-heading {
+  margin-left: 4%;
+  font-size: small;
+  margin-bottom: 3.5%;
+  font-weight: 600;
+}
+
+.label-color,
+.date-color,
+.important-notice-header {
+  color: #FF0000;
+}
+
+.important-notice-header {
+  font-size: 1.25rem;
+}
+
+.display-none {
+  display: none;
+}
+
+.margin-left-4 {
+  margin-left: 4%;
+}
+
+.desc-row {
+  margin-left: 2%;
+  font-size: small;
+}
+
+.text-sub {
+  margin-left: 4%;
+  font-size: small;
+}
+
+.text-color-description_2 {
+  color: #FE5E3C;
+}
+
+.btn.btn-secondary-select {
+  background-color: #0079C2;
+  color: #FFF;
+  font-size: initial;
+  font-weight: bold;
+  border-color: #0079C2;
+}
+
+.btn.btn-secondary-select:hover, .btn.btn-secondary-select:focus, .btn.btn-secondary-select:active, .btn.btn-secondary-select:active:focus {
+  background-color: #FFF;
+  color: #00609A;
+  border-color: #FFF;
+}
+
+.btn.btn-secondary-su {
+  background-color: #FFF;
+  color: #428bca;
+  font-size: initial;
+  font-weight: bold;
+  border-color: #428bca;
+}
+
+.btn.btn-secondary-su:hover, .btn.btn-secondary-su:focus, .btn.btn-secondary-su.selected, .btn.btn-secondary-su:active, .btn.btn-secondary-su:active:focus {
+  background-color: #00609A;
+  color: #FFF;
+  border-color: #00609A;
+}
+
+.btn.btn-secondary-su.unselected {
+  background-color: #FFF;
+  color: #428bca;
+  border-color: #428bca;
+}
+
+.collapsible-heading-text {
+  font-size: 1rem !important;
+}
+
+.ant-collapse-body{
+  padding-top: 0px !important;
+}
+
+.ant-collapse-heading{
+  background: #A3A3A3 !important;
+  color: #FFFFFF;
+}
+
+.tile-info-wrapper {
+  columns: 2;
+}
+
+.has-sibling + .has-sibling {
+  margin-top: 1rem;
+}
+
+.important-notice div > a,
+.description-steps div > a {
+  font-weight: bold;
+  border-bottom: 0;
+}

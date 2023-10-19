@@ -1,0 +1,17 @@
+<div class="bs-form-panel">
+  <div class="form-group">
+    <label>
+      {{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.ambulance?.labels?.ambulanceIndicator}}
+      <i class="required-asterik"> *</i>
+    </label>
+    <div data-tcp-toggle-switch-cmp
+       [(ngModel)]="payLoadService.ambulance.ambulanceServicesIndicator"
+       [labelText]="dataService?.JSON_DATA?.view?.selectUpdateTypesView?.ambulance?.labels?.ambulanceIndicator"
+       id="ambulanceServicesIndicator"
+       name="ambulanceServicesIndicator"
+       [legendSrOnly]="true"
+       [options]="[{label: 'Yes', value: 'yes'}, {label: 'No', value: 'no'}]"
+       required>
+    </div>
+  </div>
+</div>

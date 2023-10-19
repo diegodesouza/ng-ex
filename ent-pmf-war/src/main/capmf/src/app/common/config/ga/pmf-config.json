@@ -1,0 +1,66 @@
+{
+  "header": {
+    "brandName": "GEORGIA",
+    "brandLogo": "images/BCBSGA.png"
+  },
+  "footer": "Anthem Blue Cross and Blue Shield is the trade name of Blue Cross Blue Shield Healthcare Plan of Georgia, Inc. Independent licensee of the Blue Cross and Blue Shield Association. ANTHEM is a registered trademark of Anthem Insurance Companies, Inc.",
+  "description_header": "If you are not currently participating with Anthem but wish to be, read and follow the instructions below to apply.",
+  "generalInfo": {
+    "LOBS": {
+      "fields": [
+        { "value": "1", "name": "Commercial", "checked": false, "disabled": false },
+        { "value": "1", "name": "Medicare", "checked": false, "disabled": false }
+      ]
+    }
+  },
+  "network": {
+    "fields": [
+      { "id": "Commercial", "text": "Commercial" },
+      { "id": "Medicare",   "text": "Medicare" }
+    ],
+    "field_name": "Network"
+  },
+  "selectUpdates": {
+    "individual_header": "Individual Provider Updates",
+    "organization_header": "Organization Provider Updates"
+  },
+  "landingPage": {
+    "steps": {
+      "blocks": [
+        {
+          "header": "Practitioner network participation",
+          "body": "If you wish to become a contracted provider or add a provider to your existing group, submit an application by going to the digital provider enrollment application for Anthem hosted on <a href='https://www.availity.com' target='_blank'>www.availity.com</a>."
+        },
+        {
+          "header": "Availity registration",
+          "body": "If your organization is not currently registered with Availity, the person(s) designated as your administrator(s) should go to <a href='https://www.availity.com' target='_blank'>www.availity.com</a> and select <i>register</i> in the upper right-hand corner of the webpage in order to obtain an Availity account. You may also navigate directly to Availity’s registration website by clicking here: <a href='https://www.availity.com/Essentials-Portal-Registration' target='_blank'>Availity Registration</a>."
+        },
+        {
+          "header": "Accessing digital provider enrollment",
+          "body": "If you are not currently designated as an administrator on <a href='https://www.availity.com' target='_blank'>www.availity.com</a> but are already a registered user, go to <i>My Account Dashboard > My Account > Organization(s) > Administrator Information</i> to determine who your organization’s administrators are. Your administrator will need to add <strong>Provider Enrollment</strong> to your Availity profile in order for you to access the digital provider enrollment application for Anthem in <strong>Payer Spaces</strong>."
+        },
+        {
+          "header": "Applying online",
+          "body": "Once you log into <a href='https://www.availity.com' target='_blank'>www.availity.com</a>, select <i>Payer Spaces > Anthem Blue Cross and Blue Shield > Applications > Provider Enrollment</i> to begin the application process."
+        },
+        {
+          "header": "Need assistance utilizing Availity’s services?",
+          "body": "Log onto <a href='https://www.availity.com/Contact-Us' target='_blank'>www.availity.com/Contact-Us</a> or call Availity Client Services at <strong>800-AVAILITY (800-282-4548)</strong>."
+        },
+        {
+          "header": "After you apply",
+          "body": "All of the information provided in the digital provider enrollment application for Anthem will be used to determine contract eligibility. You will receive an application ID upon successful submission. Use this application ID if you need to contact Anthem for the status of your application which you can do by navigating to the <i>Contact Us</i> page at <a href='https://www.anthem.com/provider/contact-us' target='_blank'>www.anthem.com/provider/contact-us</a>."
+        }
+      ]
+    },
+    "importantNotice": {
+      "header": "Important notice!",
+      "subheader": "Availity Provider Data Management",
+      "blocks": [
+        "Were you aware that making changes to your demographic information is about to become a whole lot easier? Beginning on 05/01/2023, a majority of providers contracted with Anthem Blue Cross and Blue Shield (Anthem) will have the ability to begin utilizing Availity’s Provider Demographic Management (PDM) service hosted on <a href='https://www.availity.com' target='_blank'>www.availity.com</a>. Availity PDM is used to request changes to existing practice information related to your Anthem contracted physicians, practitioners, professionals, and ancillary providers. See the section titled <strong>Availity Registration</strong> or <a href='https://www.availity.com/Essentials-Portal-Registration' target='_blank'>click here</a>.",
+        "Until the aforementioned migration date, you may continue submitting your changes through this <i>Provider Maintenance Form (PMF)</i>.",
+        "<strong>Note</strong>: The <i>PMF</i> is best viewed when using Google Chrome or Microsoft Edge."
+      ]
+    }
+  }
+}

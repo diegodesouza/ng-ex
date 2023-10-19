@@ -1,0 +1,31 @@
+.prOption {
+  position: relative;
+  left: 0px; }
+
+.active.prLabel:before {
+  background: none;
+  filter: none;
+  /* IE6-9 fallback on horizontal gradient */
+  border: none;
+  display: block; }
+
+.prLabel:before {
+  background: none;
+  filter: none;
+  /* IE6-9 fallback on horizontal gradient */
+  border: none;
+  display: block;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  content: none; }
+
+.prLabel {
+  float: none;
+  padding-left: 20px;
+  margin-right: 0;
+  display: block; }
+
+.prOption {
+  float: left;
+  top: 8px; }

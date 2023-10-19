@@ -1,0 +1,37 @@
+.accordion-container .panel-default > .panel-heading {
+    color: white;
+    background-color: darkgray;
+    border-color: #ddd;
+    height: 60px;
+    font-weight: 300;
+    cursor: pointer;
+    vertical-align: middle;
+
+}
+
+.accordion-container .panel {
+    border: none;
+    width: 96.25%;
+    margin-left: 2%;
+    background-color: transparent;
+}
+
+.accordion-container .collapsible-heading-text {
+    padding: .6rem 0px;
+    vertical-align: middle;
+    font-size: 1.444rem;
+    font-weight: 300;
+    margin-left: 10px;
+}
+
+.accordion-container .panel-default > .panel-heading span.fa {
+    font-weight: bold;
+    top: -2px;
+    position: relative;
+    color: #FE5E3C;
+    vertical-align: middle;
+}
+
+.accordion-container .panel-default > .panel-heading:hover {
+    color: white;
+}

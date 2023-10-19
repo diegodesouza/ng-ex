@@ -1,0 +1,16 @@
+-Dcom.ibm.security.jurisdictionPolicyDir=/config/resources/security
+-Djava.security.properties=/config/resources/security/java.security
+-Drebel.remoting_plugin=true
+-Doracledatabasemetadata.get_lob_precision=false
+-Dlog4j.configurationFile=/config/resources/log4j/PROD/log4j2.xml
+-Xms256m
+-Xmx1024m
+-Dintroscope.agent.hostName=Ocp-ProviderPortal-Prod
+-Xshareclasses:name=docker
+-Dorg.osgi.framework.bootdelegation=com.wily.*
+-javaagent:/IntroscopeAgent/wily/Agent.jar
+-Dcom.wily.introscope.agentProfile=/IntroscopeAgent/wily/core/config/IntroscopeAgent.liberty.profile
+-Dorg.osgi.framework.bootdelegation=com.wily.*
+-Dcom.wily.introscope.agent.agentName=pmf-prod
+-Dintroscope.agent.customProcessName=pmf-ui
+-DagentManager.url.1=prod-ebiz.caapm.anthem.com

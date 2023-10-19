@@ -1,0 +1,12 @@
+<div class="form-group">
+  <section class="bs-form-panel">
+    <p class="gi-inline-help">Are you moving? Please complete both ADDRESS - NEW and ADDRESS - TERMINATE sections, using the Effective Date of the move for both selections.</p>
+    <p class="gi-inline-help">The address entered in the General Information section will be the address updated.</p>
+    <div>
+      <practice-address
+       [address]="payLoadService.updateAddress.address"
+       [parentName]="parentName">
+      </practice-address>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,9 @@
+.license-text-width {
+    font-size: 1rem;
+    padding: .3rem .5rem;
+    border-radius: 4px;
+    border: 1px solid #666;
+    color: #666666;
+    max-width: 100%;
+    width: 100%!important;
+}

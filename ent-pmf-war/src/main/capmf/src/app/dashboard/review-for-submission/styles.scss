@@ -1,0 +1,62 @@
+.Review-For-Submission-Component {
+  & div > span {
+    font-weight: 600;
+  }
+}
+
+.pmf-table-container {
+  display: flex;
+  & div:first-child {
+    font-weight: 600;
+    flex: 0 0 20%;
+  }
+  & div:nth-child(2) {
+    flex: 1 1 30%;
+  }
+}
+
+.DaysHoursComponent-wrapper {
+  display: flex;
+  & .pmf-table-container-padded:first-child,
+  .pmf-table-container-padded:nth-child(2) {
+    flex-basis: 20%;
+  }
+}
+
+.pmf-table-container-padded {
+  display: flex;
+  & div:first-child {
+    font-weight: 600;
+    padding-right: 10px;
+  }
+  & div:nth-child(2) {
+    flex: 1 1 30%;
+  }
+}
+
+.pmf-container-group {
+  margin: 10px 0;
+}
+
+.pmf-section-container {
+  margin-bottom: 25px !important;
+  margin-top: 25px !important;
+}
+
+a.ant-action-link-ur .fa {
+  font-size: 24px;
+}
+
+.pmf-padx {
+  padding: 0 15px;
+}
+
+.pmf-flex-end {
+  display: flex;
+  align-items: flex-end;
+}
+
+.pmf-neg-margin-bot-15 {
+  margin-bottom: -15px !important;
+}
+

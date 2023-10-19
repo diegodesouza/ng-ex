@@ -1,0 +1,39 @@
+.button-width {
+    margin-top: 10px;
+    width: 90%;
+    padding-left: 1rem !important;
+    padding-top: 15px !important;
+    padding-bottom: 2px !important;
+}
+
+.panel-body-su {
+    padding: 15px;
+    background: lightgray
+}
+
+.panel-body-su:before, .panel-body-su:after {
+    content: " ";
+    display: table;
+}
+
+.panel-body-su:after {
+    clear: both;
+}
+
+.sub-text {
+    font-size: x-small;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.Selected-Updates-Component_wrapper {
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  columns: 2;
+}
+
+.pmf-margin-left-42 {
+  margin-left: 42px;
+}

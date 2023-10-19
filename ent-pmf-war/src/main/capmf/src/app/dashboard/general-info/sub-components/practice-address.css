@@ -1,0 +1,10 @@
+.ant-lg-select .pfSelect .psButton {
+  width: 633px !important;
+}
+
+.tooltip-popIcon-label {
+  display: inline-block;
+  border-bottom: 0;
+  text-indent: 1px;
+  position: relative;
+}

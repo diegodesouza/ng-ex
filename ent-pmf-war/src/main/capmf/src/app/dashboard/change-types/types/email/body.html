@@ -1,0 +1,42 @@
+<div class="bs-form-panel">
+  <div *ngFor="let email of payloadService.email; let ind = index">
+    <div class="form-group">
+      <div data-tcp-toggle-switch-cmp
+           [(ngModel)]="email.requestActionCd"
+           id="{{indexArray[index]}}-rbtnaddEmail"
+           name="{{ind}}-rbtnaddEmail"
+           [legendSrOnly]="true"
+           [options]="[{label: 'Add', value: 'A'}, {label: 'Delete', value: 'D'}]">
+      </div>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error': formValidations?.formErrors | errorspipe: 'email-':ind}">
+      <label>Email Address</label>
+      <input class="ant-text-input ant-text-input-wide ant-top-margin-12"
+             id="email" [(ngModel)]="email.emailAddress"
+             name="email-{{ind}}"
+             placeholder="Email Address"
+             required pattern="^[\w!#$%&'*+\/=?^_`{|}~-]+([\.-]?[\w!#$%&'*+\/=?^_`{|}~+-])*@\w+([\.-]?\w)*(\.\w{2,15})$">
+      <div *ngIf="payloadService.email.length > 1">
+        <a class="ant-action-link ant-action-link" (click)="removeAddress(ind)">Remove</a>
+      </div>
+      <div>
+        <span *ngIf="formValidations?.formErrors | errorspipe: 'email-':ind" class="ant-form-item-error">
+          {{ formValidations?.formErrors | errorspipe: 'email-':ind}}
+        </span>
+      </div>
+    </div>
+    <p class="gi-inline-help">
+      The email address entered here will be used in the online provider public directory.
+      Please do not enter an email address that you do not want publicly accessible.
+    </p>
+    <hr>
+  </div>
+  <div class="form-group pmf-margin-left-20" *ngIf="payloadService.email.length < 4">
+    <div class="icon-item" (click)="addEmailAddress()">
+      <span class="fa md fa-plus-circle"></span>
+    </div>
+    <div class="icon-description">
+      Add Another Email Address
+    </div>
+  </div>
+</div>

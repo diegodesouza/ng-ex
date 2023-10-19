@@ -1,0 +1,23 @@
+.ant-input-wide {
+    width: 490px !important;
+}
+
+.btn-blue {
+    border-color: #0079C2 !important;
+    color: #0079C2 !important;
+    background-color: #FFFFFF !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-blue input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    -ms-filter: 'alpha(opacity=0)';
+    font-size: 200px;
+    direction: ltr;
+    cursor: pointer;
+}

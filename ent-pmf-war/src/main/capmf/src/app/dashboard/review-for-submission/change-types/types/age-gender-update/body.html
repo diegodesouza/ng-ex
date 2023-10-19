@@ -1,0 +1,17 @@
+<div class="pmf-section-container form-group">
+  <div class="ant-heading-three">Patient Age / Gender Preference</div>
+  <div class="pmf-container-group">
+    <div class="pmf-table-container" *ngIf="payLoadService?.minimumAge">
+      <div>Minimum Age:</div>
+      <div>{{payLoadService?.minimumAge}}</div>
+    </div>
+    <div class="pmf-table-container" *ngIf="payLoadService?.maximumAge">
+      <div>Maximum Age:</div>
+      <div>{{payLoadService?.maximumAge}}</div>
+    </div>
+    <div class="pmf-table-container" *ngIf="payLoadService?.gender">
+      <div>Gender:</div>
+      <div>{{payLoadService?.gender}}</div>
+    </div>
+  </div>
+</div>

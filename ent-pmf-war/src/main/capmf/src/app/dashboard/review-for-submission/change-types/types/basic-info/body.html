@@ -1,0 +1,30 @@
+<div class="pmf-container-group">
+  <div class="pmf-table-container"
+       *ngIf="payLoadService?.firstName
+         || payLoadService?.lastName
+         || payLoadService?.middleName
+         || payLoadService?.practitionerFirstName
+         || payLoadService?.practitionerLastName
+         || payLoadService?.practitionerMiddleName">
+    <div>Name:</div>
+    <div>
+      {{payLoadService?.firstName || payLoadService?.practitionerFirstName}}
+      {{payLoadService?.middleName || payLoadService?.practitionerMiddleName}}
+      {{payLoadService?.lastName || payLoadService?.practitionerLastName }}
+    </div>
+  </div>
+  <div class="pmf-table-container" *ngIf="payLoadService?.suffix || payLoadService?.practitionerSuffix">
+    <div>Suffix:</div>
+    <div>{{payLoadService?.suffix || payLoadService?.practitionerSuffix}}</div>
+  </div>
+
+  <div class="pmf-table-container" *ngIf="payLoadService?.title || payLoadService?.practitionerTitle">
+    <div>Title:</div>
+    <div>{{payLoadService?.title || payLoadService?.practitionerTitle}}</div>
+  </div>
+
+  <div class="pmf-table-container pmf-flex-end" *ngIf="payLoadService?.license || payLoadService?.practitionerLicense">
+    <div>License / Certification Number:</div>
+    <div>{{payLoadService?.license || payLoadService?.practitionerLicense}}</div>
+  </div>
+</div>

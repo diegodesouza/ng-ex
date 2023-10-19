@@ -1,0 +1,7 @@
+.bs-form-panel .form-group .table > tbody > tr > td {
+  border-top: 2px solid #ddd !important;
+}
+
+input:nth-child(1) {
+  display: flex !important;
+}

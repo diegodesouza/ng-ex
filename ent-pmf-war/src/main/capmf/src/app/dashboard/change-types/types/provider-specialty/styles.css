@@ -1,0 +1,17 @@
+.ant-margin-left-70{
+    margin-left: 70px !important;
+    margin-top: 10px !important;
+}
+
+.fixed-align .ptLabel{
+    width: 35%;
+}
+
+.ant-min-height-panel-600{
+    min-height: 600px;
+}
+
+.tooltip-popIcon-date{
+    top: -7px !important;
+    margin-left: 35px !important;
+}

@@ -1,0 +1,80 @@
+<fieldset>
+    <div class="ant-blue heading-lp">
+        Please select either Individual or Organization
+    </div>
+    <section class="panel panel-default">
+        <div class="nav nav-pills nav-justified">
+            <button type="button" class="btn btn-secondary-su col-lg-6"
+                    [ngClass]="{selected: userTypeService.userType === 0}"
+                    (click)="userTypeService.onButtonClick(0); handleChange('startBlockExpanded', false)">Individual
+            </button>
+            <button type="button" class="btn btn-secondary-su col-lg-6"
+                    [ngClass]="{selected: userTypeService.userType === 1}"
+                    (click)="userTypeService.onButtonClick(1); handleChange('startBlockExpanded', false)">Organization
+            </button>
+        </div>
+        <div class="panel-body">
+            <dfn *ngIf="userTypeService.userType === 0">An Individual is a unique healthcare provider who serves
+                patients in one or many organizations.</dfn>
+            <dfn *ngIf="userTypeService.userType === 1">An Organization is an organization, practice location or group
+                of practice locations that provide(s) healthcare through one or many providers.</dfn>
+        </div>
+        <div class="collapseItemContainer">
+            <div *ngIf="userTypeService.userType === 0" data-uxd-collapse-item-cmp
+                 (click)="toggleStartBlockExpanded()"
+                 [collapseItem]="{
+                 'headingContent': 'Individual Change Type Descriptions',
+                 'startBlockExpanded': startBlockExpanded
+                 }">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row desc-row">
+                            <div class="col-md-12 ant-font-sb">Changes Include:</div>
+                        </div>
+                      <div class="tile-info-wrapper desc-row top-buffer">
+                        <div class="desc-sub-heading"
+                             *ngFor="let update of selectUpdatesModel?.getSortedFilteredUpdates('individual')">
+                          {{ update.title }} {{update.subTitle}}
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="userTypeService.userType === 1" data-uxd-collapse-item-cmp
+                 (click)="toggleStartBlockExpanded()"
+                 [collapseItem]="{
+                 'headingContent' : 'Organization Change Type Descriptions',
+                 'startBlockExpanded': startBlockExpanded
+                 }">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row desc-row">
+                            <div class="col-md-12 ant-font-sb">Changes Include:</div>
+                        </div>
+                        <div class="tile-info-wrapper desc-row top-buffer">
+                            <div class="desc-sub-heading"
+                                 *ngFor="let update of selectUpdatesModel.getSortedFilteredUpdates('organization')">
+                                {{ update.title }} {{update.subTitle}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <important-notice *ngIf="configService.hasLandingPageSteps()"></important-notice>
+    <div class="button-group" [ngStyle]="configService.hasLandingPageSteps() && {'margin-top': '6.25rem'}" align="right">
+        <button class="btn" (click)="next()">
+            Next
+        </button>
+    </div>
+</fieldset>
+
+<div #selectInfoModal="modal" data-uxd-modal-cmp [modal]="dataService?.JSON_DATA?.view.landingPage.modal">
+    <div class="modal-component-body">
+    </div>
+    <div class="modal-component-footer">
+        <button type="button" class="btn btn-primary" (click)="continue()">OK</button>
+        <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+    </div>
+</div>

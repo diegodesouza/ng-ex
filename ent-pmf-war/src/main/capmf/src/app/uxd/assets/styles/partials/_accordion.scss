@@ -1,0 +1,117 @@
+
+/*bootstrap accordion start*/
+.ant-accordion {
+    .panel,
+    .panel + .panel {
+      margin-top:1rem;
+      border:0px solid $primary-color-light-blue;
+      border-radius:0px;
+    }
+
+  .panel-heading a {
+    display:table-row;
+    width:100%;
+    border:0px;
+
+    span.fa {
+      color:#FFF;
+      display:table-cell;
+      vertical-align: middle;
+      font-size:1.857rem;;
+    }
+
+    span.heading-text {
+      display:table-cell;
+      vertical-align: middle;
+      padding-left:.6rem;
+      color:$white;
+    }
+  }
+
+    .panel-heading {
+      padding:0px;
+      background:transparent;
+      border:none;
+    }
+
+    .panel-heading a.collapsed {
+        background-color:$primary-color-light-blue;
+    }
+
+    .panel-heading a {
+        font-size: 1.444rem;;
+        padding: .6rem;
+        display:block;
+        background-color:$primary-color-light-blue;
+        background-image:none;
+        filter:none;
+    }
+
+    .panel-heading a, .panel-heading a:hover, .panel-heading a:focus {
+        text-decoration:none;
+    }
+
+    .panel-body {
+        padding:1.714rem 1.111rem;
+        border:1px solid transparent;
+      box-shadow: 0px 0px;
+    }
+}
+
+.ant-accordion-label {
+
+    font-size: 1rem;
+    color: $black;
+    text-decoration: none;
+}
+
+a.ant-accordion-toggle:focus,
+a.ant-accordion-toggle:hover {
+    text-decoration: none;
+}
+
+a.ant-accordion-toggle:focus span.ant-accordion-label,
+span.ant-accordion-label:hover {
+    text-decoration: underline;
+}
+
+.ant-accordion .collapse{
+    -webkit-transition: max-height 500ms ease-out, visibility 500ms ease;
+    -o-transition: max-height 500ms ease-out, visibility 500ms ease;
+    transition: max-height 500ms ease-out, visibility 500ms ease;
+    max-height: 0;
+    overflow: hidden;
+    display:inherit;
+    visibility:hidden;
+}
+
+.ant-accordion .collapse.in .panel-body{
+  max-height:3000px;
+  visibility:visible;
+  -webkit-transition: max-height 500ms ease-out, visibility 500ms ease, border 500ms ease;
+    -o-transition: max-height 500ms ease-out, visibility 500ms ease, border 500ms ease;
+    transition: max-height 500ms ease-out, visibility 500ms ease, border 500ms ease;
+  border: 1px solid #DCDCDC;
+  border-top:0px;
+}
+
+.ant-accordion .collapse .panel-body{
+  max-height:0px;
+  visibility:hidden;
+  -webkit-transition: max-height 500ms ease-out, visibility 500ms ease, border 500ms ease;
+    -o-transition: max-height 500ms ease-out, visibility 500ms ease, border 500ms ease;
+    transition: max-height 500ms ease-out, visibility 500ms ease, border 750ms ease;
+  border: 1px solid transparent;
+  border-top:0px;
+}
+
+.ant-accordion .collapse.in{
+    -webkit-transition: max-height 500ms ease-out, visibility 500ms ease;
+    -o-transition: max-height 500ms ease-out, visibility 500ms ease;
+    transition: max-height 500ms ease-out, visibility 500ms ease;
+    max-height: 3000px;
+    display:inherit;
+    visibility:visible;
+    overflow:visible;
+}
+/*bootstrap accordion end*/

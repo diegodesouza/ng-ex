@@ -1,0 +1,15 @@
+<div class="tabs" style="margin-top: 30px;">
+  <ul class="nav nav-pills nav-justified hidden-xs hidden-xxs" role="tablist">
+    <li role="presentation" class="uxdTabCtrlTabLink uxdTabCtrlTabLinks{{$index}}" *ngFor="let tile of tabs; let first = first; let $index = index">
+      <a #viewButton href="javascript:void(0)" id="uxdTabCtrlViewButton{{$index}}" class="viewButton uxdTabCtrlViewButton{{$index}}" attr.aria-controls="tab-{{$index}}" role="tab" data-toggle="tab" [attr.aria-expanded] = "first? true: false" (click)="tabClick(tile.name)"> {{tile.label}}</a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div *ngFor="let tile of tabs; let first = first; let $index = index" class="accordion-item-control visible-xs visible-xxs clearfix">
+      <a #viewButton href="javascript:void(0)" class="viewButton uxdTabCtrlViewButton{{$index}}" attr.aria-controls="tab-{{$index}}" role="tab" data-toggle="tab" [attr.aria-expanded] = "first? true: false" (click)="tabClick(tile.name)" id="accordion-item-control-{{$index}}"> {{tile.label}}</a>
+    </div>
+    <div id="tab-{{$index}}" role="tabpanel" class="tab-pane" *ngFor="let tile of tabs; trackBy let first = first; let $index = index">
+          <div data-loaded="false" [innerHTML]="tile.content" class="viewContent" id="uxdTabCtrlContainer{{$index}}"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="bs-form-panel">
+  <div class="form-group">
+    <label>
+      {{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.telehealth?.labels?.telehealthIndicator}}
+      <i class="required-asterik"> *</i>
+    </label>
+    <div data-tcp-toggle-switch-cmp
+       [(ngModel)]="payLoadService.telehealth.telehealthServicesIndicator"
+       [labelText]="dataService?.JSON_DATA?.view?.selectUpdateTypesView?.telehealth?.labels?.telehealthIndicator"
+       id="telehealthServicesIndicator"
+       name="telehealthServicesIndicator"
+       [legendSrOnly]="true"
+       [options]="[{label: 'Yes', value: 'yes'}, {label: 'No', value: 'no'}]"
+       required>
+    </div>
+  </div>
+</div>

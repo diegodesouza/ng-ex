@@ -1,0 +1,106 @@
+<div class="bs-form-panel">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group clearfix">
+        <input name="practitionerFirstName"
+               type="text"
+               class="ant-text-input ant-text-input-wide"
+               placeholder="First Name"
+               [(ngModel)]="payLoadService.practitionerChangeType.practitionerFirstName"
+               pattern="^[a-zA-Z]['\-a-zA-Z ]*"
+               required/>
+      </div>
+      <div *ngIf="formValidations?.formErrors?.practitionerFirstName" class="form-group">
+        <span class="ant-float-left ant-full-width ant-form-item-error">
+          {{ formValidations?.formErrors.practitionerFirstName }}
+        </span>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group clearfix">
+        <input name="practitionerLastName"
+               type="text"
+               class="ant-text-input ant-text-input-wide"
+               placeholder="Last Name"
+               [(ngModel)]="payLoadService.practitionerChangeType.practitionerLastName"
+               pattern="^[a-zA-Z]['\-a-zA-Z ]*"
+               required/>
+      </div>
+      <div *ngIf="formValidations?.formErrors?.practitionerLastName" class="form-group">
+        <span class="ant-float-left ant-full-width ant-form-item-error">
+          {{ formValidations?.formErrors.practitionerLastName }}
+        </span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group clearfix">
+        <input name="practitionerMiddleName"
+               type="text"
+               class="ant-text-input ant-text-input-wide ant-top-margin-5"
+               placeholder="Middle Name"
+               [(ngModel)]="payLoadService.practitionerChangeType.practitionerMiddleName"
+               pattern="^[a-zA-Z]['\-a-zA-Z ]*"/>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group clearfix">
+        <select2 [data]="pmfDataService?.JSON_DATA?.field_mapping_options.suffix.fields"
+                 [(ngModel)]="payLoadService.practitionerChangeType.practitionerSuffix"
+                 (valueChanged)="payLoadService.practitionerChangeType.practitionerSuffix = $event.value"
+                 [value]="payLoadService.practitionerChangeType.practitionerSuffix"
+                 [cssImport]="true"
+                 [options]="options | optionsPipe: 'Suffix' : pmfDataService?.JSON_DATA?.field_mapping_options.suffix.fields"
+                 name="suffix"
+                 id="suffix"
+                 ngDefaultControl>
+        </select2>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group clearfix">
+        <select2 [data]="pmfDataService?.getSortedDropdownValues(pmfDataService?.JSON_DATA?.field_mapping_options.title.fields)"
+                 [(ngModel)]="payLoadService.practitionerChangeType.practitionerTitle"
+                 (valueChanged)="payLoadService.practitionerChangeType.practitionerTitle = $event.value"
+                 [value]="payLoadService.practitionerChangeType.practitionerTitle"
+                 [cssImport]="true"
+                 [options]="options | optionsPipe: 'Title' : pmfDataService?.JSON_DATA?.field_mapping_options.title.fields"
+                 name="title"
+                 ngDefaultControl>
+        </select2>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="formValidations?.formErrors?.practitionerMiddleName">
+    <div class="form-group clearfix">
+      <span class="ant-float-left ant-full-width ant-form-item-error">
+        {{ formValidations?.formErrors.practitionerMiddleName }}
+      </span>
+    </div>
+  </div>
+
+  <div class="form-group clearfix">
+    <input name="practitionerLicense"
+           type="text"
+           class="ant-text-input input-width"
+           placeholder="License / Certification Number"
+           [(ngModel)]="payLoadService.practitionerChangeType.practitionerLicense"
+           required
+           maxlength="20"
+           pattern="[a-zA-Z0-9]+"/>
+  </div>
+
+  <div *ngIf="formValidations?.formErrors?.practitionerLicense">
+    <div class="form-group clearfix">
+      <span class="ant-float-left ant-full-width ant-form-item-error">
+        {{ formValidations?.formErrors.practitionerLicense }}
+      </span>
+    </div>
+  </div>
+</div>

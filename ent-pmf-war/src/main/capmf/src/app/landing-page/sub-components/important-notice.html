@@ -1,0 +1,7 @@
+<div class="body-sm important-notice">
+  <div class="important-notice-header margin-left-4">{{configService?.CONFIG?.landingPage?.importantNotice?.header}}</div>
+  <div class="ant-margin-bot-20 margin-left-4 important-notice-subheader"><strong>{{configService?.CONFIG?.landingPage?.importantNotice?.subheader}}</strong></div>
+  <div class="text-sub ant-font-r has-sibling" *ngFor="let block of configService?.CONFIG?.landingPage?.importantNotice?.blocks">
+    <div [innerHTML]="block"></div>
+  </div>
+</div>

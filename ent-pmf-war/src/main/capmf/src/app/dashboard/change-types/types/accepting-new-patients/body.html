@@ -1,0 +1,58 @@
+<div class="bs-form-panel">
+  <div class="form-group">
+    <label>Are you accepting new patients?</label>
+    <div data-tcp-toggle-switch-cmp
+       [(ngModel)]="acceptingNewPatients.acceptingNewPatientIndicator"
+       id="{{parentName}}-tswitchNewPatient"
+       name="{{parentName}}-tswitchNewPatient"
+       [options]="[{label: 'Yes', value: 'yes'}, {label: 'No', value: 'no'}]">
+    </div>
+  </div>
+  <span *ngIf="acceptingNewPatients.acceptingNewPatientIndicator === 'yes'">
+    <div class="form-group" [ngClass]="{'has-error': formValidations?.formErrors | errorsappendparentname: parentName:'-patientMinimumAge'}">
+      <label>Minimum Age</label>
+      <input type="text"
+             class="ant-text-input"
+             name="{{parentName}}-patientMinimumAge"
+             [(ngModel)]="acceptingNewPatients.patientMinimumAge"
+             placeholder="Minimum Age"
+             pattern="^\d{0,3}$"
+             maxlength="3"
+             required>
+      <label>
+        <span *ngIf="formValidations?.formErrors | errorsappendparentname: parentName:'-patientMinimumAge'" class="ant-form-item-error">
+          {{ formValidations?.formErrors | errorsappendparentname: parentName:'-patientMinimumAge' }}
+        </span>
+      </label>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error': formValidations?.formErrors | errorsappendparentname: parentName:'-patientMaximumAge'}">
+      <label>Maximum Age</label>
+      <input type="text"
+             class="ant-text-input"
+             name="{{parentName}}-patientMaximumAge"
+             [(ngModel)]="acceptingNewPatients.patientMaximumAge"
+             placeholder="Maximum Age"
+             pattern="^\d{0,3}$"
+             maxlength="3" 
+             required>
+      <label>
+        <span *ngIf="formValidations?.formErrors | errorsappendparentname: parentName:'-patientMaximumAge'" class="ant-form-item-error">
+          {{ formValidations?.formErrors | errorsappendparentname: parentName:'-patientMaximumAge' }}
+        </span>
+      </label>
+    </div>
+    <div class="form-group pmf-md-select">
+      <label>Gender Preference</label>
+      <select2 [data]="pmfDataService?.getSortedDropdownValues(pmfDataService?.JSON_DATA?.field_mapping_options?.gender?.fields)"
+               [(ngModel)]="acceptingNewPatients.patientGender"
+               (valueChanged)="acceptingNewPatients.patientGender = $event.value"
+               [value]="acceptingNewPatients.patientGender"
+               [cssImport]="true"
+               [options]="options | optionsPipe: 'Select One' : pmfDataService?.JSON_DATA?.field_mapping_options?.gender?.fields"
+               name="{{parentName}}-patientGender"
+               ngDefaultControl
+               required>
+      </select2>
+    </div>
+  </span>
+</div>

@@ -1,0 +1,26 @@
+<div class="bs-form-panel">
+  <div class="form-group">
+    <div class="ant-margin-top-10 ant-margin-bot-10">
+      <label class="gi-inline-help">
+        {{dataService?.JSON_DATA?.view?.selectUpdateTypesView.networkParticipation.labels.network_info_message}}
+      </label>
+    </div>
+    <div data-tcp-toggle-switch-cmp
+       [(ngModel)]="payLoadService.networkParticipation.networkModify"
+       [options]="[{label: 'Add', value: 'A'}, {label: 'Delete', value: 'D'}]">
+    </div>
+  </div>
+  <div class="form-group">
+    <label>{{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.networkParticipation?.labels?.network}}</label>
+    <select2 [data]="pmfDataService?.getSortedDropdownValues(pmfConfigService?.CONFIG?.network?.fields)"
+             [(ngModel)]="payLoadService.networkParticipation.network"
+             (valueChanged)="payLoadService.networkParticipation.network = $event.value"
+             [value]="payLoadService.networkParticipation.network"
+             [cssImport]="true"
+             [options]="options | optionsPipe: 'Select One' : pmfConfigService?.CONFIG?.network?.fields"
+             name="networkId"
+             ngDefaultControl
+             required>
+    </select2>
+  </div>
+</div>

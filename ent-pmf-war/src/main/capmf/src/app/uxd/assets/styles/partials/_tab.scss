@@ -1,0 +1,202 @@
+/*bootstrap tab start*/
+.tab-content > .tab-pane {
+    padding: 10px;
+}
+
+.tab-controls-container {margin-bottom:50px;}
+
+.tab-controls-container ul {
+  list-style:none;
+  text-align:center;
+  margin:0px;
+  padding:0px;
+  border-bottom:1px solid $medium-gray;}
+
+.tab-item-control {
+	border-bottom:5px solid transparent;
+	margin:10px 10px -3px;
+	display:inline-block;
+	width:160px;
+	padding-bottom:10px;
+    font-weight:400;
+}
+
+@media (min-width: 1024px) {
+	.tab-item-control {margin:20px 20px -3px;width:195px;}
+}
+@media (min-width: 1200px) {
+	.tab-item-control {margin:20px 20px -3px;width:220px;}
+}
+
+.tab-item-control.active-control {
+	position: relative;
+	background: #fff;
+	border-bottom: 4px solid $accent-color-salmon;
+
+  h2.tab-label {display:table-cell;}
+  span.tab-label {display:none;}
+}
+
+.tab-item-control.active-control .tab-label {color:#333;font-weight:600;}
+
+.tab-item-control {
+
+  .tab-label {
+    color:$primary-color-light-blue;
+    font-size:18px;
+    vertical-align:middle;
+    height:65px;
+    display: table-cell;
+    text-align: center;
+    width: 220px;
+    @media screen and (min-width: 800px) {
+      padding-top: 1.375rem;
+    }
+    @media screen and (min-width: 1024px) {
+      padding-top: 1.222rem;
+      height: 75px;
+    }
+  }
+
+  h2.tab-label {
+    display:none;
+    line-height:1.45em;
+  }
+
+  span.tab-label {
+    display:table-cell;
+  }
+}
+
+.tab-item-control .fa {
+    font-size:44px;
+    display:block;
+    text-align:center;
+    margin:10px 0px 0px;
+    color:$accent-color-salmon;
+    position:relative;}
+
+
+
+.tab-item-control .fa-envelope {font-size:42px;}
+
+.tab-item-control .fa-lock:before {
+    font-size:52px;
+    top:8px;
+    position: relative;}
+
+.tab-content-container {clear:both;}
+
+.tab-item {
+  display:none;
+}
+
+.tab-item.active-item {
+  display:block;
+}
+
+.accordion-item-control {
+    margin:0px;
+    padding:2rem 1rem 2rem 0;
+    border-bottom:2px solid $medium-gray;
+    position:relative;
+    cursor:pointer;}
+
+.item-control-inner {display:table-row;}
+
+.item-control-inner span {display:table-cell;vertical-align:middle;}
+
+.accordion-item-control.active-control {
+  cursor:auto;
+
+    &.open {
+        border-bottom:2px solid $accent-color-salmon;
+    }
+
+    & + .tab-item {
+        max-height: 0px;
+        padding: 0px;
+        overflow: hidden;
+        visibility: hidden;
+        transition: max-height .35s ease-out, visibility .35s ease-out, padding .35s ease-out .35s;}
+    &.open + .tab-item {
+        max-height: 20000px;
+        padding: 2rem .6rem 1.111rem;
+        visibility: visible;
+        transition: max-height .35s ease-in, visibility .35s ease-in;}
+}
+
+.accordion-item-control .accordion-label {
+    color:$primary-color-light-blue;
+    font-size:1.285rem;}
+
+.accordion-item-control .fa {
+    font-size:1.714rem;
+    color:$accent-color-salmon;
+    text-align: center;
+    width: 85px;}
+
+
+/** Arrow -- Removed 5/18 RTD **/
+/**
+.accordion-item-control.active-control:after,
+.accordion-item-control.active-control:before {
+	top:100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.accordion-item-control.active-control:after {
+	border-color: rgba(255, 255, 255, 0);
+	border-top-color: #f8f8f8;;
+	border-width: 30px;
+	margin-left: -30px;
+	border-top-width:20px;
+}
+.accordion-item-control.active-control:before {
+	border-color: rgba(0, 96, 154, 0);
+	border-top-color: $gray;
+	border-width: 34px;
+	margin-left: -34px;
+	border-top-width:23px;
+} **/
+
+.accordion-item.active-item {
+  border-bottom:2px solid $medium-gray;
+  padding-bottom:20px;
+}
+
+.accordion-item.active-item:last-child {
+  border-bottom:0px solid;
+}
+
+@media screen and (min-width:800px) {
+  .accordion-item.active-item {
+  border-bottom:0px solid;}
+
+    .accordion-item-control.active-control {
+        & + .tab-item {
+            visibility: visible;
+            max-height: 3000px;
+            padding: .3rem .6rem 1.111rem;
+        }
+    }
+}
+
+@media screen and (max-width:800px) {
+  .tab-item.active-item {
+    padding:2rem 0;
+  }
+}
+
+.accordion-item-control span.clear {
+  display:block;
+  clear:both;
+}
+
+

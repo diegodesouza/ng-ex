@@ -1,0 +1,84 @@
+<div class="bs-form-panel">
+  <div class="form-group">
+    <label>{{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.speciality?.labels?.request_type_question}}</label>
+    <div
+       data-tcp-toggle-switch-cmp
+       [(ngModel)]="payloadService.specialty.addNewRequest"
+       [labelText]="dataService?.JSON_DATA?.view.selectUpdateTypesView.speciality.labels.request_type_question"
+       [id]="'rbtnReqType'"
+       [name]="'rbtnReqType'"
+       [legendSrOnly]="true"
+       [options]="[{label: 'Add', value: 'A'}, {label: 'Update', value: 'U'}]"
+       required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>{{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.speciality?.labels?.pcp_question}}</label>
+    <div
+       data-tcp-toggle-switch-cmp
+       [(ngModel)]="payloadService.specialty.pcpIndicator"
+       [labelText]="dataService?.JSON_DATA?.view?.selectUpdateTypesView?.speciality?.labels?.pcp_question"
+       [id]="'rbtnIsPCP'"
+       [name]="'rbtnIsPCP'"
+       [legendSrOnly]="true"
+       [options]="[{label: 'Yes', value: 'yes'}, {label: 'No', value: 'no'}]"
+       required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>
+      <a href="javascript:void(0);"
+         class="fa fa-info-circle bs-tooltip-popIcon-date"
+         data-uxd-tooltip-dir
+         [definition]="{htmlContent: tooltip2, placement: 'left', tooltipHasClose: true}"
+         aria-hidden="true">
+      </a>
+      {{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.speciality?.labels?.primary_speciality}}
+    </label>
+    <ng-template #tooltip2>
+      <div style="margin-right: -20px;">A change in specialty type may require changes in credentialing and/or pricing</div>
+    </ng-template>
+    <select2 [data]="pmfDataService?.getSortedDropdownValues(pmfDataService?.JSON_DATA?.field_mapping_options?.provider_specialty?.fields)"
+             [(ngModel)]="payloadService.specialty.primarySpecialty"
+             (valueChanged)="payloadService.specialty.primarySpecialty = $event.value"
+             [value]="payloadService.specialty.primarySpecialty"
+             [cssImport]="true"
+             [options]="options | optionsPipe: 'Select One' : pmfDataService?.JSON_DATA?.field_mapping_options?.provider_specialty?.fields"
+             name="primarySpecialty"
+             id="primarySpecialty"
+             ngDefaultControl
+             required>
+    </select2>
+  </div>
+
+  <div *ngFor="let additionalSpecialty of payloadService.specialty.additionalSpecialties; let ind = index">
+    <div class="form-group">
+      <label>{{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.speciality?.labels?.additional_speciality}}</label>
+      <select2 [data]="pmfDataService?.getSortedDropdownValues(pmfDataService?.JSON_DATA?.field_mapping_options?.provider_specialty?.fields)"
+               [(ngModel)]="additionalSpecialty.specialty"
+               (valueChanged)="additionalSpecialty.specialty = $event.value"
+               [value]="additionalSpecialty.specialty"
+               [cssImport]="true"
+               [options]="options | optionsPipe: 'Select One' : pmfDataService?.JSON_DATA?.field_mapping_options?.provider_specialty?.fields"
+               name="{{ind}}-additionalSpecialty"
+               id="{{ind}}-additionalSpecialty"
+               ngDefaultControl
+               required>
+      </select2>
+      <div *ngIf="payloadService.specialty.additionalSpecialties.length > 1">
+        <a id="{{ind}}-removeSpecialty" class="ant-action-link" (click)="removeProviderSpecialty(ind)">Remove</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group pmf-margin-left-20" *ngIf="payloadService.specialty.additionalSpecialties.length < 3">
+    <div class="icon-item" (click)="addAdditionalSpecialty()">
+      <span class="fa md fa-plus-circle blue"></span>
+    </div>
+    <div class="icon-description">
+      Add Additional Specialty
+    </div>
+  </div>
+</div>

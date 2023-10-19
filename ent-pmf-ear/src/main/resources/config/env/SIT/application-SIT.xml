@@ -1,0 +1,52 @@
+<server description="ecp-ent-pmf-appplication_war Server">
+	<featureManager>
+		<feature>jaxws-2.2</feature>
+		<feature>servlet-3.1</feature>
+		<feature>jsp-2.3</feature>
+		<feature>json-1.0</feature>
+		<feature>jndi-1.0</feature>
+		<feature>transportSecurity-1.0</feature>
+		<feature>jdbc-4.1</feature>
+		<feature>appSecurity-2.0</feature>
+		<feature>javaMail-1.5</feature>
+	</featureManager>
+	<!-- Logging Strategy -->
+	<logging logDirectory="/wslogs/${APP_SERVER_NAME}"
+		maxFileSize="200" maxFiles="14" traceFileName="trace.log"
+		traceFormat="BASIC" traceSpecification="*=INFO"
+		messageFileName="messages.log" copySystemStreams="true"
+		consoleLogLevel="AUDIT" suppressSensitiveTrace="true"
+		hideMessage="Could not lock User prefs.  Unix error code 2. ,  Couldn't flush user prefs: java.util.prefs.BackingStoreException: Couldn't get file lock." />
+	<binaryLog fileSwitchTime="23" />
+	<binaryTrace fileSwitchTime="23" />
+	<!-- Auto expand EAR and WAR files -->
+
+
+	<dataSource jndiName="ProvMaintFormPool"
+		id="ProvMaintFormPool">
+		<jdbcDriver libraryRef="OracleLibRef"
+			javax.sql.DataSource="oracle.jdbc.pool.OracleConnectionPoolDataSource">
+		</jdbcDriver>
+
+		<properties.oracle
+			serverName="va10dx19-scan1.wellpoint.com" serviceName="ecommd"
+			user="PROVMAINT" password="provform" portNumber="1525">
+		</properties.oracle>
+		<containerAuthData user="PROVMAINT"
+			password="provform"></containerAuthData>
+	</dataSource>
+
+
+	<library name="OracleLib" id="OracleLibRef"
+		description="Oracle JDBC driver">
+		<fileset dir="${server.config.dir}/resources/oracle"
+			includes="ojdbc8.jar"></fileset>
+	</library>
+
+	<webApplication contextroot="/mwpmf"
+		name="ecp-ent-pmf-appplication"
+		location="ent-pmf-appplication-sit-war-1.0.0-SNAPSHOT.war">
+	</webApplication>
+
+</server>
+

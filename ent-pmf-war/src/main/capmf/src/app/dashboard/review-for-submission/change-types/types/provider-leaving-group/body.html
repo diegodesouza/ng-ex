@@ -1,0 +1,46 @@
+<div class="pmf-section-container form-group"
+     *ngIf="payLoadService?.termReasonCd ||
+     payLoadService?.firstName ||
+     payLoadService?.lastName ||
+     payLoadService?.middleName ||
+     payLoadService?.provNpi">
+  <div class="ant-heading-three">Provider Leaving Group</div>
+
+  <div class="pmf-container-group">
+    <div class="pmf-table-container" *ngIf="payLoadService?.termReasonCd">
+      <div>Reason:</div>
+      <div>{{payLoadService?.termReasonCd}}</div>
+    </div>
+  </div>
+
+  <div class="pmf-container-group">
+    <div class="pmf-table-container" *ngIf="payLoadService?.provFirstName">
+      <div>First Name:</div>
+      <div>{{payLoadService?.provFirstName}}</div>
+    </div>
+    <div class="pmf-table-container" *ngIf="payLoadService?.provLastName">
+      <div>Last Name:</div>
+      <div>{{payLoadService?.provLastName}}</div>
+    </div>
+    <div class="pmf-table-container" *ngIf="payLoadService?.provMiddleName">
+      <div>Middle Name:</div>
+      <div>{{payLoadService?.provMiddleName}}</div>
+    </div>
+  </div>
+
+  <div class="pmf-container-group">
+    <div class="pmf-table-container" *ngIf="payLoadService?.provNpi">
+      <div>Individual NPI:</div>
+      <div>{{payLoadService?.provNpi}}</div>
+    </div>
+  </div>
+
+  <div class="pmf-container-group">
+    <div class="pmf-table-container pmf-flex-end">
+      <div>Are you acting as a Primary Care Physician at this location?</div>
+      <div>{{payLoadService?.pcpIndicator === 'yes' ? 'Yes' : 'No'}}</div>
+    </div>
+  </div>
+
+</div>
+

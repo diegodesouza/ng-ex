@@ -1,0 +1,38 @@
+<div class="bs-form-panel">
+  <div *ngFor="let areaOfExpertise of payLoadService.areaOfExpertise; let ind = index">
+    <div class="form-group">
+      <div data-tcp-toggle-switch-cmp
+         [(ngModel)]="areaOfExpertise.requestActionCd"
+         id="{{indexArray[index]}}-rbtnIsExpertise"
+         name="{{ind}}-rbtnIsExpertise"
+         [legendSrOnly]="true"
+         [options]="[{label: 'Add', value: 'A'}, {label: 'Delete', value: 'D'}]"
+         required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Area of Expertise</label>
+      <select2 [data]="pmfDataService?.JSON_DATA?.field_mapping_options?.area_of_expertise?.fields"
+               [(ngModel)]="areaOfExpertise.expertise"
+               (valueChanged)="areaOfExpertise.expertise = $event.value"
+               [value]="areaOfExpertise.expertise"
+               [cssImport]="true"
+               [options]="options | optionsPipe: 'Select One' : pmfDataService?.JSON_DATA?.field_mapping_options?.area_of_expertise?.fields"
+               name="{{ind}}-expertise"
+               ngDefaultControl
+               required>
+      </select2>
+      <div *ngIf="payLoadService.areaOfExpertise.length > 1">
+        <a id="removelink"  class="ant-action-link" (click)="removeAreaOfExpertise(ind)">Remove</a>
+      </div>
+    </div>
+  </div>
+  <div class="form-group pmf-margin-left-20" *ngIf="payLoadService.areaOfExpertise.length < 4">
+    <div class="icon-item" (click)="addAreasOfExpertise()">
+      <span class="fa md fa-plus-circle blue"></span>
+    </div>
+    <div class="icon-description">
+      Add Another Area Of Expertise
+    </div>
+  </div>
+</div>

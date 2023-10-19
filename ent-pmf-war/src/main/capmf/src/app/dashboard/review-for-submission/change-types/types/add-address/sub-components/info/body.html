@@ -1,0 +1,16 @@
+<div class="pmf-section-container form-group">
+  <div class="pmf-container-group">
+    <div class="pmf-table-container" *ngIf="payLoadService?.phone">
+      <div>Phone Number:</div>
+      <div>{{payLoadService?.phone | maskPhonePipe}}</div>
+    </div>
+    <div class="pmf-table-container" *ngIf="payLoadService?.fax">
+      <div>Fax Number:</div>
+      <div>{{payLoadService?.fax | maskPhonePipe}}</div>
+    </div>
+    <div class="pmf-table-container" *ngIf="payLoadService?.email">
+      <div>Email:</div>
+      <div>{{payLoadService?.email}}</div>
+    </div>
+  </div>
+</div>

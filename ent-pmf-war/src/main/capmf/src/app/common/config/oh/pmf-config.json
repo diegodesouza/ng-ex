@@ -1,0 +1,244 @@
+﻿{
+  "header": {
+    "brandName": "OHIO",
+    "brandLogo": "images/logo_abcbs.png"
+  },
+  "description_header": "If you are not currently participating with Anthem but wish to be, read and follow the instructions below to apply.",
+  "footer": "Anthem Blue Cross and Blue Shield is the trade name of: In Indiana: Anthem Insurance Companies, Inc. In Kentucky: Anthem Health Plans of Kentucky, Inc. In Missouri (excluding 30 counties in the Kansas City area): RightCHOICE® Managed Care, Inc. (RIT), Healthy Alliance® Life Insurance Company (HALIC), and HMO Missouri, Inc. RIT and certain affiliates administer non-HMO benefits underwritten by HALIC and HMO benefits underwritten by HMO Missouri, Inc. RIT and certain affiliates only provide administrative services for self-funded plans and do not underwrite benefits. In Ohio: Community Insurance Company. In Wisconsin: Blue Cross Blue Shield of Wisconsin (BCBSWI), underwrites or administers PPO and indemnity policies and underwrites the out of network benefits in POS policies offered by Compcare Health Services Insurance Corporation (Compcare) or Wisconsin Collaborative Insurance Company (WCIC). Compcare underwrites or administers HMO or POS policies; WCIC underwrites or administers Well Priority HMO or POS policies. Independent licensees of the Blue Cross and Blue Shield Association. ANTHEM is a registered trademark of Anthem Insurance Companies, Inc.",
+  "generalInfo": {
+    "LOBS": {
+      "fields": [
+        { "value": "1", "name": "Commercial", "checked": false, "disabled": false },
+        { "value": "1", "name": "Medicare", "checked": false, "disabled": false }
+      ]
+    }
+  },
+  "network": {
+    "fields": [
+      { "id": "Commercial", "text": "Commercial" },
+      { "id": "Medicare",   "text": "Medicare" }
+    ],
+    "field_name": "Network"
+  },
+  "selectUpdates": {
+    "individual_header": "Individual Provider Updates",
+    "organization_header": "Organization Provider Updates",
+    "updates": [
+      {
+        "id": "00001",
+        "title": "Languages Spoken",
+        "isSelected": false,
+        "appliesTo": "all",
+        "route": "languages",
+        "attachments": false
+      },
+      {
+        "id": "00003",
+        "title": "Accepting New Patients",
+        "isSelected": false,
+        "appliesTo": "all",
+        "route": "newPatient",
+        "attachments": false
+      },
+      {
+        "id": "00004",
+        "title": "Update Provider Name",
+        "isSelected": false,
+        "appliesTo": "individual",
+        "route": "practitionerName",
+        "attachments": false
+      },
+      {
+        "id": "00005",
+        "title": "Hospital Affiliation and Admitting Privileges",
+        "isSelected": false,
+        "appliesTo": "individual",
+        "route": "affiliation",
+        "attachments": false
+      },
+      {
+        "id": "00006",
+        "title": "Address - Add Location",
+        "isSelected": false,
+        "appliesTo": "all",
+        "route": "addAddress",
+        "attachments": false
+      },
+      {
+        "id": "00007",
+        "title": "Phone / Fax Number",
+        "isSelected": false,
+        "appliesTo": "all",
+        "route": "phoneFax",
+        "attachments": false
+      },
+      {
+        "id": "00008",
+        "title": "License / Certification Number",
+        "isSelected": false,
+        "appliesTo": "individual",
+        "route": "license",
+        "attachments": false
+      },
+      {
+        "id": "00010",
+        "title": "Areas of Expertise",
+        "isSelected": false,
+        "appliesTo": "individual",
+        "route": "expertise",
+        "attachments": false
+      },
+      {
+        "id": "00011",
+        "title": "Email Address",
+        "isSelected": false,
+        "appliesTo": "organization",
+        "route": "changeAddress",
+        "attachments": false
+      },
+      {
+        "id": "00012",
+        "title": "Provider Specialty",
+        "isSelected": false,
+        "appliesTo": "individual",
+        "route": "specialty",
+        "attachments": false
+      },
+      {
+        "id": "00013",
+        "title": "Patient Age / Gender Preference",
+        "isSelected": false,
+        "appliesTo": "individual",
+        "route": "ageGender",
+        "attachments": false
+      },
+      {
+        "id": "00014",
+        "title": "Office Hours / Days of Operation",
+        "isSelected": false,
+        "appliesTo": "all",
+        "route": "operationHours",
+        "attachments": false
+      },
+      {
+        "id": "00016",
+        "title": "Termination of Provider Participation Agreement",
+        "isSelected": false,
+        "appliesTo": "all",
+        "route": "ppaTermination",
+        "attachments": false
+      },
+      {
+        "id": "00017",
+        "title": "National Provider Identifier (NPI)",
+        "isSelected": false,
+        "appliesTo": "all",
+        "route": "individualNpi",
+        "attachments": false
+      },
+      {
+        "id": "00018",
+        "title": "Handicapped Accessibility",
+        "isSelected": false,
+        "appliesTo": "all",
+        "route": "accessibility",
+        "attachments": false
+      },
+      {
+        "id": "00019",
+        "title": "Remove Provider From Location",
+        "isSelected": false,
+        "appliesTo": "organization",
+        "route": "removeLocation",
+        "attachments": false
+      },
+      {
+        "id": "00020",
+        "title": "Address - Terminate",
+        "isSelected": false,
+        "appliesTo": "organization",
+        "route": "orgTerminateAddress",
+        "attachments": false
+      },
+      {
+        "id": "00020",
+        "title": "Provider or Address Terminate",
+        "isSelected": false,
+        "appliesTo": "individual",
+        "route": "indTerminateAddress",
+        "attachments": false
+      },
+      {
+        "id": "00021",
+        "title": "Web Address",
+        "isSelected": false,
+        "appliesTo": "organization",
+        "route": "webAddress",
+        "attachments": false
+      },
+      {
+        "id": "00022",
+        "title": "Provider Leaving Group",
+        "isSelected": false,
+        "appliesTo": "organization",
+        "route": "providerLeaving",
+        "attachments": false
+      },
+      {
+        "id": "00023",
+        "title": "Update Organization Name",
+        "isSelected": false,
+        "appliesTo": "organization",
+        "route": "updateOrgName",
+        "attachments": true
+      },
+      {
+        "id": "00026",
+        "title": "Roster or List Updates",
+        "isSelected": false,
+        "appliesTo": "organization",
+        "route": "unsolicitedRoster",
+        "attachments": true
+      }
+    ]
+  },
+  "landingPage": {
+    "steps": {
+      "blocks": [
+        {
+          "header": "Practitioner network participation",
+          "body": "If you wish to become a contracted provider or add a provider to your existing group, submit an application by going to the digital provider enrollment application for Anthem hosted on <a href='https://www.availity.com' target='_blank'>www.availity.com</a>."
+        },
+        {
+          "header": "Availity registration",
+          "body": "If your organization is not currently registered with Availity, the person(s) designated as your administrator(s) should go to <a href='https://www.availity.com' target='_blank'>www.availity.com</a> and select <i>register</i> in the upper right-hand corner of the webpage in order to obtain an Availity account. You may also navigate directly to Availity’s registration website by clicking here: <a href='https://www.availity.com/Essentials-Portal-Registration' target='_blank'>Availity Registration</a>."
+        },
+        {
+          "header": "Accessing digital provider enrollment",
+          "body": "If you are not currently designated as an administrator on <a href='https://www.availity.com' target='_blank'>www.availity.com</a> but are already a registered user, go to <i>My Account Dashboard > My Account > Organization(s) > Administrator Information</i> to determine who your organization’s administrators are. Your administrator will need to add <strong>Provider Enrollment</strong> to your Availity profile in order for you to access the digital provider enrollment application for Anthem in <strong>Payer Spaces</strong>."
+        },
+        {
+          "header": "Applying online",
+          "body": "Once you log into <a href='https://www.availity.com' target='_blank'>www.availity.com</a>, select <i>Payer Spaces > Anthem Blue Cross and Blue Shield > Applications > Provider Enrollment</i> to begin the application process."
+        },
+        {
+          "header": "Need assistance utilizing Availity’s services?",
+          "body": "Log onto <a href='https://www.availity.com/Contact-Us' target='_blank'>www.availity.com/Contact-Us</a> or call Availity Client Services at <strong>800-AVAILITY (800-282-4548)</strong>."
+        },
+        {
+          "header": "After you apply",
+          "body": "All of the information provided in the digital provider enrollment application for Anthem will be used to determine contract eligibility. You will receive an application ID upon successful submission. Use this application ID if you need to contact Anthem for the status of your application which you can do by navigating to the <i>Contact Us</i> page at <a href='https://www.anthem.com/provider/contact-us' target='_blank'>www.anthem.com/provider/contact-us</a>."
+        }
+      ]
+    },
+    "importantNotice": {
+      "header": "Important notice!",
+      "subheader": "Availity Provider Data Management",
+      "blocks": [
+        "Were you aware that making changes to your demographic information is about to become a whole lot easier? Beginning on 07/01/2023, a majority of providers contracted with Anthem Blue Cross and Blue Shield (Anthem) will have the ability to begin utilizing Availity’s Provider Demographic Management (PDM) service hosted on <a href='https://www.availity.com' target='_blank'>www.availity.com</a>. Availity PDM is used to request changes to existing practice information related to your Anthem contracted physicians, practitioners, professionals, and ancillary providers. See the section titled <strong>Availity Registration</strong> or <a href='https://www.availity.com/Essentials-Portal-Registration' target='_blank'>click here</a>.",
+        "Until the aforementioned migration date, you may continue submitting your changes through this <i>Provider Maintenance Form (PMF)</i>.",
+        "<strong>Note</strong>: The <i>PMF</i> is best viewed when using Google Chrome or Microsoft Edge."
+      ]
+    }
+  }
+}

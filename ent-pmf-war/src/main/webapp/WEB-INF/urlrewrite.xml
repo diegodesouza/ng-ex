@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN" "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
+
+<urlrewrite use-query-string="true" use-context="true">
+	<rule>
+		<name>Don't process this URL</name>
+		<from>^/*/entpmf.jsp$</from>
+		<to last="true">-</to>
+	</rule>
+
+	<rule match-type="wildcard">
+		<name>Landing Page without Trailing Slash</name>
+		<from>*/entpmf</from>
+		<to last="true" qsappend="true">/entpmf.jsp</to>
+	</rule>
+
+	<rule match-type="wildcard">
+		<name>Landing
+			JSP with Trailing Slash</name>
+		<from>*/entpmf.jsp/</from>
+		<to last="true" qsappend="true">/entpmf.jsp</to>
+	</rule>
+
+	<rule match-type="wildcard">
+		<name>Landing
+			Page with Trailing Slash</name>
+		<from>*/entpmf/</from>
+		<to last="true" qsappend="true">/entpmf.jsp</to>
+	</rule>
+
+	<rule match-type="wildcard">
+		<name>Angular Page Refresh</name>
+		<from>*/entpmf/*</from>
+		<to last="true" qsappend="true">/entpmf.jsp</to>
+	</rule>
+	<rule match-type="wildcard">
+		<name>Removing message from URL</name>
+		<from>/mwpmf/message/pdmerror.jsp</from>
+		<to last="true" qsappend="true" type="forward">/pdmerror.jsp</to>
+	</rule>
+	
+		<rule match-type="wildcard">
+		<name>Removing message from URL</name>
+		<from>/mwpmf/message/pdmsessionerror.jsp</from>
+		<to last="true" qsappend="true" type="forward">/pdmsessionerror.jsp</to>
+	</rule>
+</urlrewrite>

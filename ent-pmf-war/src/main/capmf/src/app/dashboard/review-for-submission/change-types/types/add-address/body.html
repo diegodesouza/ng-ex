@@ -1,0 +1,131 @@
+<div class="pmf-section-container form-group">
+  <div class="ant-heading-three" *ngIf="payLoadService?.addAddress?.addressType === 'Correspondence'
+  || payLoadService?.addAddress?.addressType === 'Payment/Remittance'
+  || payLoadService?.addAddress?.addressType === 'Practice Location'">
+    Address - Add Location
+  </div>
+  <div *ngIf="payLoadService?.addAddress?.addressType === 'Correspondence'">
+    <div class="pmf-neg-margin-bot-15">
+      <div class="ant-margin-top-15">Correspondence</div>
+      <review-for-submission-address-component
+        [payLoadService]="payLoadService?.addAddress?.correspondenceAddress">
+      </review-for-submission-address-component>
+    </div>
+
+    <review-for-submission-add-address-info-component
+      [payLoadService]="payLoadService?.addAddress?.correspondenceAddress">
+    </review-for-submission-add-address-info-component>
+  </div>
+
+  <div *ngIf="payLoadService?.addAddress?.addressType === 'Payment/Remittance'">
+    <div class="pmf-neg-margin-bot-15">
+      <div class="ant-margin-top-15">Payment / Remittance</div>
+      <review-for-submission-address-component
+        [payLoadService]="payLoadService?.addAddress?.remitAddress">
+      </review-for-submission-address-component>
+    </div>
+
+    <review-for-submission-add-address-info-component
+      [payLoadService]="payLoadService?.addAddress?.remitAddress">
+    </review-for-submission-add-address-info-component>
+  </div>
+
+  <div *ngIf="payLoadService?.addAddress?.addressType === 'Practice Location'">
+    <div class="pmf-neg-margin-bot-15">
+      <div class="ant-margin-top-15">Practice Location</div>
+      <review-for-submission-address-component
+        [payLoadService]="payLoadService?.addAddress?.physicalAddress?.address">
+      </review-for-submission-address-component>
+    </div>
+
+    <review-for-submission-add-address-info-component
+      [payLoadService]="payLoadService?.addAddress?.physicalAddress?.address">
+    </review-for-submission-add-address-info-component>
+
+    <div class="pmf-section-container form-group" *ngIf="payLoadService?.addAddress?.physicalAddress?.pcpIndicator">
+      <div class="ant-heading-three">Primary Care Physician</div>
+      <div class="pmf-container-group">
+        <div class="pmf-table-container" *ngIf="payLoadService?.addAddress?.physicalAddress?.pcpIndicator">
+          <div>Primary Care Physician?</div>
+          <div>{{payLoadService?.addAddress?.physicalAddress?.pcpIndicator === 'yes' ? 'Yes' : 'No'}}</div>
+        </div>
+      <div *ngIf="payLoadService?.addAddress?.physicalAddress?.pcpIndicator === 'no'">
+      
+      <div class="pmf-table-container" *ngIf="payLoadService?.addAddress?.physicalAddress?.physicianAssistant">
+        <div>If you are a Physician Assistant at this location, are you acting as a:</div>
+        <div>{{payLoadService?.addAddress?.physicalAddress?.physicianAssistant}}</div>
+      </div>
+    </div>
+      </div>
+    </div>
+
+    <review-for-submission-accepting-new-patients-component
+      [payLoadService]="payLoadService?.addAddress?.physicalAddress?.acceptNewpatient">
+    </review-for-submission-accepting-new-patients-component>
+
+    <review-for-submission-handicapped-accessibility-component
+      [payLoadService]="payLoadService?.addAddress?.physicalAddress?.handicappedAccessibility">
+    </review-for-submission-handicapped-accessibility-component>
+
+    <div *ngIf="payLoadService?.userType === 1">
+      <review-for-submission-public-transportation-component
+        [payLoadService]="payLoadService?.addAddress?.physicalAddress?.isPublicTransportation">
+      </review-for-submission-public-transportation-component>
+    </div>
+
+    <review-for-submission-days-hours-operation-component
+      [payLoadService]="payLoadService?.addAddress?.physicalAddress?.operationHours?.daysOperationHours">
+    </review-for-submission-days-hours-operation-component>
+
+    <review-for-submission-services-offered-component
+      [payLoadService]="payLoadService?.addAddress?.physicalAddress?.serviceOffers">
+    </review-for-submission-services-offered-component>
+
+    <review-for-submission-languages-component
+      [payLoadService]="payLoadService?.addAddress?.physicalAddress?.languagesSpoken">
+    </review-for-submission-languages-component>
+
+    <div class="pmf-container-group">
+      <div class="pmf-table-container pmf-flex-end">
+        <div>{{payLoadService?.userType === 0 ?
+          'Add Correspondence Address to this practice location:' :
+          'Add Correspondence Address or Payment/Remittance to this physical location:'}}
+        </div>
+        <div>{{payLoadService?.addAddress?.physicalAddress?.isCorrAddedToPracticeIndicator === 'yes' ? 'Yes' : 'No'}}</div>
+      </div>
+    </div>
+    <div *ngIf="payLoadService?.addAddress?.physicalAddress?.isCorrAddedToPracticeIndicator === 'yes'">
+      <div>Correspondence Address</div>
+      <div class="pmf-neg-margin-bot-15">
+        <review-for-submission-address-component
+          [payLoadService]="payLoadService?.addAddress?.physicalAddress?.correspondenceAddress">
+        </review-for-submission-address-component>
+      </div>
+
+      <review-for-submission-add-address-info-component
+        [payLoadService]="payLoadService?.addAddress?.physicalAddress?.correspondenceAddress">
+      </review-for-submission-add-address-info-component>
+    </div>
+    
+    <div class="pmf-container-group">
+      <div class="pmf-table-container pmf-flex-end">
+        <div>Specialty Sub-class:
+        </div>
+        <div>{{payLoadService?.addAddress?.physicalAddress?.specialty}}</div>
+      </div>
+    </div>
+
+    <div *ngIf="payLoadService?.addAddress?.physicalAddress?.isRemittanceSelected">
+      <div>Payment / Remittance Address</div>
+      <div class="pmf-neg-margin-bot-15">
+        <review-for-submission-address-component
+          [payLoadService]="payLoadService?.addAddress?.physicalAddress?.remitAddress">
+        </review-for-submission-address-component>
+      </div>
+
+      <review-for-submission-add-address-info-component
+        [payLoadService]="payLoadService?.addAddress?.physicalAddress?.remitAddress">
+      </review-for-submission-add-address-info-component>
+    </div>
+  </div>
+</div>

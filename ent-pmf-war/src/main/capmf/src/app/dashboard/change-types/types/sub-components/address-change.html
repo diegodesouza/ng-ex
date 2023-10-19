@@ -1,0 +1,157 @@
+<div class="form-group clearfix">
+  <input id="streetAddress1"
+         name="{{parentName}}-streetAddress1"
+         type="text"
+         class="ant-text-input input-width ant-top-margin-12"
+         [(ngModel)]="address.streetAddress1"
+         placeholder="Address Line 1"
+         required>
+  <div *ngIf="formValidations?.formErrors | errorsappendparentname: parentName:'-streetAddress1'">
+    <label>
+      <span class="ant-float-left ant-full-width ant-form-item-error">
+        {{ formValidations?.formErrors | errorsappendparentname: parentName:'-streetAddress1' }}
+      </span>
+    </label>
+  </div>
+</div>
+
+<div class="form-group clearfix">
+  <input id="streetAddress2"
+         name="{{parentName}}-streetAddress2"
+         type="text"
+         class="ant-text-input input-width ant-top-margin-12"
+         [(ngModel)]="address.streetAddress2"
+         placeholder="Address Line 2">
+  <div *ngIf="formValidations?.formErrors | errorsappendparentname: parentName:'-streetAddress2'">
+    <label>
+      <span class="ant-float-left ant-full-width ant-form-item-error">
+        {{ formValidations?.formErrors | errorsappendparentname: parentName:'-streetAddress2' }}
+      </span>
+    </label>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="form-group clearfix">
+      <input id="city"
+             name="{{parentName}}-city"
+             type="text"
+             class="ant-text-input input-width ant-top-margin-12"
+             [(ngModel)]="address.city"
+             placeholder="City"
+             pattern="^[a-zA-Z]['\-a-zA-Z ]*"
+             required>
+      <div *ngIf="formValidations?.formErrors | errorsappendparentname: parentName:'-city'">
+        <span class="ant-float-left ant-full-width ant-form-item-error">
+          {{ formValidations?.formErrors | errorsappendparentname: parentName:'-city' }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="form-group clearfix">
+      <select2 [data]="pmfDataService?.getSortedDropdownValues(pmfDataService?.JSON_DATA?.field_mapping_options.state.fields)"
+               [(ngModel)]="address.state"
+               (valueChanged)="address.state = $event.value"
+               [cssImport]="true"
+               [value]="address.state"
+               [options]="options | optionsPipe: 'State' : pmfDataService?.JSON_DATA?.field_mapping_options.state.fields"
+               name="{{parentName}}-state"
+               ngDefaultControl
+               required>
+      </select2>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="form-group clearfix">
+      <input name="{{parentName}}-zip"
+             class="ant-text-input input-width ant-top-margin-12"
+             type="text"
+             [(ngModel)]="address.zipCode"
+             placeholder="Zip Code"
+             pattern="^\d{5}(-\d{4})?$"
+             required>
+      <div *ngIf="formValidations?.formErrors | errorsappendparentname: parentName:'-zip'">
+        <span class="ant-float-left ant-full-width ant-form-item-error">
+          {{ formValidations?.formErrors | errorsappendparentname: parentName:'-zip' }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="form-group clearfix">
+  <input id="county"
+         name="{{parentName}}-county"
+         type="text"
+         class="ant-text-input input-width ant-top-margin-12"
+         [(ngModel)]="address.county"
+         placeholder="County"
+         pattern="^[a-zA-Z]['\-a-zA-Z ]*"
+         required>
+  <div *ngIf="formValidations?.formErrors | errorsappendparentname: parentName:'-county'">
+    <label>
+      <span class="ant-float-left ant-full-width ant-form-item-error">
+        {{ formValidations?.formErrors | errorsappendparentname: parentName:'-county' }}
+      </span>
+    </label>
+  </div>
+</div>
+
+<div *ngIf="parentName !== 'providerleavinggroup' && parentName !== 'removeProviderLocation'">
+  <div class="form-group clearfix">
+    <input type="text"
+           class="ant-text-input input-width ant-top-margin-12"
+           [(ngModel)]="address.phone"
+           placeholder="Phone"
+           name="{{parentName}}-phone-address"
+           pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$"
+           [textMask]="{mask: formValidations?.phoneMask}"
+           unmaskModel
+           required>
+    <div *ngIf="formValidations?.formErrors | errorsappendparentname: parentName:'-phone-address'">
+      <label>
+        <span class="ant-float-left ant-full-width ant-form-item-error">
+          {{ formValidations?.formErrors | errorsappendparentname: parentName:'-phone-address' }}
+        </span>
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group clearfix">
+    <input type="text"
+           class="ant-text-input input-width ant-top-margin-12"
+           [(ngModel)]="address.fax"
+           placeholder="FAX"
+           name="{{parentName}}-fax-address"
+           pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$"
+           [textMask]="{mask: formValidations?.phoneMask}"
+           unmaskModel>
+    <div *ngIf="formValidations?.formErrors | errorsappendparentname: parentName:'-fax-address'">
+      <label>
+        <span class="ant-float-left ant-full-width ant-form-item-error">
+          {{ formValidations?.formErrors | errorsappendparentname: parentName:'-fax-address' }}
+        </span>
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group clearfix">
+    <input type="text"
+           class="ant-text-input input-width ant-top-margin-12"
+           [(ngModel)]="address.email"
+           placeholder="Email"
+           name="{{parentName}}-email-address"
+           pattern="^[\w!#$%&'*+\/=?^_`{|}~-]+([\.-]?[\w!#$%&'*+\/=?^_`{|}~+-])*@\w+([\.-]?\w)*(\.\w{2,15})$">
+    <div *ngIf="formValidations?.formErrors | errorsappendparentname: parentName:'-email-address'">
+      <label>
+        <span class="ant-float-left ant-full-width ant-form-item-error">
+          {{ formValidations?.formErrors | errorsappendparentname: parentName:'-email-address' }}
+        </span>
+      </label>
+    </div>
+  </div>
+</div>

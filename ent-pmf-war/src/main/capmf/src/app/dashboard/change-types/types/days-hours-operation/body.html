@@ -1,0 +1,42 @@
+<div class="bs-form-panel">
+  <div class="form-group">
+    <div *ngIf="parentName !== 'addAddress'">
+      <p class="ant-font-r">
+        {{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.operationHours?.labels?.disclaimer}}</p>
+    </div>
+    <div *ngFor="let dayOfTheWeek of pmfDataService?.JSON_DATA?.field_mapping_options?.daysOfTheWeek?.fields; let ind = index">
+      <div class="row">
+        <div class="col-md-4">
+          <p class="ant-font-r ant-margin-top-20"> {{dayOfTheWeek.label}}</p>
+        </div>
+        <div class="col-md-4">
+          <select2 [data]="pmfDataService?.JSON_DATA?.field_mapping_options?.hoursOperation?.fields"
+                   [(ngModel)]="operationHours.daysOperationHours[ind].openingTime"
+                   (valueChanged)="operationHours.daysOperationHours[ind].openingTime = $event.value"
+                   [value]="operationHours.daysOperationHours[ind].openingTime"
+                   [cssImport]="true"
+                   [options]="options | optionsPipe: 'Closed' : pmfDataService?.JSONdata?.field_mapping_options?.hoursOperation?.fields"
+                   name="{{parentName}}-{{ind}}-openingTime"
+                   id="{{parentName}}-{{ind}}-openingTime"
+                   ngDefaultControl
+                   required>
+          </select2>
+        </div>
+        <div class="col-md-4">
+          <select2 [data]="pmfDataService?.JSON_DATA?.field_mapping_options?.hoursOperation?.fields"
+                   [(ngModel)]="operationHours.daysOperationHours[ind].closingTime"
+                   (valueChanged)="operationHours.daysOperationHours[ind].closingTime = $event.value"
+                   [value]="operationHours.daysOperationHours[ind].closingTime"
+                   [cssImport]="true"
+                   [options]="options | optionsPipe: 'Closed' : pmfDataService?.JSONdata?.field_mapping_options?.hoursOperation?.fields"
+                   name="{{parentName}}-{{ind}}-closingTime"
+                   id="{{parentName}}-{{ind}}-closingTime"
+                   ngDefaultControl
+                   required>
+          </select2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

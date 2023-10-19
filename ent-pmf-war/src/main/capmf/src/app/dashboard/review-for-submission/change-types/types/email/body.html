@@ -1,0 +1,15 @@
+<div class="pmf-section-container form-group" *ngIf="payLoadService?.length > 0">
+  <div class="ant-heading-three">Email Address</div>
+  <div class="pmf-container-group">
+    <div class="ant-margin-bot-10 ant-margin-top-10" *ngFor="let email of payLoadService">
+      <div class="pmf-table-container" *ngIf="email?.requestActionCd">
+        <div>Add/Delete:</div>
+        <div>{{email?.requestActionCd === 'A' ? 'Add' : 'Delete'}}</div>
+      </div>
+      <div class="pmf-table-container" *ngIf="email?.emailAddress">
+        <div>Email Address:</div>
+        <div>{{email?.emailAddress}}</div>
+      </div>
+    </div>
+  </div>
+</div>

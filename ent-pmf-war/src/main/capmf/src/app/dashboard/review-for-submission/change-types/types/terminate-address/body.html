@@ -1,0 +1,34 @@
+<div class="pmf-section-container"
+     *ngIf="payLoadService?.terminateAddress?.tterminationDate ||
+     payLoadService?.terminateAddress?.addressType ||
+     payLoadService?.terminateAddress?.termReason">
+  <div class="ant-heading-three">{{heading}}</div>
+  <div class="pmf-container-group">
+      <div class="pmf-table-container" *ngIf="payLoadService?.terminateAddress?.tterminationDate">
+        <div>Termination Date:</div>
+        <div>{{payLoadService?.terminateAddress?.tterminationDate}}</div>
+      </div>
+      <div class="pmf-table-container" *ngIf="payLoadService?.terminateAddress?.addressType">
+        <div>Address Type:</div>
+        <div>{{payLoadService?.terminateAddress?.addressType}}</div>
+      </div>
+      <div class="pmf-table-container" *ngIf="payLoadService?.terminateAddress?.termReason">
+        <div>Reason:</div>
+        <div>{{payLoadService?.terminateAddress?.termReason}}</div>
+      </div>
+  </div>
+</div>
+
+<div class="pmf-section-container" *ngIf="payLoadService?.terminateAddress?.pcpIndicator && payLoadService?.terminateAddress?.addressType === 'Practice Location'">
+  <div class="pmf-container-group">
+    <div class="pmf-table-container">
+      <div>Primary Care Physician?</div>
+      <div>{{payLoadService?.terminateAddress?.pcpIndicator === 'yes' ? 'Yes' : 'No'}}</div>
+    </div>
+  </div>
+</div>
+
+<div class="ant-heading-three">Address Details</div>
+<review-for-submission-address-component [payLoadService]="payLoadService?.addresses">
+</review-for-submission-address-component>
+

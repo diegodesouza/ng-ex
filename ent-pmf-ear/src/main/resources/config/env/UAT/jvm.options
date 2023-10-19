@@ -1,0 +1,5 @@
+-Dcom.ibm.security.jurisdictionPolicyDir=/config/resources/security
+-Djava.security.properties=/config/resources/security/java.security
+-Drebel.remoting_plugin=true
+-Dcom.ibm.jsse2.overrideDefaultTLS=true
+-Dlog4j.configurationFile=/config/resources/log4j/UAT/log4j2.xml

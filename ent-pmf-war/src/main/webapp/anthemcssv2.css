@@ -1,0 +1,625 @@
+<script>
+BODY
+{
+    PADDING-RIGHT: 0px;
+    PADDING-LEFT: 0px;
+    FONT-SIZE: 10pt;
+    PADDING-BOTTOM: 0px;
+    MARGIN: 10px;
+    COLOR: #000000;
+    PADDING-TOP: 0px;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #ffffff;
+    TEXT-ALIGN: left
+}
+P
+{
+    FONT-SIZE: 10pt;
+    FONT-FAMILY: Arial
+}
+LI
+{
+    FONT-SIZE: 10pt;
+    FONT-FAMILY: Arial
+}
+TD
+{
+    FONT-SIZE: 10pt;
+    FONT-FAMILY: Arial
+}
+.speclist
+{
+    FONT-WEIGHT: bold;
+    COLOR: #006DA5;
+    FONT-FAMILY: "Arial";
+    TEXT-DECORATION: none
+}
+A.header
+{
+    FONT-WEIGHT: bold;
+    COLOR: #d19027;
+    FONT-STYLE: normal;
+    FONT-FAMILY: "Arial"
+}
+A.header:visited
+{
+    FONT-WEIGHT: bold;
+    COLOR: #d19027;
+    FONT-STYLE: normal;
+    FONT-FAMILY: "Arial"
+}
+A.header:hover
+{
+    FONT-WEIGHT: bold;
+    COLOR: #2790d1;
+    FONT-STYLE: normal;
+    FONT-FAMILY: "Arial"
+}
+A.header:link
+{
+    FONT-WEIGHT: bold;
+    COLOR: #006DA5;
+    FONT-STYLE: normal;
+    FONT-FAMILY: "Arial"
+}
+A
+{
+    FONT-WEIGHT: bold;
+    COLOR: #006da5;
+    FONT-FAMILY: "Arial";
+    TEXT-DECORATION: underline
+}
+A:visited
+{
+    FONT-WEIGHT: bold;
+    COLOR: #006DA5;
+    FONT-FAMILY: "Arial";
+    TEXT-DECORATION: underline
+}
+A:link
+{
+    FONT-WEIGHT: bold;
+    COLOR: #006DA5;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: underline
+}
+A:hover
+{
+    FONT-WEIGHT: bold;
+    COLOR: #ff9600;
+    FONT-FAMILY: "Arial";
+    TEXT-DECORATION: none
+}    
+A.ColumnHead
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial, Helvetica;
+    TEXT-DECORATION: none
+}
+A.ColumnHead:active
+{
+    FONT-WEIGHT: 900;
+    FONT-SIZE: 10pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial, Helvetica;
+    TEXT-DECORATION: none
+}
+A.ColumnHead:link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial, Helvetica;
+    TEXT-DECORATION: none
+}
+A.ColumnHead:visited
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial, Helvetica;
+    TEXT-DECORATION: none
+}
+A.ColumnHead:hover
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial, Helvetica;
+    TEXT-DECORATION: underline
+}
+.FieldLabel1
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica
+}
+.Alert1
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #993400;
+    FONT-FAMILY: Arial, Helvetica
+}
+.ErrorIndMsg
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #993400;
+    FONT-FAMILY: Arial, Helvetica
+}
+.ErrorHeading
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    COLOR: #993400;
+    FONT-FAMILY: Arial, Helvetica
+}
+.HelpHeader2
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica
+}
+.HelpTitle
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    COLOR: #006da5;
+    FONT-FAMILY: Arial, Helvetica
+}
+.HelpHeader1
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica
+}
+.MainHeader
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 14pt;
+    COLOR: #006da5;
+    FONT-FAMILY: Arial, Helvetica
+}
+.HelpRefer
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    FONT-STYLE: italic;
+    FONT-FAMILY: Arial, Helvetica
+}
+.ToutLightText
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial, Helvetica
+}
+.ToutDarkText
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    COLOR: #555555;
+    FONT-FAMILY: Arial, Helvetica
+}
+.FooterLightText
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial, Helvetica
+}
+.FooterDarkText
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    COLOR: #555555;
+    FONT-FAMILY: Arial, Helvetica
+}
+.GeneralSMText
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica
+}
+A.White
+{
+    FONT-WEIGHT: bold;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial
+}
+A.White:active
+{
+    FONT-WEIGHT: bold;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial
+}
+A.White:hover
+{
+    FONT-WEIGHT: bold;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: underline
+}
+A.White:link
+{
+    FONT-WEIGHT: bold;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial
+}
+A.White:visited
+{
+    FONT-WEIGHT: bold;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial
+}
+A.LtBlue
+{
+    FONT-WEIGHT: bold;
+    COLOR: #99ccff
+}
+A.LtBlue:active
+{
+    FONT-WEIGHT: bold;
+    COLOR: #99ccff
+}
+A.LtBlue:hover
+{
+    FONT-WEIGHT: bold;
+    COLOR: #99ccff;
+    TEXT-DECORATION: underline
+}
+A.LtBlue:link
+{
+    FONT-WEIGHT: bold;
+    COLOR: #99ccff
+}
+A.LtBlue:visited
+{
+    FONT-WEIGHT: bold;
+    COLOR: #99ccff
+}
+A.AA
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #ff9900;
+    FONT-FAMILY: Arial, Helvetica;
+    TEXT-DECORATION: none
+}
+A.AA:active
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #ff9900;
+    FONT-FAMILY: Arial, Helvetica;
+    TEXT-DECORATION: none
+}
+A.AA:hover
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #ff9900;
+    FONT-FAMILY: Arial, Helvetica;
+    TEXT-DECORATION: underline
+}
+A.AA:link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #ff9900;
+    FONT-FAMILY: Arial, Helvetica;
+    TEXT-DECORATION: none
+}
+A.AA:visited
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #ff9900;
+    FONT-FAMILY: Arial, Helvetica;
+    TEXT-DECORATION: none
+}
+A.QT
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #006da5;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none
+}
+A.QT:active
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #006da5;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none
+}
+A.QT:hover
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #006da5;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: underline
+}
+A.QT:link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #006da5;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none
+}
+A.QT:visited
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #006da5;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none
+}
+A.Orange
+{
+    FONT-WEIGHT: bold;
+    COLOR: #ff9900;
+    FONT-FAMILY: Arial, Helvetica
+}
+A.Orange:active
+{
+    FONT-WEIGHT: bold;
+    COLOR: #ff9900;
+    FONT-FAMILY: Arial, Helvetica
+}
+A.Orange:hover
+{
+    FONT-WEIGHT: bold;
+    COLOR: #ff9900;
+    FONT-FAMILY: Arial, Helvetica;
+    TEXT-DECORATION: underline
+}
+A.Orange:link
+{
+    FONT-WEIGHT: bold;
+    COLOR: #ff9900;
+    FONT-FAMILY: Arial, Helvetica
+}
+A.Orange:visited
+{
+    FONT-WEIGHT: bold;
+    COLOR: #ff9900;
+    FONT-FAMILY: Arial, Helvetica
+}
+.BGLtGray
+{
+    BACKGROUND-COLOR: #cccccc
+}
+.BGBlue
+{
+    BACKGROUND-COLOR: #006da5
+}
+.BGOrange
+{
+    BACKGROUND-COLOR: #ff9900
+}
+.BGTabActive
+{
+    BACKGROUND-COLOR: #a9d3ec
+}
+.BGTabInactive
+{
+    BACKGROUND-COLOR: #cccccc
+}
+.TabActive
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica
+}
+A.TabInactive
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #006da5;
+    FONT-FAMILY: Arial, Helvetica
+}
+A.TabInactive:active
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #006da5;
+    FONT-FAMILY: Arial, Helvetica
+}
+A.TabInactive:link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #006da5;
+    FONT-FAMILY: Arial, Helvetica
+}
+A.TabInactive:visited
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #006da5;
+    FONT-FAMILY: Arial, Helvetica
+}
+.BGGray
+{
+    BACKGROUND-COLOR: #555555
+}
+.BGRowGray
+{
+    BACKGROUND-COLOR: #eeeeee
+}
+.StepsBanner
+{
+    FONT-WEIGHT: 900;
+    FONT-SIZE: 10pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial, Helvetica
+}
+.Footnote
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    COLOR: #555555;
+    FONT-FAMILY: Arial, Helvetica
+}
+.BGLtBlue
+{
+    BACKGROUND-COLOR: #a9d3ec
+}
+.StepNumber
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica
+}
+.StepsCurrent
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica
+}
+.StepsFuture
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 9pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica
+}
+A.Steps
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    FONT-FAMILY: Arial, Helvetica
+}
+A.Steps:active
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    FONT-FAMILY: Arial, Helvetica
+}
+A.Steps:link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    FONT-FAMILY: Arial, Helvetica
+}
+A.Steps:visited
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    FONT-FAMILY: Arial, Helvetica
+}
+.BGForm
+{
+    BACKGROUND-COLOR: #eeeeee
+}
+.FieldHint
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    COLOR: #555555;
+    FONT-FAMILY: Arial, Helvetica
+}
+.FormHeader
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    COLOR: #006da5;
+    FONT-FAMILY: Arial, Helvetica
+}
+.FormQuestion
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica
+}
+.ColumnLabel
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial, Helvetica
+}
+.BannerAppText
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, Helvetica
+}
+.BannerAppSectionText
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    COLOR: #ff9900;
+    FONT-FAMILY: Arial, Helvetica
+}
+.FieldHelp
+{
+    FONT-SIZE: 8pt;
+    COLOR: #006da5;
+    FONT-FAMILY: Arial, Helvetica
+}
+.ErrorBG
+{
+    FONT-FAMILY: Arial, Helvetica;
+    BACKGROUND-COLOR: #ffd9a6
+}
+.ErrorOutline
+{
+    BACKGROUND-COLOR: #993400
+}
+.disabled 
+{  
+    color: #999999
+}
+.disabledFormelement 
+{  
+    background-color: #eeeeee
+}
+.BannerDivider {
+    BACKGROUND-COLOR:#CCCCCC;
+    HEIGHT: 5px;
+}
+.BannerTitleText {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 14pt;
+    COLOR: #006DA5;
+}
+.AvailityFooterText {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    COLOR: #006da5;
+    FONT-FAMILY: Times New Roman;
+}
+
+.AvailityBCBSGAFooterText {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    COLOR: #A9A9A9;
+    FONT-FAMILY: Times New Roman;
+}
+
+.labelLeft {  text-align: left; padding-left: 5px}
+a.whiteLink:active {  font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-weight: bold; color: #FFFFFF; text-decoration: underline}
+a.whiteLink:hover {  font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-weight: bold; color: #FFFFFF; text-decoration: underline}
+a.whiteLink:link {  font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-weight: bold; color: #FFFFFF; text-decoration: underline}
+a.whiteLink:visited {  font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-weight: bold; color: #FFFFFF; text-decoration: underline}
+
+
+
+</script>

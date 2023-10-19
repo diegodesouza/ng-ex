@@ -1,0 +1,13 @@
+<div class="bs-form-panel">
+  <label>{{pmfDataService?.JSON_DATA?.field_mapping_options?.handicapped_access?.field_name}}</label>
+    <select2 [data]="pmfDataService?.getSortedDropdownValues(pmfDataService?.JSON_DATA?.field_mapping_options?.handicapped_access?.fields)"
+             [(ngModel)]="handicappedAccessibility.description"
+             (valueChanged)="handicappedAccessibility.description = $event.value"
+             [value]="handicappedAccessibility.description"
+             [cssImport]="true"
+             [options]="options | optionsPipe: 'Select One' : pmfDataService?.JSON_DATA?.field_mapping_options?.handicapped_access?.fields"
+             name="{{parentName}}-handicapped"
+             ngDefaultControl
+             required>
+    </select2>
+</div>

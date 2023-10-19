@@ -1,0 +1,57 @@
+<div class="bs-form-panel">
+  <div *ngFor="let hospitalAffiliation of payloadService.hospitalPrivileges; let ind = index">
+    <div class="form-group">
+      <div data-tcp-toggle-switch-cmp
+         [(ngModel)]="hospitalAffiliation.requestActionCd"
+         id="{{indexArray[index]}}-rbtnaddHospPriv"
+         name="{{ind}}-rbtnaddHospPriv"
+         [legendSrOnly]="true"
+         [options]="[{label: 'Add', value: 'A'}, {label: 'Delete', value: 'D'}]"
+         required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label htmlFor="{{ind}}-privilegeType">{{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.hospitalPrivilege?.labels?.hospitalPrivilege}}</label>
+      <div class="pmf-md-select">
+        <select2 [data]="pmfDataService?.getSortedDropdownValues(pmfDataService?.JSON_DATA?.field_mapping_options?.hospital_privilege?.fields)"
+                 [(ngModel)]="hospitalAffiliation.privilegeType"
+                 (valueChanged)="hospitalAffiliation.privilegeType = $event.value"
+                 [value]="hospitalAffiliation.privilegeType"
+                 [cssImport]="true"
+                 [options]="options | optionsPipe: 'Select One' : pmfDataService?.JSON_DATA?.field_mapping_options?.hospital_privilege?.fields"
+                 name="{{ind}}-privilegeType"
+                 ngDefaultControl
+                 required>
+        </select2>
+      </div>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error': formValidations?.formErrors | errorspipe: 'affiliationName-':ind}">
+      <label htmlFor="{{ind}}-affiliationName">{{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.hospitalPrivilege?.labels?.affiliationName}}</label>
+      <input id="{{ind}}-affiliationName"
+             type="text"
+             name="affiliationName-{{ind}}"
+             #affiliationName
+             [(ngModel)]="hospitalAffiliation.affiliationName"
+             class="ant-text-input ant-input-wide form-control"
+             data-uxd-text-dir
+             placeholder="{{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.hospitalPrivilege?.labels?.affiliationName}}"
+             required/>
+      <span *ngIf="formValidations?.formErrors | errorspipe: 'affiliationName-':ind" class="ant-form-item-error">
+        {{ formValidations?.formErrors | errorspipe: 'affiliationName-':ind}}
+      </span>
+    </div>
+    <div *ngIf="payloadService.hospitalPrivileges.length > 1">
+      <a id="{{ind}}-removelink"  class="ant-action-link" (click)="removeHospitalPrivilege(ind)">Remove</a>
+    </div>
+    <hr>
+  </div>
+
+  <div class="form-group pmf-margin-left-20" *ngIf="payloadService.hospitalPrivileges.length < 4">
+    <div class="icon-item" (click) = "addHospitalPrivilege()">
+      <span class="fa md fa-plus-circle blue"></span>
+    </div>
+    <div class="icon-description">
+      Add Another Hospital Privilege
+    </div>
+  </div>
+</div>

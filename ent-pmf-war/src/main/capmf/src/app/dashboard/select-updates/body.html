@@ -1,0 +1,66 @@
+<div class="bkg-gray-container">
+  <div class="page-header">
+    <div class="row pmf-flex-end pmf-padding-top-15">
+      <div class="col-md-7 pmf-margin-left-42">
+        <div class="ant-heading-three">
+          {{dataService?.JSON_DATA?.view.selectUpdates.headers.header_main}}
+        </div>
+        <div class="ant-font-sb">
+          {{dataService?.JSON_DATA?.view.selectUpdates.headers.header_sub}}
+        </div>
+      </div>
+      <div class="col-md-4 align-right pmf-padding-0">
+        <a routerLink="/dashboard/generalinfo" skipLocationChange>&lt; Back to General Information Page</a>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="ant-dk-blue modal-header" *ngIf="userTypeService.userType === 0">
+      {{selectUpdatesModel?.JSON_DATA?.selectUpdates.individual_header}}
+    </div>
+    <div class="ant-dk-blue modal-header" *ngIf="userTypeService.userType === 1">
+      {{selectUpdatesModel?.JSON_DATA?.selectUpdates.organization_header}}
+    </div>
+    <div *ngFor="let selectUpdate of selectUpdatesModel?.getSortedFilteredUpdates(userTypeService.userType === 0?'individual':'organization')">
+      <span *ngIf="selectUpdate.description && selectUpdate.isSelected">
+        <div class="ant-anthem-alert">
+          <div class="media">
+            <div class="media-left media-middle">
+              <span class="fa fa-info-circle"></span>
+            </div>
+            <div class="media-body">
+              <div class="row">
+                <div class="col-md-3">
+                  <p class="ant-font-sb">{{selectUpdate.title}}</p>
+                </div>
+                <div class="col-md-9">
+                  <p class="ant-font-r">{{selectUpdate.description}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </span>
+    </div>
+    <div class="panel-body-su">
+      <div class="Selected-Updates-Component_wrapper" align="center">
+        <div *ngFor="let selectUpdate of selectUpdatesModel?.getSortedFilteredUpdates(userTypeService.userType === 0?'individual':'organization')">
+          <button type="button" (click)="selectUpdate.isSelected = !selectUpdate.isSelected"
+                  [ngClass]="{'selected': selectUpdate.isSelected, 'unselected': !selectUpdate.isSelected, 'btn btn-secondary-su button-width': true}">
+            <p>
+              <span *ngIf="selectUpdate.description" class="fa fa-info-circle"></span>
+              {{selectUpdate.title}}
+              <span class="sub-text" *ngIf="selectUpdate.subTitle"> {{selectUpdate.subTitle}}</span>
+              <span *ngIf="selectUpdate.isSelected" class="fa fa-check"></span>
+            </p>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="button-group" align="right">
+  <button type="button" class="btn" (click)="routeToChangeTypes()" [disabled]="selectUpdatesModel.getSelectedUpdatesCount() === 0">
+    Next <br><span class="lbl-btn-gi">{{ selectUpdatesModel.getSelectedUpdatesCount() }} Items Selected</span>
+  </button>
+</div>

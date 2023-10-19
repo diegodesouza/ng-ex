@@ -1,0 +1,21 @@
+<div class="tab-controls-container hidden-xs hidden-xxs">
+  <ul>
+    <li>
+      <a href="javascript:void(0)" data-ng-click="tabClick(tab.name)" data-ng-repeat="tab in ::tabs track by $index" data-template="{{::tab.templateUrl}}" data-control="tab{{::$index}}"
+    class="tab-item-control" id="tab-item-control-{{::$index}}">
+      <span class="{{::tab.iconCssClass}}"></span><span class="tab-label"><span class="tab-label-text">{{::tab.label}}</span></span>
+      <h2 class="tab-label"><span class="tab-label-text">{{::tab.label}}</span></h2>
+    </a>
+    </li>
+  </ul>
+</div>
+<div class="accordian-container tab-content-container">
+  <a href="javascript:void(0)" data-ng-click="tabClick(tab.name)" data-ng-repeat-start="tab in ::tabs track by $index" data-control="tab{{::$index}}" class="accordion-item-control visible-xs visible-xxs clearfix" id="accordion-item-control-{{::$index}}">
+    <span class="item-control-inner">
+    <span class="{{::tab.iconCssClass}}"></span><span class="accordion-label">{{::tab.label}}</span>
+    <span class="clear"></span>
+    </span>
+    </a>
+  <div data-loaded="false" data-ng-repeat-end class="accordion-item tab-item clearfix" data-tab-container="tab{{::$index}}">
+  </div>
+</div>

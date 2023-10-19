@@ -1,0 +1,49 @@
+<div class="bs-form-panel">
+  <div class="form-group" [ngClass]="{'has-error': formValidations?.formErrors?.minimumAge}">
+    <label>Minimum Age</label>
+    <input type="text"
+           class="ant-text-input"
+           name="minimumAge"
+           [(ngModel)]="payLoadService.ageGenderUpdate.minimumAge"
+           placeholder="Minimum Age"
+           required
+           pattern="^\d{0,3}$"
+           maxlength="3">
+    <label>
+      <span *ngIf="formValidations?.formErrors?.minimumAge" class="ant-form-item-error">
+        {{ formValidations?.formErrors?.minimumAge }}
+      </span>
+    </label>
+  </div>
+  <div class="form-group" [ngClass]="{'has-error': formValidations?.formErrors?.maximumAge}">
+    <label>Maximum Age</label>
+    <input type="text"
+           class="ant-text-input"
+           name="maximumAge"
+           [(ngModel)]="payLoadService.ageGenderUpdate.maximumAge"
+           placeholder="Maximum Age"
+           required
+           pattern="^\d{0,3}$"
+           maxlength="3">
+    <label>
+      <span *ngIf="formValidations?.formErrors?.maximumAge" class="ant-form-item-error">
+        {{ formValidations?.formErrors?.maximumAge }}
+      </span>
+    </label>
+  </div>
+  <div class="form-group">
+    <label>Gender</label>
+    <div class="pmf-md-select">
+      <select2 [data]="pmfDataService?.getSortedDropdownValues(pmfDataService?.JSON_DATA?.field_mapping_options?.gender?.fields)"
+               [(ngModel)]="payLoadService.ageGenderUpdate.gender"
+               (valueChanged)="payLoadService.ageGenderUpdate.gender = $event.value"
+               [value]="payLoadService.ageGenderUpdate.gender"
+               [cssImport]="true"
+               [options]="options | optionsPipe: 'Select One' : pmfDataService?.JSON_DATA?.field_mapping_options?.gender?.fields"
+               name="gender"
+               ngDefaultControl
+               required>
+      </select2>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div data-ng-transclude></div>
+<div class="ant-anthem-alert ant-{{dismissType}} ant-dismissable" role="alert" aria-hidden="true" tabindex="-1">
+  <div class="media">
+    <div class="media-left media-middle">
+      <span class="fa fa-exclamation" data-ng-show="dismissType === 'negative'" aria-hidden="true" tabindex="-1"></span>
+      <span class="fa fa-check" data-ng-show="dismissType === 'positive'" aria-hidden="true" tabindex="-1"></span>
+      <span class="fa fa-info" data-ng-show="dismissType === 'info'" aria-hidden="true" tabindex="-1"></span>
+    </div>
+    <div class="media-body media-middle">
+      <a href="javascript:void(0)" class="ant-dismiss-alert" role="link" aria-describedby="dismissAlertContent" aria-live="polite" aria-atomic="true"><span class="fa fa-remove"></span></a>
+      <p data-ng-bind-html="content" id="dismissAlertContent"></p>
+    </div>
+  </div>
+</div>

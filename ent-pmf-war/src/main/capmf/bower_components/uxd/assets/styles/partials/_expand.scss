@@ -1,0 +1,234 @@
+/*** Expand/Collapse Styles ***/
+
+.ant-expand-collapse {
+
+  .panel-heading {
+    padding: 0px .6rem;
+    background-color:transparent;
+
+    .panel-title a {
+      display: table-row;
+      width: 100%;
+      border: 0px;
+    }
+    a span.fa {
+        display: table-cell;
+        vertical-align: middle;
+        margin-left: 2px;
+        color:$accent-color-salmon;
+      }
+    a span.heading-text {
+        display: table-cell;
+        vertical-align: middle;
+        padding-left: 1rem;
+      }
+  }
+
+  .panel-heading.odd {
+    background-color:$light-gray;
+  }
+
+  .panel-heading a.ant-toggle-ctrl {
+    font-size: 1.444rem;
+    padding: .6rem 0;
+    display:block;
+    background-color:transparent;
+    background-image:none;
+    margin-top:-1px;
+    filter:none;
+  }
+
+  .panel-heading a, .panel-heading a:hover, .panel-heading a:focus {
+    text-decoration:none;border-bottom:none;
+  }
+
+  .panel + .panel {margin-top:0px;}
+
+  .panel-body {margin:0px;padding:1.714rem 1.111rem;}
+
+  .panel, .panel-heading + .panel-collapse > .panel-body {
+    border:0px;
+    box-shadow: 0px 0px;
+    border-radius:0;
+  }
+
+  .collapse{
+      -webkit-transition: height 500ms ease-out;
+      -o-transition: height 500ms ease-out;
+      transition: height 500ms ease-out;
+      height: 0;
+      display: inherit;
+    overflow: hidden;
+  }
+
+  .collapse.in{
+      -webkit-transition: height 500ms ease-out;
+      -o-transition: height 500ms ease-out;
+      transition: height 500ms ease-out;
+      height: auto;
+      display: inherit;
+  }
+}
+
+/** Responsive Collapsible Block **/
+.ant-responsive-collapse,
+.ant-responsive-collapse + .ant-responsive-collapse {
+  margin-top: 0px; }
+
+.ant-responsive-collapse-heading {
+  cursor: pointer;
+  width: 100%;
+  background: $light-gray;
+  margin-bottom:1rem;
+
+  .collapsible-heading-text {
+    display:table-cell;
+    padding:.6rem 0px;
+    vertical-align: middle;
+    font-size: 1.444rem;
+    font-weight: 300;
+  }
+
+  a {
+  vertical-align: middle;
+  display:table-cell;
+  padding:.6rem;
+  border-bottom:0px solid transparent;
+  margin-right:12px;}
+
+  &.ant-heading-one {
+    font-size: 1.444rem;
+    font-weight:400;
+  }
+}
+
+.ant-responsive-collapse-body {
+  max-height:0px;
+  padding: 0px;
+  overflow: hidden;
+  visibility:hidden;
+  transition: max-height .75s ease, visibility .35s ease, padding .35s ease .35s;}
+
+.ant-block-expanded {
+  .ant-responsive-collapse-body {
+    max-height:5000px;
+    padding:.714rem .714rem 1.714rem;
+    visibility:visible;
+    transition: max-height .75s ease, visibility .35s ease;
+  }
+
+  .ant-responsive-collapse-heading {margin-bottom:15px;}
+
+  .ant-responsive-collapse-heading a .fa:before {content:"\f056"}
+}
+
+@media (min-width:801px) {
+  .ant-responsive-collapse {margin-top: 0px;}
+
+  .ant-responsive-collapse + .ant-responsive-collapse {margin-top:1rem;}
+
+  .ant-responsive-collapse-heading {
+    background:transparent;
+    margin-bottom:0px;
+
+    a {
+      display:none;
+    }
+
+    &.ant-heading-one {
+      font-size: 1.8rem;
+      font-weight:300;
+      text-align:center;
+
+      .collapsible-heading-text {
+        font-size: 1.8rem;
+      }
+    }
+    .collapsible-heading-text {
+      display:inline-block;
+      text-align:center;
+    }
+  }
+  .ant-responsive-collapse-body {
+    max-height: 3000px;
+    padding: 1.111rem 0;
+    visibility:visible;
+  }
+
+  .ant-block-expanded {
+    .ant-responsive-collapse-heading {
+      margin-bottom:0px;
+    }
+    .ant-responsive-collapse-body {
+      max-height: 3000px;
+      padding: 1.111rem 0;
+      visibility:visible;
+    }
+  }
+}
+
+/* Blue Accordion Styles for Collapsible Block */
+
+.ant-accordion-blue.ant-responsive-collapse {
+  border:1px solid $primary-color-light-blue;
+
+
+   + .ant-responsive-collapse {margin-top:15px;}
+
+  .ant-responsive-collapse-heading {
+    background: $primary-color-light-blue;
+    color:$white;
+    margin-bottom:0px;
+    font-size: 1.444rem;
+    font-weight: 300;
+
+    a .fa {color:$white;}
+  }
+
+  .ant-block-expanded {
+    .ant-responsive-collapse-body {
+      padding: 1.111rem;
+    }
+
+    .ant-responsive-collapse-heading {
+      margin-bottom:0px;
+    }
+  }
+
+  @media (min-width:801px) {
+
+    .ant-responsive-collapse-heading {
+
+      a {
+        display:table-cell;
+        vertical-align:middle;
+      }
+
+      .collapsible-heading-text {
+        display:table-cell;
+        vertical-align:middle;
+      }
+    }
+
+    .ant-responsive-collapse-body {
+      max-height:0px;
+      padding: 0px;
+      overflow: hidden;
+      visibility:hidden;
+      transition: max-height .75s ease, visibility .35s ease, padding .35s ease .35s;}
+
+
+  }
+  &.ant-block-expanded {
+    .ant-responsive-collapse-body {
+      max-height: 9000px;
+      padding: 1.111rem;
+      visibility:visible;
+      overflow:visible;
+      transition: max-height .75s ease, visibility .35s ease;
+    }
+    .ant-responsive-collapse-heading {
+      margin-bottom:0px;
+    }
+  }
+}

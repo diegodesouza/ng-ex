@@ -1,0 +1,19 @@
+<div class="pmf-section-container form-group" *ngIf="payLoadService?.length > 0">
+  <div class="ant-heading-three">Office Hours / Days of Operation</div>
+  <div class="pmf-container-group">
+    <div class="DaysHoursComponent-wrapper" *ngFor="let dayOfTheWeek of payLoadService">
+      <div class="pmf-table-container-padded">
+        <div>Day:</div>
+        <div>{{dayOfTheWeek?.dayName}}</div>
+      </div>
+      <div class="pmf-table-container-padded">
+        <div>Open:</div>
+        <div>{{dayOfTheWeek?.openingTime}}</div>
+      </div>
+      <div class="pmf-table-container-padded">
+        <div>Close:</div>
+        <div>{{dayOfTheWeek?.closingTime}}</div>
+      </div>
+    </div>
+  </div>
+</div>

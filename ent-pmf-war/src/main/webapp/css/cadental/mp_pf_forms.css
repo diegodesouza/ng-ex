@@ -1,0 +1,411 @@
+/*CSS for Provider Forms - mp_pf_forms */
+
+/*CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+}
+a:focus {
+outline: 1;
+}
+body {
+line-height: 1;
+}
+ul {
+list-style: none;
+}
+ol {
+margin-left: 30px;
+list-style-type: lower-alpha;
+}
+blockquote, q {
+quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+content: '';
+content: none;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+h1{
+	color: #F67A01;
+	font-weight: bold;
+	font-size: 1.5em;
+	margin: 3px 0px 10px 0px;
+}
+h2{
+	color: #1554A2;
+	font-weight: bold;
+	font-size: 1.1em;
+}
+p{
+	margin: 8px 0px 2px 0px;
+	line-height: 1.3em;
+}
+
+/*CSS for Layout */
+.pf_l_body{
+	font-family: verdana, sans-serif;
+	font-size: .8em;
+	line-height: 1.2em;
+	background-color: #e4e4e4;
+	color: #454545;
+}
+#pf_l_wrapper{
+	margin: 0 auto;
+	width: 998px;
+	background-color: #fff;
+}
+#pf_l_mainHeader{
+	height: 30px;
+	border-top: solid 4px #4177BA;
+	border-bottom: solid 1px #BBDAE9;
+	padding: 16px;
+	text-indent: -1000px;
+	background: url('../../images/pf_cadental_anthemLogo.jpg') no-repeat 10px;
+}
+#pf_l_mainHeaderGolden{
+	height: 30px;
+	border-top: solid 4px #4177BA;
+	border-bottom: solid 1px #BBDAE9;
+	padding: 16px;
+	text-indent: -1000px;
+	background: url('../../images/pf_cadental_goldenWLogo.jpg') no-repeat 10px;
+}
+
+#pf_l_content{
+	padding: 10px 16px;
+}
+#pf_footer{
+	margin: 10px auto;
+	border-top: solid 1px #4177BA;
+	text-align: center;
+	font-size: .7em;
+	color: #4177BA;
+}
+.pf_l_msgContainer{
+	margin: 20px 1px 10px 1px;
+	border: solid 1px #ccc;
+	border-radius: 4px;
+	background-color: #eee;
+	padding: 4px;
+}
+.pf_l_msgContainer h2{
+
+}
+.pf_msgOpt{
+	margin: 12px 0px;
+	padding: 5px;
+	background-color: #fff;
+	border: solid 1px #ccc;	
+	border-radius: 4px;
+}
+.pf_msgOpt ul{
+	list-style-type: square;
+	padding: 5px 8px 5px 20px;
+	font-size: 0.85em;
+}
+.pf_msgOpt a{
+	text-decoration: none;
+	background-color: #2889F3;
+	background:-moz-linear-gradient(top, #A0C5D6, #1a82f7);
+	border: solid 1px #025AC4;
+	border-radius: 4px;
+	padding: 2px;
+	display: inline-block;
+	font-size: 0.8em;
+	color: #fff;
+}
+
+.pf_msgOpt a:focus{
+	outline: dashed 1px red;
+}
+
+.pf_msgOpt2{
+	margin: 12px 0px;
+	padding: 5px;
+	background-color: #fff;
+	border: solid 1px #ccc;	
+	border-radius: 4px;
+}
+.pf_msgOpt2 ul{
+	list-style-type: square;
+	padding: 5px 8px 5px 20px;
+	font-size: 0.85em;
+}
+
+.pf_l_tabContainer{
+	margin-top: 32px;
+	clear: both;
+}
+.pf_tabHeader{
+	border-bottom: solid 1px red;
+	height: 25px;
+	background-color: yellow;
+}
+.pf_tabBody{
+	padding-top: 16px;
+	background-color: #fff;
+	position: relative;
+	z-index: 3; 
+	top:-4px;
+}
+h3.pf_tab,h3.pf_data_tab{
+	border: solid 1px #4177BA;
+	border-radius: 5px;
+	background-color: #A0C5D6;
+	height: 20px;
+	width: 150px;
+	margin: 0 5px;
+	padding: 4px 8px 16px 8px;
+	text-align: center;
+	text-decoration: none;
+	position: relative;
+	z-index: 1;
+	top: -3px;
+	color: #454545;
+	font-weight: bold;
+	display: inline;
+	cursor: pointer;
+}
+
+h3.pf_tab_hover{
+	background-color: #60AFD4;
+	color: #000;
+}
+
+/** new provider specific styles **/
+
+h3.pf_data_tab_new{
+	padding-left:30px;
+	background:#A0C5D6 url("../../images/new.png") no-repeat center 5px;
+}
+
+h3.pf_tabsel span.pf_close_tab{
+	padding-left:15px;
+	padding-top:0px;
+	background: url("../../images/pb_crossmark.png") no-repeat right top;
+	display:none;
+}
+
+/** end of new provider **/
+
+h3.pf_tabsel{
+	border-bottom: solid 1px #fff;
+	border-top: solid 2px #FF9F00;
+	background-color: #fff;
+	position: relative;
+	z-index: 2;
+	top: -3px;
+	color: #1B4A97;
+	cursor: hand;
+}
+
+
+h3.new_tab{
+	background:url('../../images/new.png');
+	width:20px;
+}
+
+h3.pf_tab_select{
+	float:left;
+}
+
+h3.pf_tabsel_hover{
+	background-color: #fff;
+}
+
+
+.tabSeparator{
+	background-color: #4177BA;
+	height: 5px;
+	position: relative;
+	z-index: 1;
+}
+.pf_formSection{
+	background-color: #fff;
+	/*padding-top: 16px;
+	position: relative;
+	z-index: 3;
+	top:-4px;*/
+}
+.pf_formSection label, input, select{
+	margin: 3px;	
+}
+.pf_formSection label{
+	width: 250px;
+	display: inline-block;
+	text-align: right;
+}
+.pf_formSection H2 em{
+	font-weight: normal;
+	font-size: 0.85em;
+}
+.subLabel{
+	font-weight: normal;
+}
+.pf_formSection input{
+	width: 250px;
+}
+
+.pf_formSection fieldset{
+	border: solid 1px #ccc;
+	margin: 5px 0;
+}
+.pf_formSection legend {
+	margin: 0 15px;
+	padding: 0 2px;
+	font-weight: bold;
+}
+.pf_formSection li {
+    list-style: none;
+    padding: 1px;
+    margin: 0;
+}
+.pf_formSection em {
+  /*font-weight: bold;*/
+  font-style: normal;
+  color: #f00;
+}
+label.error{
+	font-size: .7em;
+	text-align: left;
+	color: red;
+}
+.pf_sectionHead{
+	color: #1554A2;
+	font-weight: normal;
+	cursor: pointer;
+	/*height: auto;*/
+	background: #E3E7ED url('../../images/expand.gif') no-repeat 4px 7px;
+	/*padding: 4px 5px;*/
+	border: solid 1px #D8D8D8;
+	border-radius: 4px;
+	/*padding-left: 20px;*/
+	width:100%;
+	float:left;
+	margin-bottom:4px;
+}
+
+.pf_sectionHead .label{
+	padding: 4px 5px 4px 20px;
+	float:left;
+}
+
+.pf_sectionHeadNoToggle{
+	color: #1554A2;
+	font-weight: normal;
+	/*height: auto;*/
+	background: #E3E7ED no-repeat 4px 7px;
+	/*padding: 4px 5px;*/
+	border: solid 1px #D8D8D8;
+	border-radius: 4px;
+	padding-left: 0px;
+	width:100%;
+	float:left;
+	margin-bottom:4px;
+}
+
+.pf_sectionHeadNoToggle.label{
+	padding: 4px 5px 4px 20px;
+	float:left;
+}
+
+
+.toggler{
+	clear:both;
+}
+
+.pf_submit{
+	background-color: #FF9600;
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+}
+#pf_msgOpt1.pf_selHighlight, #pf_msgOpt2.pf_selHighlight, #pf_msgOpt3.pf_selHighlight{
+	border: solid 2px #FF9F00;
+}
+.ui-autocomplete { /*Customize Height for Auto Complete */
+	max-height: 130px;
+	overflow-y: auto;
+}
+/*Common Styles for Prov Forms */
+input.pf_cWidthTime{
+	width: 60px;
+}
+.pf_cursor{
+	cursor: pointer;
+}
+.pf_expand{
+	font-weight: bold;
+	background: #E4E4E4 url('../../images/collapse.gif') no-repeat 4px 7px;
+}
+.pf_bold{
+	font-weight: bold;
+}
+.pf_boldital{
+	font-style: italic;
+	font-weight: bold;
+	
+}
+.pf_ital{
+	font-style: italic;
+}
+
+.requiredText{
+	font-size: 0.75em;
+	margin-left: 10px;
+}
+.pf_highlight{
+	color: #093F85;
+	border-left: solid 1px #F00;
+	background-color: #E4E4E4;
+}
+.pf_indentBold{
+	font-weight: bold;
+	text-indent: 8px;
+}
+.pf_indent{
+	text-indent: 8px;
+}
+.clear{
+	clear: both;
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+.fullWidth{
+	width: 100%;
+}
+.cWidth30{
+	width: 42%;
+}
+.cWidth60{
+	width: 54%;
+}
+.cWidth90{
+	width: 90%;
+}

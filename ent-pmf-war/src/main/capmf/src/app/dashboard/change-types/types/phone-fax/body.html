@@ -1,0 +1,62 @@
+<div class="bs-form-panel">
+  <div *ngFor="let phoneFax of payloadService.phoneFax; let ind = index">
+    <div class="form-group">
+      <div data-tcp-toggle-switch-cmp
+           [(ngModel)]="phoneFax.requestActionCd"
+           id="phonefax-selecttype-{{indexArray[index]}}"
+           name="phonefax-selecttype-{{ind}}"
+           [legendSrOnly]="true"
+           [options]="[{label: 'Add', value: 'A'}, {label: 'Delete', value: 'D'}]"
+           required>
+      </div>
+    </div>
+    <div class="form-group clearfix">
+      <label htmlFor="number-{{ind}}">Phone Number Type</label>
+      <select2 [data]="pmfDataService?.getSortedDropdownValues(pmfDataService?.JSON_DATA?.field_mapping_options.phone_type.fields)"
+               [(ngModel)]="phoneFax.phoneTypeDesc"
+               (valueChanged)="phoneFax.phoneTypeDesc = $event.value"
+               [value]="phoneFax.phoneTypeDesc"
+               [cssImport]="true"
+               [options]="options | optionsPipe: 'Select One' : pmfDataService?.JSON_DATA?.field_mapping_options.phone_type.fields"
+               name="number-{{ind}}"
+               ngDefaultControl
+               required>
+      </select2>
+    </div>
+    <div class="form-group clearfix" [ngClass]="{'has-error': formValidations?.formErrors | errorspipe: 'phonenumber-':ind}">
+      <input type="text"
+             id="phonenumber-{{ind}}"
+             class="ant-text-input"
+             name="phonenumber-{{ind}}"
+             [(ngModel)]="phoneFax.phoneNumber"
+             [textMask]="{mask: formValidations?.phoneMask}"
+             pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$"
+             placeholder="Phone Number"
+             unmaskModel
+             required>
+      <label>
+        <span *ngIf="formValidations?.formErrors | errorspipe: 'phonenumber-':ind" class="ant-form-item-error">
+          {{ formValidations?.formErrors | errorspipe: 'phonenumber-':ind}}
+        </span>
+      </label>
+    </div>
+    <div *ngIf="payloadService.phoneFax.length > 1">
+      <a id="removelink-{{ind}}"
+         name="removelink-{{ind}}"
+         class="ant-action-link"
+         (click)="removePhoneFax(ind)">
+        Remove
+      </a>
+    </div>
+    <hr>
+  </div>
+
+  <div class="form-group pmf-margin-left-20" *ngIf="payloadService.phoneFax.length < 4">
+    <div class="icon-item" (click)="addPhoneFax()">
+      <span class="fa md fa-plus-circle blue"></span>
+    </div>
+    <div class="icon-description">
+      Add/Delete Another Phone / Fax Number
+    </div>
+  </div>
+</div>

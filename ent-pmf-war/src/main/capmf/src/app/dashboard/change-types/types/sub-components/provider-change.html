@@ -1,0 +1,97 @@
+<div class="bs-form-panel">
+  <div *ngIf="parentName === 'removeProviderLocation'">
+    <p class="gi-inline-help">This will remove the provider's affiliation from the address entered in the General Information section, while maintaining affiliation with other locations.</p>
+  </div>
+  <div *ngIf="parentName === 'providerLeavingGroup'">
+    <p class="gi-inline-help">This provider is no longer affiliated with the group Tax Identification Number.</p>
+  </div>
+  <label>{{pmfDataService?.JSON_DATA?.field_mapping_options?.reason?.field_name}}</label>
+  <div class="form-group">
+    <select2 [data]="pmfDataService?.getSortedDropdownValues(pmfDataService?.JSON_DATA?.field_mapping_options?.reason?.fields)"
+             [(ngModel)]="providerChange.termReasonCd"
+             (valueChanged)="providerChange.termReasonCd = $event.value"
+             [value]="providerChange.termReasonCd"
+             [cssImport]="true"
+             [options]="options | optionsPipe: 'Select One' : pmfDataService?.JSON_DATA?.field_mapping_options?.reason?.fields"
+             name="{{parentName}}-reason"
+             ngDefaultControl
+             required>
+    </select2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group clearfix">
+        <input name="{{parentName}}-firstName"
+               type="text"
+               class="ant-text-input input-width ant-top-margin-12"
+               [(ngModel)]="providerChange.provFirstName"
+               placeholder="First Name"
+               pattern="^[a-zA-Z]['\-a-zA-Z ]*"
+               required/>
+        <div *ngIf="formValidations?.formErrors | errorsappendparentname: parentName:'-firstName'">
+          <span class="ant-float-left ant-full-width ant-form-item-error">
+            {{ formValidations?.formErrors | errorsappendparentname: parentName:'-firstName' }}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group clearfix">
+        <input name="{{parentName}}-lastName"
+               type="text"
+               class="ant-text-input input-width ant-top-margin-12"
+               [(ngModel)]="providerChange.provLastName"
+               placeholder="Last Name"
+               pattern="^[a-zA-Z]['\-a-zA-Z ]*"
+               required/>
+        <div *ngIf="formValidations?.formErrors | errorsappendparentname: parentName:'-lastName'">
+          <span class="ant-float-left ant-full-width ant-form-item-error">
+            {{ formValidations?.formErrors | errorsappendparentname: parentName:'-lastName' }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group clearfix">
+    <input name="{{parentName}}-middleName"
+           type="text"
+           class="ant-text-input input-width ant-top-margin-12"
+           [(ngModel)]="providerChange.provMiddleName"
+           placeholder="Middle Name"
+           pattern="^[a-zA-Z]['\-a-zA-Z ]*"/>
+    <div *ngIf="formValidations?.formErrors | errorsappendparentname: parentName:'-middleName'">
+      <span class="ant-float-left ant-full-width ant-form-item-error">
+        {{ formValidations?.formErrors | errorsappendparentname: parentName:'-middleName' }}
+      </span>
+    </div>
+  </div>
+
+  <div class="form-group clearfix">
+    <input id="{{parentName}}-orgNpi"
+           type="text"
+           name="{{parentName}}-orgNpi"
+           class="ant-text-input input-width ant-top-margin-12"
+           [(ngModel)]="providerChange.provNpi"
+           placeholder="Individual NPI"
+           required
+           maxlength="10"
+           pattern="^[0-9]{10}$"/>
+    <div *ngIf="formValidations?.formErrors | errorsappendparentname: parentName:'-orgNpi'">
+      <span class="ant-float-left ant-full-width ant-form-item-error">
+        {{ formValidations?.formErrors | errorsappendparentname: parentName:'-orgNpi' }}
+      </span>
+    </div>
+  </div>
+
+  <p class="gi-inline-help">Are you acting as a Primary Care Physician at this location?</p>
+  <div class="form-group">
+    <div data-tcp-toggle-switch-cmp
+       [(ngModel)]="providerChange.pcpIndicator"
+       id="{{parentName}}-pcpIndicator"
+       name="{{parentName}}-pcpIndicator"
+       [options]="[{label: 'Yes', value: 'yes'}, {label: 'No', value: 'no'}]"
+       required>
+    </div>
+  </div>
+</div>

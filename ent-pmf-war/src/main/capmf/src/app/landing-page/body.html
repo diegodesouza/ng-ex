@@ -1,0 +1,16 @@
+<div class="container">
+    <app-header></app-header>
+    <landingpage-header></landingpage-header>
+    <div class="row">
+      <div *ngIf="configService?.hasLandingPageSteps()">
+        <landingpage-description-steps class="col-md-6"></landingpage-description-steps>
+      </div>
+      <div *ngIf="!configService?.hasLandingPageSteps()">
+        <landingpage-description class="col-md-6"></landingpage-description>
+      </div>
+      <div class="col-md-6">
+          <landingpage-select></landingpage-select>
+      </div>
+    </div>
+    <app-footer></app-footer>
+</div>

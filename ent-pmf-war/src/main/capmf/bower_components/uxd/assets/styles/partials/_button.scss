@@ -1,0 +1,317 @@
+/*bootstrap buttons start*/
+.btn {
+    @include color-function($accent-color-salmon, $base-color);
+    background-image: none;
+    border-radius: 0px;
+    border:1px solid $accent-color-salmon;
+    font-size:1rem;
+    min-width: 0;
+    text-align:center;
+    display:inline-block;
+    padding:0.6667rem 2rem;
+    font-family:"open-sans", "Open Sans", sans-serif;
+    font-weight:300;
+    text-decoration:none;
+
+    &:hover, &:focus, &:active, &:active:focus {
+        @include color-function($accent-color-red, $base-color);
+        border-color:$accent-color-red;
+    }
+
+    .btn-default:focus, .btn-primary:focus {
+        background-position: 0px;
+    }
+}
+
+.btn-sm {
+  min-width:0;
+  padding:0.3333rem 1.111rem;
+  font-size:0.8889rem;
+}
+
+.btn-default,
+.btn-primary {
+    @include color-function($accent-color-salmon, $base-color);
+    border:1px solid $accent-color-salmon;
+
+    &:hover, &:focus, &:active, &:active:focus {
+        @include color-function($accent-color-red, $base-color);
+        border-color:$accent-color-red;
+    }
+}
+
+.btn-ghost {
+    @include color-function($base-color, $primary-color-light-blue);
+    border: 1px solid;
+
+    &:hover, &:focus, &:active, &:active:focus {
+        @include color-function($primary-color-light-blue, $base-color);
+        border: 1px solid;
+    }
+}
+
+.btn-secondary {
+    @include color-function($base-color, $accent-color-salmon);
+    border: 1px solid;
+
+    &:hover, &:focus, &:active, &:active:focus {
+        @include color-function($accent-color-red, $base-color);
+        border-color:$accent-color-red;
+    }
+}
+
+.btn-secondary-dk {
+  @include color-function(transparent, $base-color);
+  border-color:$base-color;
+
+  &:hover, &:focus, &:active, &:active:focus {
+    @include color-function($base-color, $primary-color-blue);
+    border-color:$base-color;
+  }
+}
+
+.btn-secondary-dk-alt {
+  @include color-function($base-color, $primary-color-blue);
+  border-color:$primary-color-blue;
+
+  &:hover, &:focus, &:active, &:active:focus {
+    @include color-function($light-gray, $primary-color-blue);
+    border-color:$primary-color-blue;
+  }
+}
+/** Button With Dropdown **/
+.btn.dropdown-toggle {
+    padding:0px;
+
+    .buttonMain {
+      display:inline-block;
+      padding:.75rem 1rem .8rem;
+      vertical-align:top;
+    }
+
+    .fa {
+      color:inherit;
+      padding: .6rem 1rem 0 0;
+      top:0px;
+      font-size:1.667rem;
+      position: relative;
+    }
+}
+
+
+.btn-naked-dropdown,
+.btn-naked-dropdown:hover,
+.btn-naked-dropdown:focus,
+.btn-naked-dropdown:active,
+.btn-naked-dropdown:active:focus {border:0px solid;background:transparent;box-shadow:none;}
+.btn-naked-dropdown.dropdown-toggle .buttonMain {padding-left:5px;color:$primary-color-blue;}
+.btn-naked-dropdown.dropdown-toggle .fa {color:$primary-color-blue;}
+
+
+.btn.btn-secondary-alt {
+    color:#333;
+    background-color: #fff;
+    border:2px solid #eee;
+  }
+
+.btn.btn-secondary-alt:hover,
+.btn.btn-secondary-alt:focus,
+.btn.btn-secondary-alt:active,
+.btn.btn-secondary-alt:active:focus{
+  color:#333;
+  background-color: #eee;
+  border:2px solid #eee;
+}
+
+.btn.btn-secondary-alt.dropdown-toggle .fa {color:#006eb9;}
+
+
+.btn.dropdown-toggle.btn-select-style {
+    background: $white;
+    border: 1px solid $gray;
+    color: $gray;
+    border-radius: 3px;
+    padding:0px;
+    text-align: left;
+    width:250px;
+    max-width:100%;
+
+  &:focus {
+    border: 1px solid $accent-color-blue;
+
+    .buttonMain {
+
+    }
+
+    .fa {
+
+      border-left: 1px solid $accent-color-blue;
+    }
+  }
+
+
+    .buttonMain {
+      display:inline-block;
+      padding:11px;
+      vertical-align:top;
+      float:left;
+      display:block;
+    }
+
+    .fa {
+      color:$primary-color-light-blue;
+      padding:11px 15px;
+      top:0px;
+      font-size:30px;
+      position: relative;
+      border-left: 1px solid $gray;
+      float:right;
+      display:block;
+    }
+}
+
+.btn-group.open .dropdown-toggle {
+    box-shadow:none;
+}
+
+.open > div .dropdown-menu {
+  display: block;
+  width: 100%;
+  margin-top: -1px;
+  font-size: 1rem;
+  border-bottom-left-radius:4px;
+  border-bottom-left-radius:4px;
+}
+
+.open > div .dropdown-menu li a {
+  padding:0.5556rem 0.8333rem;
+  border-bottom:0px solid transparent;
+
+  &:hover, &:focus {
+    @include color-function($primary-color-light-blue, $base-color);
+  }
+}
+
+.dropdown-menu .fa {display: inline-block;padding-right:10px;}
+.dropdown-menu a:hover .fa {color:#fff;}
+
+button:disabled,
+button:disabled,
+button:disabled:hover,
+button:disabled:focus,
+.btn-primary:disabled,
+.btn-primary:disabled,
+.btn-primary:disabled:hover,
+.btn-primary:disabled:focus,
+.btn-secondary:disabled,
+.btn-secondary:disabled,
+.btn-secondary:disabled:hover,
+.btn-secondary:disabled:focus,
+.btn-ghost:disabled,
+.btn-ghost:disabled,
+.btn-ghost:disabled:hover,
+.btn-ghost:disabled:focus,
+.btn-default:disabled,
+.btn-default:disabled,
+.btn-default:disabled:hover,
+.btn-default:disabled:focus  {
+    background-color: $medium-gray;
+    border-color: $medium-gray;
+}
+
+.btn-icon,
+.btn-icon:hover,
+.btn-icon:focus{
+    background: transparent;
+    padding: 0px 5px;
+	min-width: auto;
+	border: none;
+    text-decoration: underline;
+    color: $primary-color-light-blue;
+}
+
+.btn-icon .fa,
+.btn-icon-sm .fa {
+    margin-right: 10px;
+    color: $accent-color-salmon;
+    position: relative;
+    top: 3px;
+}
+
+.btn-icon-sm,
+.btn-icon-sm:hover,
+.btn-icon-sm:focus{
+    background: transparent;
+    color: $primary-color-light-blue;
+    padding: 0px 5px;
+	min-width: auto;
+	border: none;
+    text-decoration: underline;
+}
+
+.btn-icon:hover,
+.btn-icon:focus,
+.btn-icon-sm:hover,
+.btn-icon-sm:focus{
+    text-decoration: underline;
+}
+
+.uxd-btn-ddl {
+  &.ant-input-med {
+    width: auto;
+
+    .psButton,
+    .psDropdown {
+
+    }
+  }
+
+  &.ant-input-long {
+    width: auto;
+
+    .psButton,
+    .psDropdown {
+      width: 600px;
+    }
+  }
+
+  &.ant-input-short {
+    width: auto;
+
+    .psButton,
+    .psDropdown {
+      width: 100px;
+    }
+  }
+}
+
+.btn-group.link-style {
+    top: -3px;
+    padding: 9px 0px 7px;
+    margin: 0px;
+}
+
+.btn-group.link-style button,
+.btn-group.link-style button.btn:first-child {
+    padding: 3px 0px;
+    margin-left: 10px;
+    background: transparent;
+    color: $accent-color-salmon;
+    border: 2px solid;
+    border-radius: 4px;
+    display: block;
+}
+
+.btn-group.open .btn.dropdown-toggle,
+.btn-group.open .btn.dropdown-toggle:focus,
+.btn-group.open .btn.dropdown-toggle:active {
+    box-shadow: none;
+}
+
+.btn-group.link-style li a.icon-item {
+    @include color-function(transparent, $accent-color-salmon);
+    display: block;
+    margin-bottom: 5px;
+}
+
+/*bootstrap buttons end*/

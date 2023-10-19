@@ -1,0 +1,13 @@
+<div class="pmf-section-container form-group" *ngIf="payLoadService?.tin || payLoadService?.npi">
+  <div class="ant-heading-three">Tax Identification Number</div>
+  <div class="pmf-container-group">
+    <div class="pmf-table-container pmf-flex-end" *ngIf="payLoadService?.tin">
+      <div>New Tax Identification Number:</div>
+      <div>{{payLoadService?.tin}}</div>
+    </div>
+    <div class="pmf-table-container" *ngIf="payLoadService?.npi">
+      <div>{{_payLoadService?.userType === 0 ? 'Individual NPI:' : 'Organization NPI:'}}</div>
+      <div>{{payLoadService?.npi }}</div>
+    </div>
+  </div>
+</div>

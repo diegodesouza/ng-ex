@@ -1,0 +1,19 @@
+<div class="pmf-section-container form-group" *ngIf="payLoadService?.length > 0">
+  <div class="ant-heading-three">Hospital Affiliation</div>
+  <div class="pmf-container-group">
+    <div class="ant-margin-bot-10 ant-margin-top-10" *ngFor="let hospital of payLoadService">
+      <div class="pmf-table-container">
+        <div>Add/Delete:</div>
+        <div>{{hospital?.requestActionCd === 'A' ? 'Add' : 'Delete'}}</div>
+      </div>
+      <div class="pmf-table-container">
+        <div>Hospital Privilege:</div>
+        <div>{{hospital?.privilegeType}}</div>
+      </div>
+      <div class="pmf-table-container">
+        <div>Name of Affiliation:</div>
+        <div>{{hospital?.affiliationName}}</div>
+      </div>
+    </div>
+  </div>
+</div>

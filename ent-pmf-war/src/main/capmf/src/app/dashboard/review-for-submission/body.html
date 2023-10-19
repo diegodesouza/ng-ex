@@ -1,0 +1,57 @@
+<section id="reviewPrint">
+  <div class="ant-font-sb pmf-margin-left-15">
+    <div class="ant-heading-two">
+      Review for Submission
+    </div>
+  </div>
+  <div class="panel panel-default Review-For-Submission-Component">
+    <div class="panel-heading">
+      <review-for-submission-general-info-component [payLoadService]="payLoadService">
+      </review-for-submission-general-info-component>
+    </div>
+  </div>
+
+  <div class="panel panel-default Review-For-Submission-Component">
+    <div class="panel-heading">
+      <review-for-submission-change-types-component [payLoadService]="payLoadService">
+      </review-for-submission-change-types-component>
+    </div>
+  </div>
+</section>
+
+<div *ngIf="isSubmitView">
+  <div class="collapseItemContainer form-group pmf-padx">
+    <div class="checkbox">
+      <label><input type="checkbox" id="acceptance" name="acceptance" [(ngModel)]="payLoadService.isAcceptance">
+        <p>
+          By clicking "SUBMIT", I hereby request the above changes and certify that the information provided is true and correct.
+          I certify that I am the named professional or am otherwise authorized to make this request on behalf of the named professional.
+        </p>
+        <p>
+          To avoid processing delays, please review this form before submitting to ensure that all required areas have been completed.
+          Please attach all supporting documentation using the Attachments section.
+        </p>
+      </label>
+    </div>
+  </div>
+</div>
+<div class="ant-accent-magenta form-group" *ngIf="ajaxLoad === 'error'">
+  <span>System Unavailable. Please Try Again Later.</span>
+</div>
+<div class="button-group" align="right">
+  <button type="button" class="btn" (click)="attest()" *ngIf="!isSubmitView">
+    Attest
+  </button>
+  <button
+    type="button"
+    class="btn"
+    (click)="submitForm()"
+    [disabled]="!payLoadService.isAttachment || !payLoadService.isAcceptance"
+    *ngIf="isSubmitView">
+    Submit
+  </button>
+
+  <div data-uxd-ajax-loader-cmp="" *ngIf="ajaxLoad ==='submit'">
+    <span [innerHTML]="'Submission In Progress..'"></span>
+  </div>
+</div>

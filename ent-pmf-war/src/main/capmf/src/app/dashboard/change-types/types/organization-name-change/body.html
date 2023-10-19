@@ -1,0 +1,22 @@
+<section class="bs-form-panel">
+  <div class="form-group">
+    <div class="ant-margin-top-10 ant-margin-bot-10">
+      <label class="pmf-font-sm-bold">
+        {{dataService?.JSON_DATA?.view?.selectUpdateTypesView?.organizationName?.labels?.information}}
+      </label>
+    </div>
+  </div>
+  <div class="form-group" [ngClass]="{'has-error': formValidations?.formErrors?.organizationName}">
+    <input name="organizationName"
+           type="text"
+           class="ant-text-input input-width ant-top-margin-12"
+           [(ngModel)]="payLoadService.organization.updatedPracticeName"
+           placeholder="Organization Name"
+           required/>
+    <label>
+      <span *ngIf="formValidations?.formErrors?.organizationName" class="ant-form-item-error">
+        {{ formValidations?.formErrors?.organizationName }}
+      </span>
+    </label>
+  </div>
+</section>

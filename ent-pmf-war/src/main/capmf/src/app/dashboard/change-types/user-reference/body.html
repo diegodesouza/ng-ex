@@ -1,0 +1,73 @@
+<section class="user-reference">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-9">
+                    <label>Name</label>
+                </div>
+                <div class="col-md-1">
+                    <a class="ant-action-link-ur" routerLink="/dashboard/generalinfo" skipLocationChange>
+                        <span class="fa fa-pencil fa-pencil-ur"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9 pmf-wrap">
+                    <span class="gi-inline-help" *ngIf="payLoadService.userType===0">{{payLoadService.individual.firstName}}
+                        {{payLoadService.individual.lastName}} {{payLoadService.individual.suffix}}</span>
+                    <span *ngIf="payLoadService.userType===1">{{payLoadService.organization.name}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div *ngIf="payLoadService.provider.npi" class="row no-gutters form-group">
+                <div class="col-md-9">
+                    <label>NPI</label>
+                </div>
+                <div>
+                    <span class="gi-inline-help">{{payLoadService.provider.npi}}</span>
+                </div>
+            </div>
+
+            <div class="row no-gutters form-group" *ngIf="payLoadService?.organization.taxId || payLoadService?.individual.taxId">
+                <div class="col-md-9">
+                    <label>TIN</label>
+                </div>
+                <div>
+                    <span class="gi-inline-help"
+                          *ngIf="payLoadService.userType === 0; else organizationTaxId">
+                      {{ payLoadService.individual.taxId | lastFourPipe }}
+                    </span>
+                    <ng-template #organizationTaxId>
+                        <span class="gi-inline-help">
+                            {{ payLoadService.organization.taxId | lastFourPipe }}
+                        </span>
+                    </ng-template>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Address</label>
+                <div class="pmf-wrap">
+                    <span class="gi-inline-help">
+                        {{payLoadService.addresses.streetAddress1}},
+                    </span>
+                    <span *ngIf="payLoadService.addresses.streetAddress2" class="gi-inline-help">
+                        {{payLoadService.addresses.streetAddress2}},
+                    </span>
+                    <span class="gi-inline-help">
+                        {{payLoadService.addresses.city}}, {{payLoadService.addresses.state}} {{payLoadService.addresses.zipCode}}
+                    </span>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Change Effective Date</label>
+                <span class="gi-inline-help">{{payLoadService.provider.effectiveDate}}</span>
+            </div>
+
+        </div>
+
+    </div>
+</section>

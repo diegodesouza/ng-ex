@@ -1,0 +1,37 @@
+<section class="bs-form-panel" *ngIf="payLoadService?.userType === 0">
+  <p>Primary Care Physician</p>
+  <div class="bs-form-panel">
+    <div class="form-group">
+      <label>
+        {{pmfDataService?.JSON_DATA?.field_mapping_options?.practice_location?.pcp?.field_name}}
+        <i class="required-asterik"> *</i>
+      </label>
+      <div data-tcp-toggle-switch-cmp
+           [(ngModel)]="payLoadService.addAddress.physicalAddress.pcpIndicator"
+           [labelText]="pmfDataService?.JSON_DATA?.field_mapping_options?.practice_location?.pcp?.field_name"
+           id="{{parentName}}-pcpIndicator"
+           name="{{parentName}}-pcpIndicator"
+           [legendSrOnly]="true"
+           [options]="[{label: 'Yes', value: 'yes'}, {label: 'No', value: 'no'}]"
+           required>
+      </div>
+    </div>
+     <span *ngIf="payLoadService.addAddress.physicalAddress.pcpIndicator === 'no' && pmfDataService?.JSON_DATA?.field_mapping_options?.pcp_assistant.field_name">
+      <div class="form-group">
+      <label>
+      {{pmfDataService?.JSON_DATA?.field_mapping_options?.pcp_assistant?.field_name}}
+      </label>
+      <select2 [data]="pmfDataService?.getSortedDropdownValues(pmfDataService?.JSON_DATA?.field_mapping_options?.pcp_assistant?.fields)"
+               [(ngModel)]="payLoadService.addAddress.physicalAddress.physicianAssistant"
+               (valueChanged)="payLoadService.addAddress.physicalAddress.physicianAssistant = $event.value"
+               [value]="payLoadService.addAddress.physicalAddress.physicianAssistant"
+               [cssImport]="true"
+               [options]="options | optionsPipe: 'Select One' : pmfDataService?.JSON_DATA?.field_mapping_options?.pcp_assistant?.fields"
+               name="{{parentName}}-physicianAssistant"
+               ngDefaultControl
+               >
+      </select2>
+    </div>
+  </span>
+  </div>
+</section>

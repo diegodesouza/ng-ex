@@ -1,0 +1,9 @@
+<div class="pmf-section-container form-group"
+     *ngIf="payLoadService?.telehealthServicesIndicator">
+  <div class="ant-heading-three">Telehealth</div>
+  <div class="pmf-container-group">
+    <div class="pmf-table-container">
+      <div>Do you provide Telehealth Services at this location? (If marked yes, Telehealth will be displayed in the directory.)</div>
+      <div>{{payLoadService?.telehealthServicesIndicator === 'yes' ? 'Yes' : 'No'}}</div>
+    </div>
+</div>

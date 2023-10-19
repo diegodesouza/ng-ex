@@ -1,0 +1,123 @@
+
+/*** Alerts ***/
+
+.ant-anthem-alert {
+  border:0px solid $primary-color-light-blue;
+  margin:0 0 1.714rem;
+  padding:12px 15px 8px;
+  border-radius:0px;
+  background:$accent-color-light-blue;
+  clear:both;
+
+  p {
+      margin:0px;
+  }
+
+  .glyphicon,
+  .fa.fa-info-circle,
+  .fa.fa-exclamation-circle,
+  .fa.fa-check-circle,
+  .fa.fa-circle-o-notch {
+    color:$primary-color-light-blue;
+    font-size:30px;
+    top:1px;
+    margin-right:5px;
+    margin-left: 1px;
+    font-size:1.857rem;
+  }
+
+  &.inline-alert {
+    border:0px;
+    background:transparent;
+    font-size:0.8571rem;
+    margin:0 0 1rem;
+    padding:12px 0px 8px;
+
+
+    .media-body {vertical-align:middle;}
+  }
+
+  &.in-container {
+    border-width: 0px;
+    margin: 30px 0px 0px;
+    border-radius: 0px;
+  }
+
+}
+
+.ant-negative {
+	border-color:$accent-color-magenta;
+	background-color:$accent-color-light-magenta;}
+
+.ant-anthem-alert.ant-negative .glyphicon,
+.ant-anthem-alert.ant-negative .fa.fa-exclamation-circle {color:$accent-color-magenta;}
+
+.ant-positive {
+	background-color:$accent-color-light-green;
+	border-color:$accent-color-green;}
+
+.ant-anthem-alert.ant-positive .glyphicon,
+.ant-anthem-alert.ant-positive .fa.fa-check-circle {color:$accent-color-green;}
+
+/** Dismissable Alerts **/
+.ant-anthem-alert.ant-dismissable {
+    position:fixed;
+    left:0px;
+    top:-120px;
+    margin: 0px auto;
+    width: 100%;
+    border-top: 0px;
+    border-left:0px;
+    border-right:0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    padding: 20px;
+    transition:top .5s;
+    z-index:99999;
+    color: $primary-text-color-inverse;
+
+    p {
+        display: block;
+        float: left;
+        max-width: 94%;
+        margin-bottom: 0px;
+        text-align: left;
+        white-space: normal;
+    }
+}
+
+.ant-anthem-alert.ant-dismissable.on {
+    top: 0px;
+}
+
+a.ant-dismiss-alert {
+	border-bottom:0px solid;
+    display:block;
+    position: absolute;
+    top: 3px;
+    right: 11px;
+
+
+  .fa.fa-remove {
+    color:$gray;
+    font-size: 1.857rem;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .ant-anthem-alert.ant-dismissable {
+    width: 70%;
+    left: 15%;
+
+  }
+
+  .ant-anthem-alert.ant-dismissable.ant-positive {
+    color: $primary-text-color-inverse;
+
+  }
+  .ant-anthem-alert.ant-dismissable.ant-negative {
+    color: $primary-text-color-inverse;
+  }
+}

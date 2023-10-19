@@ -1,0 +1,15 @@
+<div class="pmf-section-container form-group" *ngIf="payLoadService?.length > 0">
+  <div class="ant-heading-three">Languages Spoken</div>
+  <div class="pmf-container-group">
+    <div class="ant-margin-bot-10 ant-margin-top-10" *ngFor="let language of payLoadService">
+      <div class="pmf-table-container">
+        <div>Add/Delete:</div>
+        <div>{{language?.actionCd === "A" ? 'Add' : 'Delete'}}</div>
+      </div>
+      <div class="pmf-table-container">
+        <div>Language:</div>
+        <div>{{language?.language}}</div>
+      </div>
+    </div>
+  </div>
+</div>

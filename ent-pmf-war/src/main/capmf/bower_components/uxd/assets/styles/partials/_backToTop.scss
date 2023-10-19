@@ -1,0 +1,49 @@
+.back-to-top-dir.ng-hide{
+	opacity:0;
+}
+
+.back-to-top-dir {
+	position: fixed;
+	display:block;
+	bottom:-1px;
+	right: -1px;
+	line-height:1.2em;
+	text-align:center;
+	color:#fff;
+	font-weight:600;
+	background-color:#00609A;
+	font-size:14px;
+	transition:all 0.2s ease-in-out 0s;
+	border:1px solid #00609A;
+	padding:10px 15px;
+	float: right;
+	max-width: 250px;
+	z-index:1;
+}
+
+@media screen and (max-width:799px) {
+	.back-to-top-mobile .round-button:hover, .back-to-top-mobile .round-button:focus{
+		background-color:#fff;
+		border:1px solid #fff;
+		color:#00609A;
+	}
+}
+
+.back-to-top-dir:hover, .back-to-top-dir:focus {
+    background: #fff;
+    color: #00609A;
+}
+.fa.black {
+    color:#fff;
+	transition:all 0.2s ease-in-out 0s;
+}
+.back-to-top-dir:hover > .fa.black, .back-to-top-dir:focus > .fa.black{
+	color:#00609A;
+}
+
+@media screen and (min-width: 1024px) {
+  .backtotop-fixed{
+	  position:relative;
+	  bottom:17px;
+  }
+}
